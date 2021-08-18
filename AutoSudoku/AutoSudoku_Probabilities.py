@@ -221,6 +221,29 @@ while(No_Answer == False):
     print(f"\n > Board = Fill: {Board_Fill}, Empty: {Board_Empty}")
     print(f" > Board Filling: {(Board_Fill/81)*100:.1f} % \n")
 
+    guess = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9], dtype= int)
+
+    i = 0
+    while(i < 9):
+
+        j = 0
+        while(j < 9):
+
+            spot = Board[i, j]
+
+            if(spot > 0):
+
+                Prob_Table = np.full((9, 9), np.nan)
+
+                Prob_Table[i, j] = 1
+                
+
+
+            j = j+1
+
+
+        i = i+1
+
 
 
     # Testing
