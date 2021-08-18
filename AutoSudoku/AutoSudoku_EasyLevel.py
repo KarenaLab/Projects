@@ -133,7 +133,7 @@ Board = np.zeros((9, 9), dtype= int)
 
 while(True):
 
-    get = input(" > Type the Level (e1, e2, m1, m2, h1, x1, x2): ")
+    get = input(" > Type the Level (e1, e2, m1, m2, h1, x1, x2, x3): ")
     get = get.lower()
 
     # e= easy, m= medium, h= hard, x= extreme/expert
@@ -244,11 +244,26 @@ while(True):
         break
 
 
+    if(get == "x3"):
+
+        Board[0, :] = [0, 0, 0, 2, 4, 0, 0, 0, 1]
+        Board[1, :] = [0, 0, 0, 0, 0, 0, 0, 6, 0]
+        Board[2, :] = [3, 6, 0, 0, 0, 0, 5, 7, 4]
+        Board[3, :] = [0, 0, 3, 0, 8, 0, 0, 1, 0]
+        Board[4, :] = [5, 0, 4, 0, 0, 0, 0, 0, 8]
+        Board[5, :] = [0, 0, 0, 7, 0, 0, 0, 0, 0]
+        Board[6, :] = [0, 0, 0, 6, 0, 9, 0, 0, 0]
+        Board[7, :] = [0, 0, 8, 0, 0, 0, 6, 0, 0]
+        Board[8, :] = [0, 7, 0, 0, 0, 4, 0, 9, 2]
+
+        break
+
+
     # if... New Board here
     # Copy/Paste = Board[, :] = []
 
-    print(" > Wrong option, type it again \n")
 
+    print(" > Wrong option, type it again \n")
 
 
 
