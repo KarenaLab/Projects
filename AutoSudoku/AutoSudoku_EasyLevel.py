@@ -24,10 +24,10 @@ def BoardPlot(Board):
     while(i < 9):
 
         if(i%3 == 0):
-            print("-" * 25)
+            print(" " + ("-" * 25))
 
         j = 0
-        col = ""
+        col = " "
         
         while(j < 9):
 
@@ -43,11 +43,11 @@ def BoardPlot(Board):
              
             j = j+1
 
-        col = col + "|"
+        col = col + "| "
         print(col)
         i = i+1
 
-    print("-" * 25)
+    print(" " + ("-" * 25))
 
 
 
