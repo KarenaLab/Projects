@@ -133,10 +133,13 @@ Board = np.zeros((9, 9), dtype= int)
 
 while(True):
 
-    get = input(" > Type the Level (e, m, h, x): ")
+    get = input(" > Type the Level (e1, e2, m1, m2, h1, x1, x2): ")
     get = get.lower()
 
-    if(get == "e"):
+    # e= easy, m= medium, h= hard, x= extreme/expert
+    # Source: https://sudoku.com/pt/
+
+    if(get == "e1"):
 
         Board[0, :] = [0, 0, 0, 6, 7, 0, 8, 9, 4]
         Board[1, :] = [0, 0, 9, 8, 3, 1, 5, 0, 0]
@@ -151,7 +154,22 @@ while(True):
         break
 
 
-    if(get == "m"):
+    if(get == "e2"):
+
+        Board[0, :] = [0, 0, 0, 0, 0, 0, 5, 7, 3]
+        Board[1, :] = [8, 0, 0, 0, 2, 0, 0, 0, 0]
+        Board[2, :] = [7, 0, 0, 9, 0, 0, 8, 1, 0]
+        Board[3, :] = [5, 8, 0, 7, 0, 6, 0, 0, 0]
+        Board[4, :] = [0, 0, 1, 8, 0, 0, 0, 6, 0]
+        Board[5, :] = [2, 3, 0, 0, 4, 0, 0, 0, 9]
+        Board[6, :] = [9, 1, 5, 0, 0, 0, 0, 0, 0]
+        Board[7, :] = [0, 0, 0, 0, 8, 0, 6, 0, 1]
+        Board[8, :] = [0, 0, 0, 0, 0, 0, 0, 4, 0]
+
+        break
+
+
+    if(get == "m1"):
 
         Board[0, :] = [0, 0, 0, 0, 0, 6, 0, 3, 0]
         Board[1, :] = [8, 0, 9, 5, 3, 0, 0, 4, 0]
@@ -165,7 +183,23 @@ while(True):
 
         break
 
-    if(get == "h"):
+
+    if(get == "m2"):
+
+        Board[0, :] = [9, 0, 0, 6, 0, 1, 7, 0, 0]
+        Board[1, :] = [8, 0, 0, 0, 9, 2, 4, 0, 0]
+        Board[2, :] = [0, 0, 0, 0, 0, 0, 0, 9, 0]
+        Board[3, :] = [0, 0, 0, 2, 0, 0, 8, 5, 4]
+        Board[4, :] = [0, 0, 0, 3, 6, 0, 0, 0, 0]
+        Board[5, :] = [0, 0, 0, 0, 7, 4, 9, 0, 3]
+        Board[6, :] = [2, 9, 0, 4, 0, 0, 0, 0, 0]
+        Board[7, :] = [0, 8, 0, 0, 5, 0, 0, 0, 1]
+        Board[8, :] = [5, 0, 4, 0, 0, 7, 0, 0, 0]
+
+        break
+    
+
+    if(get == "h1"):
 
         Board[0, :] = [0, 0, 0, 5, 3, 0, 0, 8, 0]
         Board[1, :] = [0, 0, 0, 0, 0, 9, 0, 5, 0]
@@ -180,7 +214,7 @@ while(True):
         break
 
 
-    if(get == "x"):
+    if(get == "x1"):
 
         Board[0, :] = [0, 4, 0, 0, 0, 0, 1, 0, 0]
         Board[1, :] = [6, 0, 8, 0, 0, 0, 0, 4, 0]
@@ -195,6 +229,24 @@ while(True):
         break
 
 
+    if(get == "x2"):
+
+        Board[0, :] = [0, 7, 8, 5, 0, 0, 0, 0, 0]
+        Board[1, :] = [0, 0, 3, 0, 0, 7, 8, 0, 0]
+        Board[2, :] = [0, 0, 0, 1, 9, 0, 0, 0, 0]
+        Board[3, :] = [0, 0, 7, 0, 0, 0, 2, 9, 0]
+        Board[4, :] = [0, 9, 0, 0, 6, 1, 0, 4, 0]
+        Board[5, :] = [0, 0, 0, 0, 0, 4, 0, 0, 0]
+        Board[6, :] = [3, 0, 6, 0, 0, 2, 0, 0, 0]
+        Board[7, :] = [0, 1, 0, 0, 0, 0, 0, 0, 4]
+        Board[8, :] = [0, 0, 0, 0, 0, 0, 5, 0, 0]
+
+        break
+
+
+    # if... New Board here
+    # Copy/Paste = Board[, :] = []
+
     print(" > Wrong option, type it again \n")
 
 
@@ -207,13 +259,14 @@ No_Answer = False
 Board_Initial = Board.copy()
 Turns = 1
 
+print("\n")
+
 
 # Square Restrictions
 
-print(f"\n *** Square Restrictions *** \n") 
-
 while(No_Answer == False):
-    
+
+    print(f"  Turn {Turns}")
     BoardPlot(Board)
 
     Board_Empty = np.count_nonzero(Board == 0)
@@ -260,7 +313,7 @@ while(No_Answer == False):
                         info = np.append(info, square)
                         info = np.unique(info).astype(int)
                         info = np.delete(guess, info)
-                        #print(f" > Spot[{i}, {j}] = {info}")
+                        # print(f" > Spot[{i}, {j}] = {info}")
 
                         square_out = np.append(square_out, info).astype("int64")
                         
@@ -322,21 +375,23 @@ while(No_Answer == False):
 
     New_Board_Fill = np.count_nonzero(Board != 0)
     Solutions = New_Board_Fill - Board_Fill
-    Turns = Turns+1
-    
-    print("")
 
-    if(Solutions == 0):
+    if(Solutions == 0 or New_Board_Fill ==81):
 
         No_Answer = True
-        print(f" > Number of Turns: {Turns-1}")
-    
+        print("\n\n  Final Board")
+        BoardPlot(Board)
+        print(f" > Number of Turns: {Turns}")
 
+
+    Turns = Turns+1
+
+    print("\n")
 
             
 # Closing
 
-print("\n * \n")
+print(" * \n")
 
 
 # Sources ---------------------------------------------------------------
