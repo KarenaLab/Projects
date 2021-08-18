@@ -394,9 +394,12 @@ while(No_Answer == False):
     if(Solutions == 0 or New_Board_Fill ==81):
 
         No_Answer = True
-        print("\n\n  Final Board")
+
+        print(f"\n\n  Final Board")
         BoardPlot(Board)
+
         print(f" > Number of Turns: {Turns}")
+        print(f" > Board Filling: {(Board_Fill/81)*100:.1f}% \n")
 
 
     Turns = Turns+1
