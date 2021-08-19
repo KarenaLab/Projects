@@ -333,10 +333,15 @@ while(No_Answer == False):
 
                     Board[pos_i, pos_j] = number
 
-                    print(f" > Solution: Board[{pos_i}, {pos_j}] = {number}")
+                    print(f" > Simple: Board[{pos_i}, {pos_j}] = {number}")
 
 
-                #
+
+        for i_start in Starter:
+
+            i_end = i_start+3
+
+            
 
 
         number = number+1
