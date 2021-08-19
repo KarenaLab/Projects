@@ -310,7 +310,6 @@ while(No_Answer == False):
             i = i+1
 
         # Square Probabilities
-
         Starter = [0, 3, 6]
 
         for i_start in Starter:
@@ -336,6 +335,7 @@ while(No_Answer == False):
                     print(f" > Simple: Board[{pos_i}, {pos_j}] = {number}")
 
 
+        # Full Line/Columns Probabilities
 
         for i_start in Starter:
 
