@@ -294,6 +294,9 @@ while(No_Answer == False):
 
     Starter = [0, 3, 6]
 
+    # Getting unique numbers for each empty cell in the Square
+    # var = square_out
+    
     for start_i in Starter:
 
         for start_j in Starter:
