@@ -335,14 +335,7 @@ while(No_Answer == False):
                     print(f" > Simple: Board[{pos_i}, {pos_j}] = {number}")
 
 
-        # Full Line/Columns Probabilities
-
-        for i_start in Starter:
-
-            i_end = i_start+3
-
-            
-
+        # Incrasing Number
 
         number = number+1
 
@@ -354,7 +347,7 @@ while(No_Answer == False):
 
         No_Answer = True
         
-        print(f"\n\n  Final Board")
+        print(f"\n  Final Board")
         BoardPlot(Board)
 
         print(f" > Number of Turns: {Turns}")
@@ -374,5 +367,6 @@ print(" * \n")
 # Sources ---------------------------------------------------------------
 
 # 
-
+#
+#
 
