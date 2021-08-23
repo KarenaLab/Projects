@@ -335,6 +335,25 @@ while(No_Answer == False):
                     print(f" > Simple: Board[{pos_i}, {pos_j}] = {number}")
 
 
+        # Probabilities Line/Column
+
+        # Number = 1
+        # Others Numbers = 0
+
+        # Line Restrictions
+        # Column Restrictions
+        # Square Restrictions
+
+        # Number of NaNs in the Square
+        # Prob = 1/Number of NaNs
+
+        # Finding Line/Columns with Sum(P) = 1
+        # Removing others aligned probabilities
+        # if found, re-calc probabilities
+        # if P=1, number found       
+        
+
+
         # Incrasing Number
 
         number = number+1
