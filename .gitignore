@@ -1,0 +1,7 @@
+
+# ignore ALL logs
+*.log
+
+# ignore ALL links
+*.lnk
+
