@@ -6,13 +6,15 @@
 #                       end of the program.
 # 03 - Dec 10th, 2022 - Adjusting
 # 04 - Dec 30th, 2022 - Adding .txt function
-# 05 - 
+# 05 - Jan 10th, 2023 - Adjusting name extension
+# 06 - 
 
 
 # Upgrades
 # Add an option to consider folders, or a list of folders
 # Read an external .json/.txt/.csv with folders data - v04 [Dec 30th, 2022]
 #
+# 
 
 
 # Libraries
@@ -21,7 +23,7 @@ import shutil
 from time import sleep
 
 
-# Functions
+# Functions ------------------------------------------------------------
 def read_txt(filename, verbose=False):
     """
     Read content from a .txt file and returns as a list.
@@ -115,6 +117,34 @@ def transfer_files(file_list, enable_types):
     return new_list
 
 
+def filename_treat(filename):
+    """
+
+
+    """
+    _name, extension = filename.split(".")
+    _name = _name.split("_")
+
+    if(len(_name) > 1):
+        version = _name[-1]
+
+        if(version[0] == "v" and version[1: ].isdigit() == True):
+            name = "_".join(_name[0:-1])
+            version = _name[-1]
+
+        else:
+            name = "_".join(_name)
+            version = ""
+                
+    else:
+        name = _name[0]
+        version = ""
+
+    filename = name + "." + extension
+
+    return filename
+
+
 def time_delay(time, verbose=True):
     """
     Delay with a . (dot) indicator.
@@ -186,25 +216,17 @@ for i in range(0, steps):
 
     # Copying from Project to GitHub -----------------------------------
     for file in project_list:
-        _name, extension = file.split(".")
-        _name = _name.split("_")
-        if(len(_name) > 1):
-            name = "_".join(_name[0:-1])
-            #version = _name[-1]
-            
-        else:
-            name = _name[0]
-            #version = "v00"
 
-        file_noversion = name + "." + extension
+        filename = filename_treat(file)
+
         # **** Not using version to compare files (yet) but keeping
         # code for next steps ****
 
-        if(github_list.count(file_noversion) == 0):
+        if(github_list.count(filename) == 0):
             # File does not exists in GitHub = Add file
             update = True
             source = os.path.join(root, file)
-            destiny = os.path.join(github, file_noversion)
+            destiny = os.path.join(github, filename)
             shutil.copyfile(source, destiny)
             print(f" >>> New file at github: '{file}'")
 
@@ -215,15 +237,15 @@ for i in range(0, steps):
             project_epoch = int(os.path.getmtime(file))
 
             os.chdir(github)
-            github_epoch = int(os.path.getmtime(file_noversion))
+            github_epoch = int(os.path.getmtime(filename))
 
             if(project_epoch > github_epoch):
                 # Project file is newer than github file = Update
                 update = True
                 source = os.path.join(root, file)
-                destiny = os.path.join(github, file_noversion)
+                destiny = os.path.join(github, filename)
                 shutil.copyfile(source, destiny)
-                print(f" >>> Updated file at github: '{file}'")
+                print(f" >>> Updated file at github: '{filename}'")
 
 
     if(update == True):
