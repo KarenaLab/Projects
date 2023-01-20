@@ -168,7 +168,7 @@ def time_delay(time, verbose=True):
 
 
 # Main Program ---------------------------------------------------------
-print("\n ****  Auto Github | Sync project and github folders  **** \n\n") 
+print("\n ****  Auto Github | Sync project and github folders  **** \n") 
 
 # Folders to sync (External info from .txt.
 #     name: Name of the folder, suggestion: Folder path,
