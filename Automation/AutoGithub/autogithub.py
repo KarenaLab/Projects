@@ -11,9 +11,9 @@
 
 
 # Upgrades
-# Add an option to consider folders, or a list of folders
 # Read an external .json/.txt/.csv with folders data - v04 [Dec 30th, 2022]
-#
+# Automatic remove of files at github that are not at folder
+# Add an option to consider folders, or a list of folders
 # 
 
 
@@ -119,8 +119,10 @@ def transfer_files(file_list, enable_types):
 
 def filename_treat(filename):
     """
-
-
+    file "_vxx" extension analysis and decison to remove for github
+    folder, not preserving version control but keeping it always the
+    last version.
+    
     """
     _name, extension = filename.split(".")
     _name = _name.split("_")
@@ -186,6 +188,8 @@ name, types, root, github = "", "", "", ""
 
 for i in range(0, steps):
     data_list = []
+
+    # Getting name, types, root and github (sequential four rows)
     for j in range(0, 4):
         data = buffer[i*5 + j]
         data = data.split(": ")[1]
@@ -195,7 +199,8 @@ for i in range(0, steps):
 
     name, types, root, github = data_list
 
-    # Starting Folder analysis and exchange (if need)
+
+    # Starting folder analysis and exchange (if need)
     print(f' > Analyzing {name}')
     update = False
     
@@ -216,7 +221,6 @@ for i in range(0, steps):
 
     # Copying from Project to GitHub -----------------------------------
     for file in project_list:
-
         filename = filename_treat(file)
 
         # **** Not using version to compare files (yet) but keeping
@@ -277,7 +281,12 @@ for folder in folder_list:
             folder_remove = os.path.join(new_path, temp)
             shutil.rmtree(folder_remove)
             text = f" > Removing {folder_remove}"
-            print(text[-70:])
+
+            # Adjusting to fit at half page (max=70)
+            if(len(text) > 70):
+                text = text[0:12] + "... " + text[-54: ]
+                
+            print(text)
 
 
 # Delay of `time` seconds to be able to read all actions done
