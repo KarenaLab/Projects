@@ -7,7 +7,7 @@
 # 03 - Dec 10th, 2022 - Adjusting
 # 04 - Dec 30th, 2022 - Adding .txt function
 # 05 - Jan 10th, 2023 - Adjusting name extension
-# 06 - 
+# 06 - Jan 28th, 2023 - Adding a module option
 
 
 # Upgrades
@@ -36,7 +36,7 @@ def read_txt(filename, verbose=False):
     for i in range(0, len(buffer)):
         buffer[i] = buffer[i].replace("\n", "")
 
-    steps = len(buffer) // 5
+    steps = len(buffer) // 6
 
     if(verbose == True):
         print(f" > Number of lines in the file: {len(buffer)}")
@@ -179,10 +179,10 @@ print("\n ****  Auto Github | Sync project and github folders  **** \n")
 #   github: Folder from github (Destiny),
 
 # External Information -------------------------------------------------
-filename = "paths_for_github.txt"
+filename = "paths_for_sync.txt"
 buffer, steps = read_txt(filename)
 
-name, types, root, github = "", "", "", ""
+name, types, root, github, module = "", "", "", "", ""
 
 # Sync routine ---------------------------------------------------------
 
@@ -190,14 +190,15 @@ for i in range(0, steps):
     data_list = []
 
     # Getting name, types, root and github (sequential four rows)
-    for j in range(0, 4):
-        data = buffer[i*5 + j]
+    no_lines = 5
+    for j in range(0, no_lines):
+        data = buffer[i*(no_lines+1) + j]
         data = data.split(": ")[1]
         data = data.strip()
 
         data_list.append(data)
-
-    name, types, root, github = data_list
+        
+    name, types, root, github, module = data_list
 
 
     # Starting folder analysis and exchange (if need)
@@ -212,11 +213,17 @@ for i in range(0, steps):
     project_list = transfer_files(project_list, types)
 
     # Files at GitHub folder
-    os.chdir(github)
-    github_list = os.listdir()
+    if(github != "None"):
+        print(github)
+        os.chdir(github)
+        github_list = os.listdir()
 
-    github_list = remove_folders(github_list)
-    github_list = transfer_files(github_list, types)
+        github_list = remove_folders(github_list)
+        github_list = transfer_files(github_list, types)
+
+    # Files at Module folder
+    if(module != "None"):
+        print(module)
 
 
     # Copying from Project to GitHub -----------------------------------
