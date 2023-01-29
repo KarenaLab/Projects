@@ -177,12 +177,21 @@ print("\n ****  Auto Github | Sync project and github folders  **** \n")
 #    types: String with the types (extensions) that will be sync,
 #     root: Folder from Project (Source),
 #   github: Folder from github (Destiny),
+#   module: File(s) to be sync with C:\python_modules
+
+
+# Getting information from modules folder
+folder_module = r"C:\python_modules"
+module_list = os.listdir(folder_module)
+module_list = remove_folders(module_list)
+module_list = transfer_files(module_list, ".py")
+
 
 # External Information -------------------------------------------------
+
 filename = "paths_for_sync.txt"
 buffer, steps = read_txt(filename)
 
-name, types, root, github, module = "", "", "", "", ""
 
 # Sync routine ---------------------------------------------------------
 
@@ -206,25 +215,27 @@ for i in range(0, steps):
     update = False
     
     # Files allowed to copy from Project folder
-    os.chdir(root)
-    project_list = os.listdir()
+    project_list = os.listdir(root)
 
     project_list = remove_folders(project_list)
     project_list = transfer_files(project_list, types)
-
-    # Files at GitHub folder
+   
+    # Files at **GitHub** folder
+    github_list = []    
     if(github != "None"):
-        print(github)
-        os.chdir(github)
-        github_list = os.listdir()
+        github_list = os.listdir(github)
 
         github_list = remove_folders(github_list)
         github_list = transfer_files(github_list, types)
 
-    # Files at Module folder
+    # List for **Module** folder
+    module_list = []
     if(module != "None"):
-        print(module)
-
+        module = module.split(",")
+        for i in module:
+            filename = i.strip()
+            module_list.append(filename)
+        
 
     # Copying from Project to GitHub -----------------------------------
     for file in project_list:
@@ -258,9 +269,13 @@ for i in range(0, steps):
                 shutil.copyfile(source, destiny)
                 print(f" >>> Updated file at github: '{filename}'")
 
+    
 
     if(update == True):
         print("")
+
+
+    
 
 
 # Delay of `time` seconds to be able to read all actions done
