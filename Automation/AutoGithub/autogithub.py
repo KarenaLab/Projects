@@ -173,32 +173,30 @@ def time_delay(time, verbose=True):
 print("\n ****  Auto Github | Sync project and github folders  **** \n") 
 
 # Folders to sync (External info from .txt.
-#     name: Name of the folder, suggestion: Folder path,
-#    types: String with the types (extensions) that will be sync,
-#     root: Folder from Project (Source),
-#   github: Folder from github (Destiny),
-#   module: File(s) to be sync with C:\python_modules
+#   name: Name of the folder, suggestion: Folder path,
+#  types: String with the types (extensions) that will be sync,
+#   root: Folder from Project (Source),
+# github: Folder from github (Destiny),
+# module: File(s) to be sync with C:\python_modules
 
+
+# External Information
+filename = "paths_for_sync.txt"
+buffer, steps = read_txt(filename)
 
 # Getting information from modules folder
 folder_module = r"C:\python_modules"
-module_list = os.listdir(folder_module)
+os.chdir(folder_module)
+module_list = os.listdir()
 module_list = remove_folders(module_list)
 module_list = transfer_files(module_list, ".py")
 
 
-# External Information -------------------------------------------------
-
-filename = "paths_for_sync.txt"
-buffer, steps = read_txt(filename)
-
-
 # Sync routine ---------------------------------------------------------
-
 for i in range(0, steps):
     data_list = []
 
-    # Getting name, types, root and github (sequential four rows)
+    # Getting name, types, root and github (sequential **no_lines** rows)
     no_lines = 5
     for j in range(0, no_lines):
         data = buffer[i*(no_lines+1) + j]
@@ -215,7 +213,8 @@ for i in range(0, steps):
     update = False
     
     # Files allowed to copy from Project folder
-    project_list = os.listdir(root)
+    os.chdir(root)
+    project_list = os.listdir()
 
     project_list = remove_folders(project_list)
     project_list = transfer_files(project_list, types)
@@ -223,18 +222,19 @@ for i in range(0, steps):
     # Files at **GitHub** folder
     github_list = []    
     if(github != "None"):
-        github_list = os.listdir(github)
+        os.chdir(github)
+        github_list = os.listdir()
 
         github_list = remove_folders(github_list)
         github_list = transfer_files(github_list, types)
 
     # List for **Module** folder
-    module_list = []
+    file_for_module = []
     if(module != "None"):
         module = module.split(",")
         for i in module:
             filename = i.strip()
-            module_list.append(filename)
+            file_for_module.append(filename)
         
 
     # Copying from Project to GitHub -----------------------------------
@@ -269,13 +269,13 @@ for i in range(0, steps):
                 shutil.copyfile(source, destiny)
                 print(f" >>> Updated file at github: '{filename}'")
 
-    
 
+    # Copying from Project to Module -----------------------------------
+            
+    
+    
     if(update == True):
         print("")
-
-
-    
 
 
 # Delay of `time` seconds to be able to read all actions done
