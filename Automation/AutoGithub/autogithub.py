@@ -185,11 +185,11 @@ filename = "paths_for_sync.txt"
 buffer, steps = read_txt(filename)
 
 # Getting information from modules folder
-folder_module = r"C:\python_modules"
-os.chdir(folder_module)
-module_list = os.listdir()
-module_list = remove_folders(module_list)
-module_list = transfer_files(module_list, ".py")
+modules = r"c:\python_modules"
+os.chdir(modules)
+module_source = os.listdir()
+module_source = remove_folders(module_source)
+module_source = transfer_files(module_source, ".py")
 
 
 # Sync routine ---------------------------------------------------------
@@ -229,12 +229,12 @@ for i in range(0, steps):
         github_list = transfer_files(github_list, types)
 
     # List for **Module** folder
-    file_for_module = []
+    module_list = []
     if(module != "None"):
         module = module.split(",")
         for i in module:
             filename = i.strip()
-            file_for_module.append(filename)
+            module_list.append(filename)
         
 
     # Copying from Project to GitHub -----------------------------------
@@ -244,16 +244,17 @@ for i in range(0, steps):
         # **** Not using version to compare files (yet) but keeping
         # code for next steps ****
 
+        # Project for Github
         if(github_list.count(filename) == 0):
             # File does not exists in GitHub = Add file
             update = True
             source = os.path.join(root, file)
             destiny = os.path.join(github, filename)
             shutil.copyfile(source, destiny)
-            print(f" >>> New file at github: '{file}'")
+            print(f" >>> New file at github: '{filename}'")
 
         else:
-            # File exists in Githhub.
+            # File exists in Github.
             # Check modification datetime to move the file
             os.chdir(root)
             project_epoch = int(os.path.getmtime(file))
@@ -269,11 +270,35 @@ for i in range(0, steps):
                 shutil.copyfile(source, destiny)
                 print(f" >>> Updated file at github: '{filename}'")
 
-
     # Copying from Project to Module -----------------------------------
+    for file in module_list:
+        filename = filename_treat(file)
+
+        if(module_source.count(filename) == 0):
+            update = True
+            source = os.path.join(github, filename)
+            destiny = os.path.join(modules, filename)
+            shutil.copyfile(source, destiny)
+            print(f" >>> New file at modules: '{filename}'")
+
+        else:
+            # File exists in Modules.
+            # Check modification datetime to move the file
+            os.chdir(github)
+            project_epoch = int(os.path.getmtime(file))
+
+            os.chdir(modules)
+            module_epoch = int(os.path.getmtime(filename))
+
+            if(project_epoch > module_epoch):
+                # Project file is newer than module file = Update
+                update = True
+                source = os.path.join(github, filename)
+                destiny = os.path.join(modules, filename)
+                shutil.copyfile(source, destiny)
+                print(f" >>> Updated file at modules: '{filename}'")
+
             
-    
-    
     if(update == True):
         print("")
 
