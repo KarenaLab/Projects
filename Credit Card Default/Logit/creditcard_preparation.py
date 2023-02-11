@@ -68,7 +68,10 @@ df = col_preparation(df)
 df = remove_duplicates(df)
 df = df[cols_logit()]
 
+plot_heatmap(df, title="Credit Card 2005 Heatmap")
 
+for col in cols_logit():
+    plot_histogram(df[col], title=f"Credit Card 2005 - {col}", bins="rice") 
 
 
 
