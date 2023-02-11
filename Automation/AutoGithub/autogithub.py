@@ -185,8 +185,8 @@ filename = "paths_for_sync.txt"
 buffer, steps = read_txt(filename)
 
 # Getting information from modules folder
-modules = r"c:\python_modules"
-os.chdir(modules)
+module_path = r"c:\python_modules"
+os.chdir(module_path)
 module_source = os.listdir()
 module_source = remove_folders(module_source)
 module_source = transfer_files(module_source, ".py")
@@ -206,7 +206,6 @@ for i in range(0, steps):
         data_list.append(data)
         
     name, types, root, github, module = data_list
-
 
     # Starting folder analysis and exchange (if need)
     print(f' > Analyzing {name}')
@@ -270,38 +269,15 @@ for i in range(0, steps):
                 shutil.copyfile(source, destiny)
                 print(f" >>> Updated file at github: '{filename}'")
 
-    # Copying from Project to Module -----------------------------------
-    for file in module_list:
-        filename = filename_treat(file)
+                if(module_list.count(filename) > 0):
+                    # Updating python modules
+                    destiny = os.path.join(module_path, filename)
+                    shutil.copyfile(source, destiny)
+                    print(f" >>> Updated file at modules: '{filename}'")
 
-        if(module_source.count(filename) == 0):
-            update = True
-            source = os.path.join(github, filename)
-            destiny = os.path.join(modules, filename)
-            shutil.copyfile(source, destiny)
-            print(f" >>> New file at modules: '{filename}'")
 
-        else:
-            # File exists in Modules.
-            # Check modification datetime to move the file
-            os.chdir(github)
-            project_epoch = int(os.path.getmtime(file))
-
-            os.chdir(modules)
-            module_epoch = int(os.path.getmtime(filename))
-
-            if(project_epoch > module_epoch):
-                # Project file is newer than module file = Update
-                update = True
-                source = os.path.join(github, filename)
-                destiny = os.path.join(modules, filename)
-                shutil.copyfile(source, destiny)
-                print(f" >>> Updated file at modules: '{filename}'")
-
-            
     if(update == True):
         print("")
-
 
 # Delay of `time` seconds to be able to read all actions done
 time_delay(3, verbose=True)
@@ -339,3 +315,5 @@ for folder in folder_list:
 # Delay of `time` seconds to be able to read all actions done
 time_delay(3, verbose=True)
 
+
+# end
