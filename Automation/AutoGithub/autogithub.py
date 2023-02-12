@@ -8,12 +8,14 @@
 # 04 - Dec 30th, 2022 - Adding .txt function
 # 05 - Jan 10th, 2023 - Adjusting name extension
 # 06 - Jan 28th, 2023 - Adding a module option
+# 07 - Feb 10th, 2023 - Sync github and module update
+# 08 - 
 
 
 # Upgrades
 # Read an external .json/.txt/.csv with folders data - v04 [Dec 30th, 2022]
 # Automatic remove of files at github that are not at folder
-# Add an option to consider folders, or a list of folders
+# Add an option to consider folders, or a list of folders (bigger projects)
 # 
 
 
