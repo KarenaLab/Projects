@@ -36,11 +36,11 @@ cols_categoric = ["sex", "children", "smoker", "region"]
 #    plot_histogram(df[col], title=f"Insurance - {col}", savefig=False) 
     
 
-x_axis = "bmi"
-y_axis = "age"
-c_axis = "sex"
+x_axis = "age"
+y_axis = "charges"
+c_axis = "smoker"
 
-palette = list(coolors_01().values())
+palette = list(romania_palette().values())
 c_values = df[c_axis].unique().tolist()
 color_dict = dict(zip(c_values, palette[0:len(c_values)]))
 
@@ -52,7 +52,7 @@ title = f"Insurance - {x_axis} versus {y_axis} by {c_axis}"
 fig = plt.figure(figsize=[8, 4.5])
 plt.suptitle(title, fontsize=10, fontweight="bold")
 
-plt.scatter(df[x_axis], df[y_axis], c=color, s=30, edgecolor="white", alpha=0.5, zorder=20)
+plt.scatter(df[x_axis], df[y_axis], c=color, s=30, edgecolor="white", alpha=0.6, zorder=20)
 
 plt.ylabel(y_axis, loc="top")
 plt.xlabel(x_axis, loc="right")
