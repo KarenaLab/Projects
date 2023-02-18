@@ -17,6 +17,7 @@ sys.path.append(r"C:\python_modules")
 from color_source import *
 from plot_histogram import *
 from plot_heatmap import *
+from one_hot_encoding import *
 
 
 # Setup/Config
@@ -35,7 +36,7 @@ cols_categoric = ["sex", "children", "smoker", "region"]
 #    os.chdir(path_report)
 #    plot_histogram(df[col], title=f"Insurance - {col}", savefig=False) 
     
-
+"""
 x_axis = "age"
 y_axis = "charges"
 c_axis = "smoker"
@@ -58,9 +59,9 @@ plt.ylabel(y_axis, loc="top")
 plt.xlabel(x_axis, loc="right")
 plt.grid(axis="both", color="lightgrey", linestyle="--", linewidth=0.5, zorder=10)
 
-
-
 plt.show()
+"""
+
 
 
 
