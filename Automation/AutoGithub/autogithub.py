@@ -25,6 +25,10 @@ import shutil
 from time import sleep
 
 
+# Setup/Config
+time = 0
+
+
 # Functions ------------------------------------------------------------
 def read_txt(filename, verbose=False):
     """
@@ -282,7 +286,8 @@ for i in range(0, steps):
         print("")
 
 # Delay of `time` seconds to be able to read all actions done
-time_delay(3, verbose=True)
+# variable `time` at setup/config
+time_delay(time, verbose=False)
 
 
 # Cleaning Project Folder ----------------------------------------------
@@ -315,7 +320,8 @@ for folder in folder_list:
 
 
 # Delay of `time` seconds to be able to read all actions done
-time_delay(3, verbose=True)
+# variable `time` at setup/config
+time_delay(time, verbose=False)
 
 
 # end
