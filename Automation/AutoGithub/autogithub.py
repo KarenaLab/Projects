@@ -251,13 +251,18 @@ for i in range(0, steps):
 
         # Project for Github
         if(github_list.count(filename) == 0):
-            # File does not exists in GitHub = Add file
+            # File does not exists in GitHub and Module = Add file
             update = True
             source = os.path.join(root, file)
             destiny = os.path.join(github, filename)
             shutil.copyfile(source, destiny)
             print(f" >>> New file at github: '{filename}'")
 
+            if(module_list.count(filename) > 0):
+                destiny = os.path.join(module_path, filename)
+                shutil.copyfile(source, destiny)
+                print(f" >>> Updated file at modules: '{filename}'")
+            
         else:
             # File exists in Github.
             # Check modification datetime to move the file
