@@ -24,6 +24,8 @@ from one_hot_encoding import *
 path_main = os.getcwd()
 path_report = os.path.join(path_main, "Report")
 
+pd.set_option('display.precision', 3)
+
 
 # Functions
 filename = "insurance.csv"
@@ -31,6 +33,19 @@ df = pd.read_csv(filename, sep=",", encoding="utf-8")
 
 cols_numeric = ["age", "bmi", "charges"]
 cols_categoric = ["sex", "children", "smoker", "region"]
+
+
+# New features (test)
+charges_by_head_list = []
+for i in range(0, df.shape[0]):
+    charges_by_head = df.loc[i, "charges"] / (df.loc[i, "children"] + 1)
+    charges_by_head_list.append(charges_by_head)
+
+df["charges_by_head"] = charges_by_head_list
+
+
+#df = one_hot_encoding(df, columns=cols_categoric)
+
 
 #for col in cols_numeric:
 #    os.chdir(path_report)
