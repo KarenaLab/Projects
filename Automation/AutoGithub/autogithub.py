@@ -26,7 +26,7 @@ from time import sleep
 
 
 # Setup/Config
-time = 0
+time = 3
 
 
 # Functions ------------------------------------------------------------
@@ -233,6 +233,7 @@ for i in range(0, steps):
         github_list = remove_folders(github_list)
         github_list = transfer_files(github_list, types)
 
+
     # List for **Module** folder
     module_list = []
     if(module != "None"):
@@ -259,6 +260,7 @@ for i in range(0, steps):
             print(f" >>> New file at github: '{filename}'")
 
             if(module_list.count(filename) > 0):
+                source = os.path.join(root, file)
                 destiny = os.path.join(module_path, filename)
                 shutil.copyfile(source, destiny)
                 print(f" >>> Updated file at modules: '{filename}'")
