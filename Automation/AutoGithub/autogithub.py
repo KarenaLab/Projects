@@ -9,7 +9,8 @@
 # 05 - Jan 10th, 2023 - Adjusting name extension
 # 06 - Jan 28th, 2023 - Adding a module option
 # 07 - Feb 10th, 2023 - Sync github and module update
-# 08 - 
+# 08 - Feb 27th, 2023 - Adding two destinies (Zen-14 and Book2)
+# 09 - 
 
 
 # Upgrades
