@@ -264,7 +264,7 @@ for i in range(0, steps):
                 source = os.path.join(root, file)
                 destiny = os.path.join(module_path, filename)
                 shutil.copyfile(source, destiny)
-                print(f" >>> Updated file at modules: '{filename}'")
+                print(f" >>> New file at modules: '{filename}'")
             
         else:
             # File exists in Github.
