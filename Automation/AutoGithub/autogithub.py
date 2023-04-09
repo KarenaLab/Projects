@@ -9,8 +9,9 @@
 # 05 - Jan 10th, 2023 - Adjusting name extension
 # 06 - Jan 28th, 2023 - Adding a module option
 # 07 - Feb 10th, 2023 - Sync github and module update
-# 08 - Feb 27th, 2023 - Adding two destinies (Zen-14 and Book2)
-# 09 - 
+#
+# 10 - Mar 21th, 2023 - Adding two destinies (Zen-14 and Book2)
+# 11 - 
 
 
 # Upgrades
@@ -23,81 +24,130 @@
 # Libraries
 import os
 import shutil
+
+import socket
 from time import sleep
 
 
 # Setup/Config
-time = 3
+time_froozen = 3
+path_script = os.getcwd()
+path_modules = r"c:\python_modules"
+path_projects = r"D:\01 - Projects Binder"
 
 
-# Functions ------------------------------------------------------------
-def read_txt(filename, verbose=False):
+# Functions
+
+def pc_choose():
     """
-    Read content from a .txt file and returns as a list.
+    Read PC and returns the folder to append to GitHub folder path.
 
     """
+    pc_name = socket.gethostname()
+
+    if(pc_name == "EKC-Zen14"):
+        github_prefix = r"D:\02a - GIT EKC-Zen14"
+
+    elif(pc_name == "EKC-Book2"):
+        github_prefix = r"D:\02b - GIT EKC-Book2"
+
+    else:
+        github_prefix = None
+        print(f" *** Error: PC not registered for github sync {pc_name} ***")
+
+
+    return github_prefix
+    
+
+def read_txt(filename, lines=5, verbose=False):
+    """
+    Extracts information from a .txt.
+    Returns information as a list and the number of steps to process.
+
+    """
+    # Read information from .txt
     file = open(filename, mode="r")
     buffer = file.readlines()
     file.close()
 
+    # Prepare information as a list
     for i in range(0, len(buffer)):
         buffer[i] = buffer[i].replace("\n", "")
 
-    steps = len(buffer) // 6
+    blocks = len(buffer) // (lines + 1)
+
+    # Group information
+    info_list = []
+    for i in range(0, blocks):
+        info_dict = {}
+        for j in range(0, lines+1):
+            data = buffer.pop(0)
+            if(data != ""):
+                field, value = data.split(": ")
+                info_dict[field] = value
+
+        info_list.append(info_dict)
+
 
     if(verbose == True):
-        print(f" > Number of lines in the file: {len(buffer)}")
-
-    return buffer, steps
+        print(f" > Nuber of folders to compare and transfer: {steps}")
 
 
-def remove_tag(string):
-    """
-    Removes the tag separated by ":"
-
-    """
-    string = string.split(":")
-    if(len(string) == 2):
-        string = string[1].strip()
-
-    else:
-        string = None
-
-    return string
+    return info_list    
     
 
-def remove_folders(file_list):
+def files_list(path=None):
     """
-    Receives a list with folders and files from os.listdir() and
-    returns a list with only files (remove folder(s)).
+    Returns a list with only file(s) (remove folder(s)) from given path
+    or the current path.
     
     """
-    new_list = []
-    for file in file_list:
-        if(os.path.isfile(file) == True):
-            new_list.append(file)
+    if(path != None):
+        path_comeback = os.getcwd()
+        os.chdir(path)
 
-    return new_list
+    content = os.listdir()
+    
+    files_list = []
+    for f in content:
+        if(os.path.isfile(f) == True):
+            files_list.append(f)
+
+    if(path != None):
+        os.chdir(path_comeback)
+        
+
+    return files_list
 
 
-def remove_files(folder_list):
+def folders_list(path=None):
     """
-    Receives a list with folders and files from os.listdir() and
-    returns a list with only folders (remove file(s)).
-
+    Returns a list with only folder(s) (remove file(s)) from given path
+    or the current path.
+    
     """
-    new_list = []
-    for folder in folder_list:
-        if(os.path.isdir(folder) == True):
-            new_list.append(folder)
+    if(path != None):
+        path_comeback = os.getcwd()
+        os.chdir(path)
 
-    return new_list
+    content = os.listdir()
+    
+    folders_list = []
+    for f in content:
+        if(os.path.isdir(f) == True):
+            folders_list.append(f)
+
+    if(path != None):
+        os.chdir(path_comeback)
+        
+
+    return folders_list
 
 
 def transfer_files(file_list, enable_types):
     """
-    Receives a list with files from project source and a list with files
-    extensions allowed to copy for github destiny.
+    Receives a **list with file(s)** from project source
+    and a **list with extension(s)** allowed to copy for github destiny.
     Returns a list with files to copy/compare between project source and
     github destiny.
 
@@ -114,17 +164,40 @@ def transfer_files(file_list, enable_types):
         
         enable_types.append(ext)
 
+
     # Select files with extensions enabled
     new_list = []
-    for file in file_list:
-        name, extension = file.split(".")
+    for f in file_list:
+        name, extension = f.split(".")
         if(enable_types.count(extension) == 1):
-            new_list.append(file)
+            new_list.append(f)
+
 
     return new_list
 
 
-def filename_treat(filename):
+def prepare_module_files(text):
+    """
+    Receives a string from paths_to_sync.txt and transforms into data
+    to be processed.
+
+    """
+    if(text == "None"):
+        module_files = []
+
+    else:
+        module_files = []
+
+        text = text.split(",")       
+        for i in text:
+            new_file = i.strip()
+            module_files.append(new_file)
+
+
+    return module_files
+
+
+def remove_index(filename):
     """
     file "_vxx" extension analysis and decison to remove for github
     folder, not preserving version control but keeping it always the
@@ -151,7 +224,86 @@ def filename_treat(filename):
 
     filename = name + "." + extension
 
+
     return filename
+
+
+def inner_join(left, right):
+    """
+    Performs **inner join** between **left** list and **right** list.
+    """
+    i_join = []
+    for i in right:
+        if(left.count(i) > 0):
+            i_join.append(i)
+
+    return i_join
+
+
+def left_join(left, right):
+    """
+    Performs **left join** between **left** list and **right** list.
+    Attention: Take care with left and right position.
+    """
+    l_join = []
+    for i in left:
+        if(right.count(i) == 0):
+            l_join.append(i)
+
+    return l_join
+
+
+def outter_join(left, right):
+    """
+    Performs **outter join** between **left** list and **right** list.
+    """
+    join = left + right
+    o_join = []
+
+    for i in join:
+        if(o_join.count(i) == 0):
+            o_join.append(i)
+
+    return o_join
+
+
+def remove_temp_folders(path):
+    """
+    Removes python (__pychache__) and Jupyter (.ipnb_checkpoints)
+    temporary folders
+
+    """
+    os.chdir(path)
+    temp_folder = ["__pycache__", ".ipnb_checkpoints"]
+
+    projects_list = folders_list()
+    for folder in projects_list:
+        os.chdir(os.path.join(path, folder))
+        internal_folders = folders_list()
+
+        for temp in temp_folder:
+            if(internal_folders.count(temp) == 1):
+                folder_remove = os.path.join(os.getcwd(), temp)
+                shutil.rmtree(folder_remove)
+                text = f"> Removing {folder_remove}"
+                print_info(text)
+
+
+    return None
+
+
+def print_info(text, cut=12, connector="... ", limit=70):
+    """
+
+
+    """
+    if(len(text) > limit):
+        leftover = (-1) * (limit - cut - len(connector))
+        text = text[0:cut] + "... " + text[leftover: ]
+
+    print(text)
+    
+    return None
 
 
 def time_delay(time, verbose=True):
@@ -160,24 +312,21 @@ def time_delay(time, verbose=True):
     
     """
     if(verbose == True):
-        print(" ", end="")
+        print("  ", end="")
 
-    i = 0
-    while(i <= time):
+    for i in range(0, time):
         if(verbose == True):
             print(".", end="")
 
         sleep(1)
-        i = i+1
-
-    if(verbose == True):
-        print(".")
-
+        
+    print("")
+    
     return None
 
 
-# Main Program ---------------------------------------------------------
-print("\n ****  Auto Github | Sync project and github folders  **** \n") 
+# Main program ---------------------------------------------------------
+print("\n ****  Auto Github 2 | Sync project and github* folders  **** \n") 
 
 # Folders to sync (External info from .txt.
 #   name: Name of the folder, suggestion: Folder path,
@@ -187,149 +336,98 @@ print("\n ****  Auto Github | Sync project and github folders  **** \n")
 # module: File(s) to be sync with C:\python_modules
 
 
-# External Information
+# External information
 filename = "paths_for_sync.txt"
-buffer, steps = read_txt(filename)
+buffer = read_txt(filename)
+github_prefix = pc_choose()
+
 
 # Getting information from modules folder
-module_path = r"c:\python_modules"
-os.chdir(module_path)
-module_source = os.listdir()
-module_source = remove_folders(module_source)
-module_source = transfer_files(module_source, ".py")
+module_lake = files_list(path_modules)
 
+#module_source = transfer_files(module_source, ".py")
 
-# Sync routine ---------------------------------------------------------
-for i in range(0, steps):
-    data_list = []
+for i in range(0, len(buffer)):
+    data = buffer[i]
 
-    # Getting name, types, root and github (sequential **no_lines** rows)
-    no_lines = 5
-    for j in range(0, no_lines):
-        data = buffer[i*(no_lines+1) + j]
-        data = data.split(": ")[1]
-        data = data.strip()
-
-        data_list.append(data)
-        
-    name, types, root, github, module = data_list
-
-    # Starting folder analysis and exchange (if need)
-    print(f' > Analyzing {name}')
+    print(f'> Folder: {data["name"]}')
     update = False
     
-    # Files allowed to copy from Project folder
-    os.chdir(root)
-    project_list = os.listdir()
-
-    project_list = remove_folders(project_list)
-    project_list = transfer_files(project_list, types)
-   
-    # Files at **GitHub** folder
-    github_list = []    
-    if(github != "None"):
-        os.chdir(github)
-        github_list = os.listdir()
-
-        github_list = remove_folders(github_list)
-        github_list = transfer_files(github_list, types)
+    types = data["types"]
+    path_root = data["root"]
+    path_github = os.path.join(github_prefix, data["github"])
+    
+    os.chdir(path_root)
+    root_files = transfer_files(files_list(), types)
+    github_files = transfer_files(files_list(path_github), types)
+    module_files = prepare_module_files(data["module"])
 
 
-    # List for **Module** folder
-    module_list = []
-    if(module != "None"):
-        module = module.split(",")
-        for i in module:
-            filename = i.strip()
-            module_list.append(filename)
-        
+    # Project for GitHub    
+    for filename in root_files:
+        filename_noindex = remove_index(filename)
 
-    # Copying from Project to GitHub -----------------------------------
-    for file in project_list:
-        filename = filename_treat(file)
-
-        # **** Not using version to compare files (yet) but keeping
-        # code for next steps ****
-
-        # Project for Github
-        if(github_list.count(filename) == 0):
-            # File does not exists in GitHub and Module = Add file
+        if(github_files.count(filename_noindex) == 0):
+            # File does not exists in github = Add file          
             update = True
-            source = os.path.join(root, file)
-            destiny = os.path.join(github, filename)
+            source = os.path.join(path_root, filename)
+            destiny = os.path.join(path_github, filename_noindex)
             shutil.copyfile(source, destiny)
-            print(f" >>> New file at github: '{filename}'")
+            print_info(f' >>> New file at github: "{filename_noindex}"')
 
-            if(module_list.count(filename) > 0):
-                source = os.path.join(root, file)
-                destiny = os.path.join(module_path, filename)
-                shutil.copyfile(source, destiny)
-                print(f" >>> New file at modules: '{filename}'")
-            
         else:
-            # File exists in Github.
-            # Check modification datetime to move the file
-            os.chdir(root)
-            project_epoch = int(os.path.getmtime(file))
+            # File exists in github = Check if need to update
+            os.chdir(path_root)
+            project_epoch = int(os.path.getmtime(filename))
 
-            os.chdir(github)
-            github_epoch = int(os.path.getmtime(filename))
+            os.chdir(path_github)
+            github_epoch = int(os.path.getmtime(filename_noindex))
 
             if(project_epoch > github_epoch):
-                # Project file is newer than github file = Update
                 update = True
-                source = os.path.join(root, file)
-                destiny = os.path.join(github, filename)
+                source = os.path.join(path_root, filename)
+                destiny = os.path.join(path_github, filename_noindex)
                 shutil.copyfile(source, destiny)
-                print(f" >>> Updated file at github: '{filename}'")
+                print_info(f' >>> Updated file at github: "{filename_noindex}"')
 
-                if(module_list.count(filename) > 0):
-                    # Updating python modules
-                    destiny = os.path.join(module_path, filename)
+
+        if(module_files.count(filename_noindex) == 1):
+            # File to be copied to modules lake
+
+            if(module_lake.count(filename_noindex) == 0):
+                # File does not exists in modules lake = Add file          
+                update = True
+                source = os.path.join(path_root, filename)
+                destiny = os.path.join(path_modules, filename_noindex)
+                shutil.copyfile(source, destiny)
+                print_info(f' >>> New file at modules lake: "{filename_noindex}"')
+
+            else:
+                # File exists in modules lake = Check if need to update
+                os.chdir(path_root)
+                project_epoch = int(os.path.getmtime(filename))
+
+                os.chdir(path_modules)
+                github_epoch = int(os.path.getmtime(filename_noindex))
+
+                if(project_epoch > github_epoch):
+                    update = True
+                    source = os.path.join(path_root, filename)
+                    destiny = os.path.join(path_modules, filename_noindex)
                     shutil.copyfile(source, destiny)
-                    print(f" >>> Updated file at modules: '{filename}'")
+                    print_info(f' >>> Updated file at modules: "{filename_noindex}"')
 
-
+               
     if(update == True):
         print("")
+        
 
-# Delay of `time` seconds to be able to read all actions done
-# variable `time` at setup/config
-time_delay(time, verbose=False)
+time_delay(time_froozen)
 
 
 # Cleaning Project Folder ----------------------------------------------
-project_folder = r"D:\01 - Projects Binder"
-os.chdir(project_folder)
-
-temp_folder = ["__pycache__", ".ipnb_checkpoints"]
-
-folder_list = os.listdir()
-folder_list = remove_files(folder_list)
-
-for folder in folder_list:
-    new_path = os.path.join(project_folder, folder)
-    os.chdir(new_path)
-
-    internal_folder = os.listdir()
-    internal_folder = remove_files(internal_folder)
-
-    for temp in temp_folder:
-        if(internal_folder.count(temp) == 1):
-            folder_remove = os.path.join(new_path, temp)
-            shutil.rmtree(folder_remove)
-            text = f" > Removing {folder_remove}"
-
-            # Adjusting to fit at half page (max=70)
-            if(len(text) > 70):
-                text = text[0:12] + "... " + text[-54: ]
-                
-            print(text)
-
-
-# Delay of `time` seconds to be able to read all actions done
-# variable `time` at setup/config
-time_delay(time, verbose=False)
+remove_temp_folders(path_projects)
+time_delay(time_froozen)
 
 
 # end
