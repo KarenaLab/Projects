@@ -351,7 +351,7 @@ module_lake = files_list(path_modules)
 for i in range(0, len(buffer)):
     data = buffer[i]
 
-    print(f'> Folder: {data["name"]}')
+    print(f'> Folder {data["name"]}')
     update = False
     
     types = data["types"]
@@ -416,7 +416,7 @@ for i in range(0, len(buffer)):
                     source = os.path.join(path_root, filename)
                     destiny = os.path.join(path_modules, filename_noindex)
                     shutil.copyfile(source, destiny)
-                    print_info(f' >>> Updated file at modules: "{filename_noindex}"')
+                    print_info(f' >>> Updated file at modules lake: "{filename_noindex}"')
 
                
     if(update == True):
