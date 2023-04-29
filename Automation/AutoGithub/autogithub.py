@@ -30,7 +30,7 @@ from time import sleep
 
 
 # Setup/Config
-time_froozen = 3
+time_froozen = 0
 path_script = os.getcwd()
 path_modules = r"c:\python_modules"
 path_projects = r"D:\01 - Projects Binder"
@@ -294,7 +294,9 @@ def remove_temp_folders(path):
 
 def print_info(text, cut=12, connector="... ", limit=70):
     """
-
+    Adjusting printing long chain of chars (paths, for example and/or long
+    filenames for a single line in HALF window screen, using **limit** as
+    delimiter and selecting the place to **cut**.
 
     """
     if(len(text) > limit):
