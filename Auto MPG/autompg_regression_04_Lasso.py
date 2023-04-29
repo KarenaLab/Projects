@@ -1,6 +1,7 @@
 
 # Libraries
 import os
+import sys
 
 from itertools import product
 
@@ -26,7 +27,6 @@ import matplotlib.pyplot as plt
 
 
 # Personal modules
-import sys
 sys.path.append(r"c:\python_modules")
 
 from file_management import *
