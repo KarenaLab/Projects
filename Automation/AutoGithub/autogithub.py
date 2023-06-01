@@ -55,7 +55,6 @@ def pc_choose():
         github_prefix = None
         print(f" *** Error: PC not registered for github sync {pc_name} ***")
 
-
     return github_prefix
     
 
@@ -90,8 +89,7 @@ def read_txt(filename, lines=5, verbose=False):
 
 
     if(verbose == True):
-        print(f" > Nuber of folders to compare and transfer: {steps}")
-
+        print(f" > Number of folders to compare and transfer: {steps}")
 
     return info_list    
     
@@ -116,7 +114,6 @@ def files_list(path=None):
     if(path != None):
         os.chdir(path_comeback)
         
-
     return files_list
 
 
@@ -140,7 +137,6 @@ def folders_list(path=None):
     if(path != None):
         os.chdir(path_comeback)
         
-
     return folders_list
 
 
@@ -172,7 +168,6 @@ def transfer_files(file_list, enable_types):
         if(enable_types.count(extension) == 1):
             new_list.append(f)
 
-
     return new_list
 
 
@@ -192,7 +187,6 @@ def prepare_module_files(text):
         for i in text:
             new_file = i.strip()
             module_files.append(new_file)
-
 
     return module_files
 
@@ -223,7 +217,6 @@ def remove_index(filename):
         version = ""
 
     filename = name + "." + extension
-
 
     return filename
 
@@ -287,7 +280,6 @@ def remove_temp_folders(path):
                 shutil.rmtree(folder_remove)
                 text = f"> Removing {folder_remove}"
                 print_info(text)
-
 
     return None
 
