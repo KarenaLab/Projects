@@ -11,6 +11,9 @@ import sys
 sys.path.append(r"C:\python_modules")
 
 from autoindustry_tools import *
+
+from data_preparation import *
+
 from plot_histogram import *
 from plot_scatterhistlinreg import *
 from plot_boxplot import *
@@ -29,12 +32,12 @@ df = read_csv(filename)
 
 
 # First Model, very simple (without origin and name)
-cols_remove = ["origin", "name"]
+cols_remove = ["origin", "name", "model_year"]
 df = df.drop(columns=cols_remove)
 df = dataframe_preparation(df)
 df = units_conversion(df)
 
 # Featuring Engineering
-df["weight_power_ratio"] = df["weight_kg"] / df["horsepower_hp"]
+df["weight_power_ratio"] = df["weight_kg"] / df["power_hp"]
 
 
