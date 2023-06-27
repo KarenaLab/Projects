@@ -46,7 +46,7 @@ def units_conversion(DataFrame, verbose=True):
     data["weight_kg"] = data["weight"].apply(lambda x: x * 0.45359237)
     data = data.drop(columns=["weight"])
 
-    data = data.rename(columns={"horsepower": "horsepower_hp"})
+    data = data.rename(columns={"horsepower": "power_hp"})
     data = data.rename(columns={"acceleration": "acceleration_s"})
     
                      
