@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 
 
+
 # Personal modules
 import sys
 sys.path.append(r"C:\python_modules")
@@ -13,7 +14,6 @@ sys.path.append(r"C:\python_modules")
 from autoindustry_tools import *
 
 from data_preparation import *
-
 from plot_histogram import *
 from plot_scatterhistlinreg import *
 from plot_boxplot import *
@@ -40,4 +40,7 @@ df = units_conversion(df)
 # Featuring Engineering
 df["weight_power_ratio"] = df["weight_kg"] / df["power_hp"]
 
+
+# Target Split
+x, y = split_target(df, target="power_hp")
 
