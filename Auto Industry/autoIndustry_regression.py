@@ -14,6 +14,10 @@ sys.path.append(r"C:\python_modules")
 from autoindustry_tools import *
 
 from data_preparation import *
+from split_kfold import *
+from scalers_builtin import *
+from regr_linreg import *
+
 from plot_histogram import *
 from plot_scatterhistlinreg import *
 from plot_boxplot import *
@@ -23,6 +27,9 @@ from plot_boxplot import *
 
 
 # Setup/Config
+seed = 302
+target = "power_hp"
+n_splits = 5
 
 
 
@@ -41,6 +48,19 @@ df = units_conversion(df)
 df["weight_power_ratio"] = df["weight_kg"] / df["power_hp"]
 
 
-# Target Split
-x, y = split_target(df, target="power_hp")
+# Target split
+x, y = split_target(df, target=target)
+
+
+# Train/Test split
+np.random.seed(seed)
+split_table = split_kfold(x, n_splits=n_splits)
+
+
+# Model Base = Linear Regression
+for i in range(0, n_splits):
+    fold, train_index, test_index = split_table[i]
+    
+
+
 
