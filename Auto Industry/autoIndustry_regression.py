@@ -16,7 +16,7 @@ from autoindustry_tools import *
 from data_preparation import *
 from split_kfold import *
 from scalers_builtin import *
-from regr_linreg import *
+from regr_linearregression import *
 
 from plot_histogram import *
 from plot_scatterhistlinreg import *
@@ -24,6 +24,15 @@ from plot_boxplot import *
 
 
 # Functions
+def append_results(DataFrame, new_row_dict):
+    """
+    Append a dictionary with **new_row_dict** to a **DataFrame**
+    
+    """
+    DataFrame = pd.concat([DataFrame, pd.Series(new_row_dict).to_frame().T],
+                          ignore_index=True)
+
+    return DataFrame
 
 
 # Setup/Config
@@ -56,10 +65,23 @@ x, y = split_target(df, target=target)
 np.random.seed(seed)
 split_table = split_kfold(x, n_splits=n_splits)
 
+results = pd.DataFrame(data=[])
 
 # Model Base = Linear Regression
 for i in range(0, n_splits):
     fold, train_index, test_index = split_table[i]
+    x_train, y_train, x_test, y_test = separate_fold(x, y, train_index, test_index)
+
+    # Scaler
+    x_train, x_test = scaler_standardscore(x_train, x_test)
+
+    # Model = Linear Regression
+    fold_metrics = regr_linreg(x_train, y_train, x_test, y_test)
+    fold_metrics["fold"] = fold
+
+    results = append_results(results, fold_metrics)
+
+    
     
 
 
