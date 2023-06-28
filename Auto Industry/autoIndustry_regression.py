@@ -81,8 +81,3 @@ for i in range(0, n_splits):
 
     results = append_results(results, fold_metrics)
 
-    
-    
-
-
-
