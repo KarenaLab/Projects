@@ -142,6 +142,11 @@ deprecated/
 *.doc
 *.xls
 
+# ignore ALL image files
+*.jpg
+*.png
+
 # ignore backup Folders
 backup/
 deprecated/
+report/
