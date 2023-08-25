@@ -903,7 +903,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 11046909101.0,56,mulher,12.0,Preta,5229.0,0.0,norte
 11046909102.0,32,mulher,15.0,Parda,10458.0,0.0,norte
 11046909103.0,20,homem,11.0,Parda,,0.0,norte
-11046912101.0,37,mulher,5.0,Parda,20.399999618530273,1.0,norte
+11046912101.0,37,mulher,5.0,Parda,20.399999618530277,1.0,norte
 11046912102.0,42,homem,5.0,Branca,210.0,1.0,norte
 11047701101.0,35,mulher,5.0,Parda,6000.0,0.0,norte
 11047702101.0,60,mulher,15.0,Branca,27600.0,0.0,norte
@@ -1073,7 +1073,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 11054013101.0,47,homem,5.0,Parda,24000.0,1.0,norte
 11054013102.0,41,mulher,5.0,Parda,,1.0,norte
 11055802101.0,31,homem,7.0,Parda,6007.31982421875,1.0,norte
-11055802102.0,28,mulher,11.0,Parda,9380.799987792967,1.0,norte
+11055802102.0,28,mulher,11.0,Parda,9380.799987792969,1.0,norte
 11055803101.0,34,homem,5.0,Preta,7920.0,1.0,norte
 11055803102.0,38,mulher,11.0,Preta,456.5,1.0,norte
 11055804101.0,35,homem,11.0,Parda,5505.60009765625,0.0,norte
@@ -1222,7 +1222,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 11059010101.0,55,homem,5.0,Branca,37800.0,0.0,norte
 11059010102.0,34,homem,10.0,Branca,0.0,0.0,norte
 11059010103.0,29,homem,6.0,Branca,0.0,0.0,norte
-11059012101.0,32,homem,6.0,Parda,12766.349853515625,0.0,norte
+11059012101.0,32,homem,6.0,Parda,12766.349853515623,0.0,norte
 11059013101.0,39,homem,5.0,Branca,12600.0,1.0,norte
 11059013102.0,32,mulher,5.0,Parda,0.0,1.0,norte
 11059014101.0,30,homem,8.0,Preta,13246.80078125,1.0,norte
@@ -1248,7 +1248,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 11060411101.0,51,mulher,5.0,Parda,4576.0,0.0,norte
 11060411102.0,20,mulher,8.0,Branca,,0.0,norte
 11060411103.0,22,homem,11.0,Parda,,0.0,norte
-11060412101.0,51,homem,5.0,Parda,101.91999816894531,1.0,norte
+11060412101.0,51,homem,5.0,Parda,101.91999816894533,1.0,norte
 11060412102.0,36,mulher,5.0,Parda,,1.0,norte
 11060413101.0,23,homem,7.0,Parda,2317.5,0.0,norte
 11060413103.0,57,mulher,5.0,Parda,,0.0,norte
@@ -1354,7 +1354,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 11064702101.0,35,homem,5.0,Branca,9250.0,1.0,norte
 11064702102.0,29,mulher,5.0,Branca,0.0,1.0,norte
 11064703101.0,55,homem,5.0,Parda,4430.7998046875,0.0,norte
-11064705102.0,43,mulher,5.0,Indigena,493.49999237060547,0.0,norte
+11064705102.0,43,mulher,5.0,Indigena,493.4999923706055,0.0,norte
 11064705103.0,21,homem,6.0,Parda,1095.2999877929688,0.0,norte
 11064706102.0,52,mulher,10.0,Parda,,0.0,norte
 11064706103.0,24,homem,7.0,Parda,29970.0,0.0,norte
@@ -1614,7 +1614,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 12001403102.0,31,mulher,15.0,Branca,24480.0,0.0,norte
 12001403103.0,33,homem,15.0,Parda,13320.0,0.0,norte
 12001404101.0,21,homem,5.0,Parda,5804.0,1.0,norte
-12001404102.0,22,mulher,5.0,Parda,448.20001220703125,1.0,norte
+12001404102.0,22,mulher,5.0,Parda,448.2000122070313,1.0,norte
 12001405101.0,34,homem,9.0,Branca,1420.0,1.0,norte
 12001405102.0,27,mulher,7.0,Parda,954.0,1.0,norte
 12001405105.0,39,homem,11.0,Parda,-1.0,0.0,norte
@@ -2004,7 +2004,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 12018913101.0,55,mulher,5.0,Parda,50.5,0.0,norte
 12018913102.0,24,mulher,11.0,Branca,1245.0,0.0,norte
 12019701101.0,27,mulher,11.0,Branca,6303.599609375,0.0,norte
-12019702101.0,44,mulher,5.0,Preta,367.20001220703125,1.0,norte
+12019702101.0,44,mulher,5.0,Preta,367.2000122070313,1.0,norte
 12019702102.0,48,homem,10.0,Parda,,1.0,norte
 12019703101.0,54,homem,8.0,Parda,9984.0,1.0,norte
 12019703102.0,55,mulher,5.0,Branca,,1.0,norte
@@ -2068,7 +2068,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 12021907102.0,38,mulher,5.0,Parda,,1.0,norte
 12021908101.0,56,mulher,8.0,Preta,,0.0,norte
 12021908102.0,26,mulher,12.0,Preta,12362.400390625,0.0,norte
-12021909101.0,37,mulher,7.0,Parda,6287.4000244140625,0.0,norte
+12021909101.0,37,mulher,7.0,Parda,6287.400024414063,0.0,norte
 12021910103.0,21,homem,11.0,Branca,33120.0,0.0,norte
 12021912101.0,54,mulher,5.0,Branca,12490.0,0.0,norte
 12021912102.0,34,homem,15.0,Parda,12000.0,0.0,norte
@@ -2222,7 +2222,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 12028604101.0,33,homem,11.0,Parda,11730.0,0.0,norte
 12028605102.0,34,homem,11.0,Parda,4810.0,0.0,norte
 12028605103.0,30,homem,11.0,Parda,,0.0,norte
-12028605106.0,20,homem,11.0,Parda,5540.2000732421875,0.0,norte
+12028605106.0,20,homem,11.0,Parda,5540.200073242188,0.0,norte
 12028606102.0,47,mulher,5.0,Parda,,0.0,norte
 12028608101.0,54,mulher,5.0,Parda,14981.759765625,0.0,norte
 12028609101.0,40,homem,11.0,Parda,23183.359375,1.0,norte
@@ -2373,7 +2373,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 12036703101.0,46,mulher,11.0,Parda,10764.0,0.0,norte
 12036704101.0,39,mulher,11.0,Parda,3343.0498046875,0.0,norte
 12036705101.0,41,mulher,15.0,Parda,16665.79931640625,0.0,norte
-12036706101.0,29,homem,15.0,Branca,16235.840087890625,0.0,norte
+12036706101.0,29,homem,15.0,Branca,16235.840087890623,0.0,norte
 12036707101.0,49,homem,11.0,Parda,28609.44140625,1.0,norte
 12036707102.0,31,mulher,5.0,Parda,0.0,1.0,norte
 12036708101.0,48,homem,5.0,Parda,2802.39990234375,1.0,norte
@@ -2567,7 +2567,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 12044804101.0,60,mulher,5.0,Parda,,0.0,norte
 12044804102.0,32,homem,5.0,Parda,3465.0,0.0,norte
 12044804103.0,30,homem,5.0,Parda,378.0,0.0,norte
-12044806101.0,35,mulher,6.0,Parda,6287.4000244140625,1.0,norte
+12044806101.0,35,mulher,6.0,Parda,6287.400024414063,1.0,norte
 12044806102.0,51,homem,10.0,Parda,999999.0,1.0,norte
 12044808101.0,35,mulher,6.0,Parda,0.0,0.0,norte
 12044809101.0,35,homem,8.0,Parda,8320.0,1.0,norte
@@ -2771,7 +2771,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 12052915103.0,21,homem,5.0,Parda,,0.0,norte
 12052916101.0,39,homem,10.0,Parda,14400.0,1.0,norte
 12052916102.0,32,mulher,7.0,Parda,5063.85009765625,1.0,norte
-12052917101.0,32,mulher,5.0,Parda,1118.4000244140623,0.0,norte
+12052917101.0,32,mulher,5.0,Parda,1118.4000244140625,0.0,norte
 12052918101.0,31,homem,5.0,Parda,5960.0,1.0,norte
 12052918102.0,36,mulher,5.0,Parda,,1.0,norte
 12052919101.0,27,homem,13.0,Parda,12627.01953125,1.0,norte
@@ -2923,7 +2923,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 12057017101.0,25,homem,9.0,Indigena,1308.0,1.0,norte
 12057017102.0,24,mulher,5.0,Indigena,0.0,1.0,norte
 12057018101.0,36,mulher,12.0,Indigena,-1.0,1.0,norte
-12057018102.0,34,homem,7.0,Indigena,1083.5999755859377,1.0,norte
+12057018102.0,34,homem,7.0,Indigena,1083.5999755859375,1.0,norte
 12058801101.0,35,homem,7.0,Preta,3816.0,1.0,norte
 12058801102.0,35,mulher,5.0,Parda,0.0,1.0,norte
 12058802101.0,20,homem,5.0,Branca,2763.89990234375,0.0,norte
@@ -4431,7 +4431,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 13054006102.0,49,homem,11.0,Parda,5241.599609375,1.0,norte
 13054006103.0,26,homem,11.0,Parda,,0.0,norte
 13054008102.0,44,homem,11.0,Amarela,8820.0,0.0,norte
-13054008103.0,33,mulher,11.0,Parda,12812.879638671875,0.0,norte
+13054008103.0,33,mulher,11.0,Parda,12812.879638671877,0.0,norte
 13054008104.0,48,mulher,7.0,Parda,,0.0,norte
 13054008106.0,21,homem,15.0,Preta,,0.0,norte
 13054009102.0,57,mulher,5.0,Parda,,0.0,norte
@@ -4545,7 +4545,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 13058306102.0,54,homem,5.0,Parda,5300.0,1.0,norte
 13058308102.0,30,mulher,11.0,Branca,,0.0,norte
 13058308104.0,20,homem,9.0,Parda,10080.0,0.0,norte
-13058308105.0,23,homem,11.0,Parda,10628.049987792967,0.0,norte
+13058308105.0,23,homem,11.0,Parda,10628.049987792969,0.0,norte
 13058309101.0,52,mulher,11.0,Parda,22266.720703125,1.0,norte
 13058309102.0,51,homem,11.0,Parda,,1.0,norte
 13058309103.0,45,homem,11.0,Parda,22374.0,0.0,norte
@@ -4864,7 +4864,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 13071001102.0,26,mulher,14.0,Branca,741.2000122070312,1.0,norte
 13071001104.0,20,homem,11.0,Parda,,0.0,norte
 13071001105.0,58,mulher,8.0,Parda,828.4000244140625,0.0,norte
-13071002101.0,43,homem,5.0,Parda,427.45001220703125,1.0,norte
+13071002101.0,43,homem,5.0,Parda,427.4500122070313,1.0,norte
 13071002102.0,39,mulher,5.0,Parda,,1.0,norte
 13071004101.0,31,homem,11.0,Parda,2520.0,1.0,norte
 13071004102.0,26,mulher,11.0,Parda,,1.0,norte
@@ -5752,7 +5752,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 13101611104.0,21,mulher,5.0,Parda,,0.0,norte
 13101612101.0,26,homem,5.0,Parda,6615.0,0.0,norte
 13101613101.0,58,homem,5.0,Parda,4273.919921875,1.0,norte
-13101613102.0,54,mulher,5.0,Parda,3674.3899536132812,1.0,norte
+13101613102.0,54,mulher,5.0,Parda,3674.389953613281,1.0,norte
 13101613103.0,23,homem,5.0,Parda,,0.0,norte
 13101613104.0,20,homem,5.0,Parda,4233.60009765625,0.0,norte
 13101614101.0,36,homem,5.0,Parda,5907.89990234375,1.0,norte
@@ -6064,7 +6064,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 14008205101.0,45,mulher,5.0,Parda,5934.0,1.0,norte
 14008205102.0,46,homem,5.0,Parda,4064.299926757813,1.0,norte
 14008206103.0,26,mulher,10.0,Parda,2124.39990234375,0.0,norte
-14008206104.0,22,homem,,Parda,1031.1400146484377,0.0,norte
+14008206104.0,22,homem,,Parda,1031.1400146484375,0.0,norte
 14008207101.0,51,homem,5.0,Parda,,1.0,norte
 14008207102.0,56,mulher,5.0,Parda,,1.0,norte
 14008208101.0,23,mulher,8.0,Preta,,1.0,norte
@@ -6136,7 +6136,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 14012004103.0,25,homem,11.0,Branca,,0.0,norte
 14012005101.0,34,homem,11.0,Branca,55094.28125,1.0,norte
 14012005102.0,39,mulher,12.0,Parda,36612.0,1.0,norte
-14012005103.0,20,homem,13.0,Branca,6736.4000244140625,0.0,norte
+14012005103.0,20,homem,13.0,Branca,6736.400024414063,0.0,norte
 14012007101.0,32,homem,11.0,Branca,5229.0,1.0,norte
 14012007102.0,29,mulher,11.0,Parda,,1.0,norte
 14012008101.0,45,mulher,11.0,Branca,28776.0,0.0,norte
@@ -6806,7 +6806,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 14041410102.0,20,mulher,8.0,Parda,,1.0,norte
 14041411101.0,36,mulher,5.0,Indigena,624.0,0.0,norte
 14041413101.0,40,mulher,15.0,Branca,8820.0,0.0,norte
-14042201101.0,39,mulher,7.0,Parda,6820.2000732421875,0.0,norte
+14042201101.0,39,mulher,7.0,Parda,6820.200073242188,0.0,norte
 14042202101.0,41,homem,5.0,,0.0,1.0,norte
 14042202102.0,37,mulher,11.0,Parda,979.199951171875,1.0,norte
 14042202207.0,49,homem,9.0,Parda,,1.0,norte
@@ -6857,7 +6857,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 14044909104.0,25,mulher,11.0,Parda,10049.0400390625,0.0,norte
 14044910101.0,50,homem,11.0,Parda,2346.0,0.0,norte
 14044910102.0,22,homem,11.0,Parda,990.0,0.0,norte
-14044911101.0,45,mulher,15.0,Parda,14589.199951171875,0.0,norte
+14044911101.0,45,mulher,15.0,Parda,14589.199951171877,0.0,norte
 14044911102.0,27,homem,11.0,Parda,5079.599609375,0.0,norte
 14044912101.0,24,mulher,11.0,Branca,,0.0,norte
 14044914101.0,32,homem,5.0,Preta,3000.0,0.0,norte
@@ -7205,7 +7205,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 15006109101.0,47,homem,15.0,Parda,31500.0,1.0,norte
 15006109102.0,28,mulher,15.0,Parda,15177.6005859375,1.0,norte
 15006112101.0,42,homem,12.0,Parda,19200.0,1.0,norte
-15006112102.0,38,mulher,11.0,Parda,9658.299987792967,1.0,norte
+15006112102.0,38,mulher,11.0,Parda,9658.299987792969,1.0,norte
 15006113101.0,50,mulher,8.0,Parda,2520.0,0.0,norte
 15006113102.0,33,mulher,11.0,Preta,3000.0,0.0,norte
 15006113103.0,30,homem,5.0,Parda,5160.0,0.0,norte
@@ -7564,12 +7564,12 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 15022312102.0,47,mulher,11.0,Parda,16077.599609375,1.0,norte
 15023101101.0,38,homem,11.0,Branca,6057.44970703125,1.0,norte
 15023101102.0,41,mulher,8.0,Branca,5580.0,1.0,norte
-15023102101.0,28,homem,11.0,Preta,6699.4000244140625,1.0,norte
+15023102101.0,28,homem,11.0,Preta,6699.400024414063,1.0,norte
 15023102102.0,21,mulher,11.0,Parda,,1.0,norte
 15023102104.0,36,homem,8.0,Branca,2340.0,0.0,norte
 15023104101.0,34,homem,5.0,Parda,4848.0,1.0,norte
 15023104102.0,38,mulher,11.0,Parda,,1.0,norte
-15023106101.0,32,mulher,7.0,Parda,1046.4000244140623,1.0,norte
+15023106101.0,32,mulher,7.0,Parda,1046.4000244140625,1.0,norte
 15023106102.0,35,homem,15.0,Parda,,1.0,norte
 15023107101.0,32,homem,11.0,Parda,9671.759765625,1.0,norte
 15023107102.0,46,mulher,10.0,Parda,5575.2001953125,1.0,norte
@@ -8678,7 +8678,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 15071111103.0,21,mulher,11.0,Parda,7847.0,0.0,norte
 15071112101.0,57,homem,5.0,Branca,2520.0,1.0,norte
 15071112102.0,39,mulher,5.0,Preta,642.0,1.0,norte
-15071112103.0,25,homem,10.0,Parda,261.60000610351557,0.0,norte
+15071112103.0,25,homem,10.0,Parda,261.6000061035156,0.0,norte
 15071113101.0,41,homem,5.0,Preta,2520.0,1.0,norte
 15071113102.0,35,mulher,11.0,Preta,630.0,1.0,norte
 15071113103.0,20,homem,11.0,Preta,2854.6499938964844,0.0,norte
@@ -8863,7 +8863,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 15079712101.0,41,homem,11.0,Parda,73080.0,1.0,norte
 15079712102.0,41,mulher,11.0,Parda,,1.0,norte
 15080001101.0,32,homem,5.0,Parda,9352.0,1.0,norte
-15080001102.0,31,mulher,5.0,Parda,1055.1199951171877,1.0,norte
+15080001102.0,31,mulher,5.0,Parda,1055.1199951171875,1.0,norte
 15080002101.0,28,mulher,9.0,Parda,7560.0,0.0,norte
 15080003101.0,28,homem,9.0,Parda,11392.6796875,1.0,norte
 15080003102.0,23,mulher,5.0,Parda,,1.0,norte
@@ -8972,7 +8972,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 15084310101.0,24,homem,11.0,Branca,4569.23974609375,0.0,norte
 15084311101.0,25,homem,10.0,Parda,15756.0,1.0,norte
 15084311102.0,23,mulher,11.0,Parda,,1.0,norte
-15084312101.0,33,homem,11.0,Branca,6699.4000244140625,1.0,norte
+15084312101.0,33,homem,11.0,Branca,6699.400024414063,1.0,norte
 15084312102.0,31,mulher,8.0,Branca,7392.0,1.0,norte
 15085101103.0,28,mulher,11.0,Parda,3744.0,0.0,norte
 15085101104.0,26,homem,5.0,Parda,5544.0,0.0,norte
@@ -9036,7 +9036,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 15088601101.0,37,homem,5.0,Parda,5830.39990234375,0.0,norte
 15088602101.0,26,homem,11.0,Branca,6300.0,1.0,norte
 15088602102.0,24,gestante,7.0,Branca,5670.0,1.0,norte
-15088604101.0,30,mulher,7.0,Parda,5695.2000732421875,1.0,norte
+15088604101.0,30,mulher,7.0,Parda,5695.200073242188,1.0,norte
 15088604102.0,30,homem,5.0,Parda,,1.0,norte
 15088604103.0,27,homem,5.0,Parda,,0.0,norte
 15088605101.0,32,homem,5.0,Parda,6930.0,0.0,norte
@@ -9044,7 +9044,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 15088606102.0,32,mulher,5.0,Branca,,1.0,norte
 15088607101.0,31,homem,7.0,Branca,7272.0,1.0,norte
 15088607102.0,29,mulher,5.0,Parda,1890.0,1.0,norte
-15088608102.0,31,homem,5.0,Branca,4619.1499938964835,0.0,norte
+15088608102.0,31,homem,5.0,Branca,4619.149993896484,0.0,norte
 15088609101.0,26,homem,6.0,Parda,6552.0,1.0,norte
 15088609102.0,32,mulher,7.0,Parda,105.0,1.0,norte
 15088611101.0,26,mulher,5.0,Parda,,0.0,norte
@@ -9064,7 +9064,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 15089405101.0,41,homem,5.0,Parda,24960.0,1.0,norte
 15089405102.0,21,mulher,9.0,Parda,,1.0,norte
 15089406101.0,47,mulher,5.0,Parda,1908.0,1.0,norte
-15089406102.0,40,homem,5.0,Parda,4619.1499938964835,1.0,norte
+15089406102.0,40,homem,5.0,Parda,4619.149993896484,1.0,norte
 15089406103.0,29,homem,8.0,Parda,3921.75,0.0,norte
 15089406104.0,23,homem,5.0,Preta,,0.0,norte
 15089409101.0,30,homem,5.0,Parda,6663.5,1.0,norte
@@ -9708,7 +9708,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 15117310101.0,27,homem,11.0,Parda,8064.0,1.0,norte
 15117310102.0,22,mulher,6.0,Parda,6300.0,1.0,norte
 15117311101.0,40,homem,6.0,Parda,6996.0,1.0,norte
-15117311102.0,44,mulher,8.0,Parda,2367.5998992919917,1.0,norte
+15117311102.0,44,mulher,8.0,Parda,2367.599899291992,1.0,norte
 15117311103.0,23,mulher,11.0,Branca,,0.0,norte
 15117311104.0,21,homem,11.0,Parda,,0.0,norte
 15117313103.0,27,homem,6.0,Parda,,0.0,norte
@@ -9874,7 +9874,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 15122011106.0,21,mulher,5.0,Parda,0.0,0.0,norte
 15122012101.0,36,homem,5.0,Parda,2581.0,1.0,norte
 15122012102.0,29,mulher,6.0,Parda,0.0,1.0,norte
-15122013101.0,36,homem,6.0,Parda,1242.7999496459959,1.0,norte
+15122013101.0,36,homem,6.0,Parda,1242.799949645996,1.0,norte
 15122013102.0,30,mulher,8.0,Parda,0.0,1.0,norte
 15122015102.0,55,mulher,5.0,Parda,0.0,0.0,norte
 15122015103.0,21,mulher,8.0,Parda,0.0,0.0,norte
@@ -10254,7 +10254,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 15135104101.0,47,homem,5.0,Preta,6360.0,1.0,norte
 15135104102.0,43,mulher,5.0,Parda,890.3999633789062,1.0,norte
 15135104105.0,24,mulher,9.0,Preta,1769.39990234375,0.0,norte
-15135105102.0,32,homem,7.0,Preta,11193.599853515625,0.0,norte
+15135105102.0,32,homem,7.0,Preta,11193.599853515623,0.0,norte
 15135106101.0,21,homem,9.0,Parda,4836.800109863281,0.0,norte
 15135107101.0,22,homem,5.0,Preta,1350.6000366210938,1.0,norte
 15135107102.0,24,mulher,5.0,Preta,0.0,1.0,norte
@@ -11103,7 +11103,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 16006704103.0,31,mulher,5.0,Branca,18630.0,0.0,norte
 16006704104.0,26,homem,12.0,Parda,19320.0,0.0,norte
 16006705101.0,40,homem,5.0,Branca,5478.0,1.0,norte
-16006705102.0,38,mulher,5.0,Preta,448.20001220703125,1.0,norte
+16006705102.0,38,mulher,5.0,Preta,448.2000122070313,1.0,norte
 16006706101.0,42,mulher,11.0,Parda,9279.599609375,0.0,norte
 16006707101.0,40,mulher,11.0,Parda,,1.0,norte
 16006707102.0,45,homem,5.0,Parda,7632.0,1.0,norte
@@ -12403,7 +12403,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 17003807101.0,33,mulher,8.0,Preta,,1.0,norte
 17003807102.0,30,homem,5.0,Parda,5229.0,1.0,norte
 17003812101.0,27,homem,12.0,Preta,7324.800048828125,0.0,norte
-17003812102.0,22,homem,9.0,Preta,6090.4000244140625,0.0,norte
+17003812102.0,22,homem,9.0,Preta,6090.400024414063,0.0,norte
 17003812104.0,26,homem,8.0,Branca,7607.599853515625,0.0,norte
 17003813101.0,48,homem,11.0,Preta,5886.0,1.0,norte
 17003813102.0,46,mulher,9.0,Branca,,1.0,norte
@@ -12581,7 +12581,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 17012708101.0,56,homem,15.0,Parda,41616.0,1.0,norte
 17012708102.0,57,mulher,11.0,Branca,12852.0,1.0,norte
 17012708103.0,24,homem,14.0,Branca,4896.0,0.0,norte
-17012708104.0,21,homem,11.0,Branca,469.20001220703125,0.0,norte
+17012708104.0,21,homem,11.0,Branca,469.2000122070313,0.0,norte
 17012708108.0,23,mulher,14.0,Branca,8323.19921875,0.0,norte
 17012710101.0,22,mulher,14.0,Branca,,1.0,norte
 17012710102.0,26,homem,14.0,Branca,6412.5,1.0,norte
@@ -12704,7 +12704,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 17017809102.0,33,mulher,14.0,Parda,2485.2001953125,1.0,norte
 17017812101.0,47,mulher,15.0,Parda,17044.80078125,0.0,norte
 17017813101.0,32,homem,11.0,Parda,11550.0,1.0,norte
-17017813102.0,33,mulher,15.0,Parda,5631.1500244140625,1.0,norte
+17017813102.0,33,mulher,15.0,Parda,5631.150024414063,1.0,norte
 17018601101.0,44,homem,11.0,Branca,31500.0,1.0,norte
 17018601102.0,32,mulher,11.0,Parda,4357.5,1.0,norte
 17018602102.0,27,mulher,5.0,Parda,47061.0,0.0,norte
@@ -13040,12 +13040,12 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 17032101102.0,48,mulher,5.0,Parda,187.20001220703125,1.0,norte
 17032102101.0,23,homem,9.0,Branca,5267.25,0.0,norte
 17032103101.0,40,mulher,5.0,Branca,1800.5500793457031,0.0,norte
-17032104101.0,53,mulher,7.0,Parda,13711.320068359375,1.0,norte
+17032104101.0,53,mulher,7.0,Parda,13711.320068359377,1.0,norte
 17032104102.0,39,homem,12.0,Parda,7782.599609375,1.0,norte
 17032105101.0,22,homem,10.0,Branca,10372.2001953125,1.0,norte
 17032105102.0,25,mulher,11.0,Parda,1260.0,1.0,norte
 17032106101.0,26,homem,8.0,Parda,3780.0,1.0,norte
-17032106102.0,24,mulher,11.0,Parda,4523.5001525878915,1.0,norte
+17032106102.0,24,mulher,11.0,Parda,4523.500152587892,1.0,norte
 17032108101.0,51,homem,5.0,Parda,7072.0,0.0,norte
 17032112101.0,33,homem,5.0,Parda,416.0,1.0,norte
 17032112102.0,28,mulher,5.0,Parda,187.20001220703125,1.0,norte
@@ -13660,7 +13660,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 17063109101.0,54,mulher,11.0,Parda,9247.919921875,0.0,norte
 17063110101.0,48,homem,5.0,Parda,,1.0,norte
 17063110102.0,46,mulher,5.0,Parda,,1.0,norte
-17063110106.0,21,mulher,9.0,Parda,43.599998474121094,0.0,norte
+17063110106.0,21,mulher,9.0,Parda,43.59999847412109,0.0,norte
 17063111103.0,38,homem,5.0,Parda,,0.0,norte
 17063111104.0,33,homem,5.0,Branca,654.0,0.0,norte
 17063111105.0,21,mulher,5.0,Parda,163.5,0.0,norte
@@ -14896,7 +14896,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31013104102.0,44,mulher,5.0,Parda,,1.0,sudeste
 31013104103.0,23,mulher,11.0,Branca,7722.0,0.0,sudeste
 31013104104.0,20,homem,9.0,Parda,,0.0,sudeste
-31013107101.0,22,homem,12.0,Branca,13864.800048828125,1.0,sudeste
+31013107101.0,22,homem,12.0,Branca,13864.800048828123,1.0,sudeste
 31013107102.0,20,mulher,8.0,Parda,,1.0,sudeste
 31013109101.0,42,homem,7.0,Preta,-1.0,1.0,sudeste
 31013109102.0,42,mulher,5.0,Branca,2073.60009765625,1.0,sudeste
@@ -14992,7 +14992,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31018204101.0,36,mulher,7.0,Parda,3428.949951171875,0.0,sudeste
 31018206101.0,39,homem,5.0,Parda,,1.0,sudeste
 31018206102.0,30,mulher,5.0,Parda,6519.60009765625,1.0,sudeste
-31018207101.0,34,homem,8.0,Parda,407.67999267578125,0.0,sudeste
+31018207101.0,34,homem,8.0,Parda,407.6799926757813,0.0,sudeste
 31018209101.0,46,homem,5.0,Parda,5464.7998046875,1.0,sudeste
 31018209102.0,44,mulher,5.0,Parda,6544.7998046875,1.0,sudeste
 31018209104.0,20,mulher,8.0,Parda,,0.0,sudeste
@@ -15057,7 +15057,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31020413102.0,24,mulher,15.0,Branca,26712.0,0.0,sudeste
 31021201101.0,32,homem,6.0,Parda,9188.0,1.0,sudeste
 31021201102.0,27,mulher,8.0,Branca,,1.0,sudeste
-31021202101.0,28,homem,11.0,Parda,9755.200012207033,1.0,sudeste
+31021202101.0,28,homem,11.0,Parda,9755.200012207031,1.0,sudeste
 31021202102.0,30,mulher,11.0,Parda,,1.0,sudeste
 31021203101.0,54,mulher,5.0,Parda,13200.0,0.0,sudeste
 31021203102.0,26,homem,10.0,Parda,10560.0,0.0,sudeste
@@ -15361,7 +15361,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31036001101.0,26,mulher,15.0,Preta,47005.2001953125,1.0,sudeste
 31036001102.0,26,homem,13.0,Branca,4874.399597167969,1.0,sudeste
 31036002101.0,32,homem,15.0,Branca,19650.0,1.0,sudeste
-31036002102.0,30,mulher,5.0,Parda,13680.699951171875,1.0,sudeste
+31036002102.0,30,mulher,5.0,Parda,13680.699951171877,1.0,sudeste
 31036003102.0,37,mulher,8.0,Branca,,0.0,sudeste
 31036005101.0,49,homem,15.0,Branca,61152.0,1.0,sudeste
 31036005102.0,49,mulher,15.0,Parda,28128.0,1.0,sudeste
@@ -15660,7 +15660,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31052203102.0,23,mulher,8.0,Parda,2195.199951171875,0.0,sudeste
 31052204102.0,57,mulher,9.0,Parda,2664.0,0.0,sudeste
 31052204103.0,24,gestante,7.0,Parda,,0.0,sudeste
-31052204104.0,23,mulher,6.0,Branca,406.70001220703125,0.0,sudeste
+31052204104.0,23,mulher,6.0,Branca,406.7000122070313,0.0,sudeste
 31052204105.0,22,homem,5.0,Parda,,0.0,sudeste
 31052205101.0,35,homem,10.0,Parda,8232.0,1.0,sudeste
 31052205102.0,33,mulher,9.0,Preta,10423.19921875,1.0,sudeste
@@ -17284,7 +17284,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31131612101.0,43,homem,5.0,Parda,13200.0,1.0,sudeste
 31131612102.0,49,mulher,5.0,Preta,,1.0,sudeste
 31131612103.0,20,homem,7.0,Parda,4423.39990234375,0.0,sudeste
-31131613101.0,44,mulher,5.0,Preta,939.6000213623047,0.0,sudeste
+31131613101.0,44,mulher,5.0,Preta,939.6000213623048,0.0,sudeste
 31131613102.0,25,homem,5.0,Parda,,0.0,sudeste
 31131613103.0,20,mulher,7.0,Parda,,0.0,sudeste
 31132401102.0,34,mulher,5.0,Branca,,0.0,sudeste
@@ -17357,7 +17357,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31135910101.0,24,mulher,11.0,Parda,6599.399963378906,0.0,sudeste
 31135911101.0,45,homem,5.0,Branca,19440.0,1.0,sudeste
 31135911102.0,40,mulher,8.0,Parda,1412.39990234375,1.0,sudeste
-31135911103.0,20,mulher,11.0,Parda,7797.1998291015625,0.0,sudeste
+31135911103.0,20,mulher,11.0,Parda,7797.199829101562,0.0,sudeste
 31135913102.0,55,mulher,5.0,Branca,,0.0,sudeste
 31136702101.0,49,mulher,5.0,Parda,,0.0,sudeste
 31136702102.0,28,homem,11.0,Parda,5956.7998046875,0.0,sudeste
@@ -17508,7 +17508,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31144804104.0,30,mulher,8.0,Parda,,0.0,sudeste
 31144805101.0,55,homem,5.0,Parda,6585.599609375,0.0,sudeste
 31144807101.0,54,homem,5.0,Parda,5608.7998046875,1.0,sudeste
-31144807102.0,58,mulher,5.0,Parda,1066.5599365234377,1.0,sudeste
+31144807102.0,58,mulher,5.0,Parda,1066.5599365234375,1.0,sudeste
 31144807103.0,31,homem,5.0,Parda,,0.0,sudeste
 31144808101.0,39,homem,6.0,Parda,5700.0,1.0,sudeste
 31144808102.0,43,mulher,7.0,Branca,5029.7998046875,1.0,sudeste
@@ -17784,7 +17784,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31157011102.0,49,mulher,11.0,Branca,5278.7998046875,1.0,sudeste
 31157013101.0,42,homem,5.0,Parda,5627.400390625,1.0,sudeste
 31157013102.0,29,mulher,5.0,Preta,,1.0,sudeste
-31158801101.0,39,mulher,5.0,Parda,945.2799453735353,0.0,sudeste
+31158801101.0,39,mulher,5.0,Parda,945.2799453735352,0.0,sudeste
 31158802101.0,38,homem,5.0,Branca,5229.0,0.0,sudeste
 31158802202.0,27,homem,5.0,Parda,,0.0,sudeste
 31158802303.0,45,homem,5.0,Branca,,0.0,sudeste
@@ -18250,7 +18250,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31180409102.0,54,mulher,5.0,Branca,,1.0,sudeste
 31180411101.0,39,homem,5.0,Branca,8089.2001953125,1.0,sudeste
 31180411102.0,31,mulher,11.0,Branca,3629.7001953125,1.0,sudeste
-31180412101.0,21,homem,8.0,Parda,11984.800048828125,0.0,sudeste
+31180412101.0,21,homem,8.0,Parda,11984.800048828123,0.0,sudeste
 31180413101.0,30,homem,8.0,Parda,11440.0,0.0,sudeste
 31180414101.0,29,homem,11.0,Parda,26208.0,1.0,sudeste
 31180414102.0,25,mulher,15.0,Branca,1144.0,1.0,sudeste
@@ -18482,7 +18482,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31191004102.0,36,mulher,6.0,Branca,2436.39013671875,1.0,sudeste
 31191006102.0,32,homem,5.0,Parda,10656.0,0.0,sudeste
 31191006103.0,30,homem,5.0,Parda,,0.0,sudeste
-31191006104.0,30,homem,11.0,Branca,3391.8001098632812,0.0,sudeste
+31191006104.0,30,homem,11.0,Branca,3391.800109863281,0.0,sudeste
 31191006105.0,23,homem,11.0,Parda,9762.0,0.0,sudeste
 31191007101.0,47,mulher,5.0,Parda,6780.0,0.0,sudeste
 31191007102.0,25,mulher,9.0,Parda,,0.0,sudeste
@@ -18738,7 +18738,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31202904102.0,27,mulher,11.0,Parda,8160.0,0.0,sudeste
 31202905101.0,50,homem,5.0,Branca,14544.0,1.0,sudeste
 31202905102.0,52,mulher,5.0,Branca,4268.10009765625,1.0,sudeste
-31202906101.0,45,homem,5.0,Parda,12828.599853515625,1.0,sudeste
+31202906101.0,45,homem,5.0,Parda,12828.599853515623,1.0,sudeste
 31202906102.0,39,mulher,5.0,Parda,2391.3599853515625,1.0,sudeste
 31202907101.0,32,mulher,,Parda,8550.0,0.0,sudeste
 31202909101.0,49,homem,5.0,Branca,7488.0,1.0,sudeste
@@ -18833,7 +18833,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31206105103.0,22,mulher,12.0,Parda,6102.7197265625,0.0,sudeste
 31206108101.0,46,homem,11.0,Branca,79133.51953125,1.0,sudeste
 31206108102.0,40,mulher,15.0,Branca,6766.43994140625,1.0,sudeste
-31206109101.0,25,homem,11.0,Branca,14931.800048828125,0.0,sudeste
+31206109101.0,25,homem,11.0,Branca,14931.800048828123,0.0,sudeste
 31206112101.0,49,homem,12.0,Branca,25440.0,1.0,sudeste
 31206112102.0,45,mulher,11.0,Branca,,1.0,sudeste
 31206112103.0,23,homem,15.0,Parda,7837.19970703125,0.0,sudeste
@@ -18850,7 +18850,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31207012102.0,33,mulher,7.0,Branca,0.0,1.0,sudeste
 31207015101.0,55,homem,10.0,Indigena,999999.0,1.0,sudeste
 31207015102.0,46,mulher,11.0,Branca,7295.599609375,1.0,sudeste
-31207015103.0,21,mulher,12.0,Branca,499.20001220703125,0.0,sudeste
+31207015103.0,21,mulher,12.0,Branca,499.2000122070313,0.0,sudeste
 31207017101.0,56,homem,15.0,Branca,106542.71875,1.0,sudeste
 31207017102.0,55,mulher,11.0,Branca,,1.0,sudeste
 31207017103.0,25,mulher,12.0,Branca,,0.0,sudeste
@@ -19382,7 +19382,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31235513102.0,58,mulher,12.0,Branca,,1.0,sudeste
 31236301101.0,43,homem,12.0,Branca,174839.400390625,1.0,sudeste
 31236301102.0,29,mulher,11.0,Parda,5079.599609375,1.0,sudeste
-31236303101.0,55,mulher,5.0,Branca,5401.1997985839835,0.0,sudeste
+31236303101.0,55,mulher,5.0,Branca,5401.199798583984,0.0,sudeste
 31236304101.0,55,mulher,5.0,Branca,,0.0,sudeste
 31236305101.0,47,homem,10.0,Branca,26160.0,1.0,sudeste
 31236305102.0,39,mulher,15.0,Branca,22701.12109375,1.0,sudeste
@@ -19505,7 +19505,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31241001101.0,45,mulher,13.0,Branca,14028.6005859375,0.0,sudeste
 31241002101.0,28,homem,5.0,Parda,5749.800048828125,1.0,sudeste
 31241002102.0,31,mulher,5.0,Preta,,1.0,sudeste
-31241004101.0,29,homem,5.0,Branca,11830.560302734375,1.0,sudeste
+31241004101.0,29,homem,5.0,Branca,11830.560302734377,1.0,sudeste
 31241004102.0,31,mulher,5.0,Parda,5280.23974609375,1.0,sudeste
 31241005103.0,43,mulher,5.0,Branca,,0.0,sudeste
 31241005104.0,31,homem,5.0,Branca,,0.0,sudeste
@@ -19567,7 +19567,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31244402101.0,22,homem,10.0,Parda,5883.60009765625,0.0,sudeste
 31244403101.0,56,homem,5.0,Parda,2000.0,1.0,sudeste
 31244403102.0,58,mulher,5.0,Branca,,1.0,sudeste
-31244403103.0,25,homem,5.0,Branca,5804.4000244140625,0.0,sudeste
+31244403103.0,25,homem,5.0,Branca,5804.400024414063,0.0,sudeste
 31244404101.0,22,mulher,7.0,Parda,-1.0,0.0,sudeste
 31244405101.0,51,homem,5.0,Parda,,1.0,sudeste
 31244405102.0,49,mulher,5.0,Branca,5278.7998046875,1.0,sudeste
@@ -20165,7 +20165,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31273801101.0,22,homem,11.0,Parda,11880.0,0.0,sudeste
 31273804101.0,60,homem,11.0,Parda,6435.0,1.0,sudeste
 31273804102.0,56,mulher,9.0,Parda,,1.0,sudeste
-31273806101.0,28,homem,,Branca,13977.159912109375,1.0,sudeste
+31273806101.0,28,homem,,Branca,13977.159912109377,1.0,sudeste
 31273806102.0,28,mulher,11.0,Branca,,1.0,sudeste
 31273808101.0,36,homem,11.0,Branca,19716.48046875,0.0,sudeste
 31273809101.0,55,homem,15.0,Branca,48664.0,1.0,sudeste
@@ -20455,7 +20455,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31288609102.0,21,mulher,11.0,Branca,,0.0,sudeste
 31288611101.0,33,homem,5.0,Parda,4800.0,1.0,sudeste
 31288611102.0,28,mulher,6.0,Branca,,1.0,sudeste
-31288612101.0,42,mulher,6.0,Branca,1872.6000061035159,0.0,sudeste
+31288612101.0,42,mulher,6.0,Branca,1872.600006103516,0.0,sudeste
 31288613102.0,23,mulher,5.0,Parda,1200.0,0.0,sudeste
 31289402101.0,53,mulher,11.0,Parda,,0.0,sudeste
 31289402102.0,26,homem,7.0,Parda,5556.9599609375,0.0,sudeste
@@ -20577,7 +20577,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31295906102.0,42,homem,5.0,Branca,11520.0,1.0,sudeste
 31295906104.0,38,homem,5.0,Branca,2850.0,0.0,sudeste
 31295907101.0,55,homem,8.0,Parda,5472.0,1.0,sudeste
-31295907102.0,48,mulher,8.0,Parda,1059.8399658203123,1.0,sudeste
+31295907102.0,48,mulher,8.0,Parda,1059.8399658203125,1.0,sudeste
 31295907103.0,22,homem,8.0,Parda,,0.0,sudeste
 31295910101.0,58,mulher,5.0,Parda,180.0,0.0,sudeste
 31295910102.0,27,mulher,11.0,Parda,3825.0,0.0,sudeste
@@ -20711,7 +20711,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31303313104.0,23,mulher,11.0,Branca,2375.0,0.0,sudeste
 31304101101.0,38,homem,5.0,Parda,2490.0,1.0,sudeste
 31304101102.0,32,mulher,5.0,Parda,784.3500366210938,1.0,sudeste
-31304102101.0,29,mulher,5.0,Parda,499.20001220703125,0.0,sudeste
+31304102101.0,29,mulher,5.0,Parda,499.2000122070313,0.0,sudeste
 31304103101.0,33,homem,11.0,Branca,7234.7998046875,1.0,sudeste
 31304103102.0,27,mulher,11.0,Parda,7680.0,1.0,sudeste
 31304104101.0,32,homem,5.0,Parda,8080.0,1.0,sudeste
@@ -20817,11 +20817,11 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31308410101.0,34,homem,11.0,Parda,24658.699951171875,1.0,sudeste
 31308410102.0,26,mulher,11.0,Branca,10461.06005859375,1.0,sudeste
 31308412101.0,27,homem,7.0,Preta,2352.0,1.0,sudeste
-31308412102.0,27,mulher,8.0,Preta,446.20001220703125,1.0,sudeste
+31308412102.0,27,mulher,8.0,Preta,446.2000122070313,1.0,sudeste
 31308413102.0,53,mulher,5.0,Branca,3150.0,0.0,sudeste
 31309201101.0,45,mulher,5.0,Parda,,0.0,sudeste
 31309201102.0,25,mulher,9.0,Parda,6000.0,0.0,sudeste
-31309201103.0,21,mulher,11.0,Parda,1107.4500732421877,0.0,sudeste
+31309201103.0,21,mulher,11.0,Parda,1107.4500732421875,0.0,sudeste
 31309202101.0,52,mulher,5.0,Parda,,0.0,sudeste
 31309202102.0,23,homem,11.0,Parda,8700.0,0.0,sudeste
 31309203102.0,59,mulher,5.0,Branca,,0.0,sudeste
@@ -20972,7 +20972,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31318106103.0,23,homem,11.0,Parda,5179.2001953125,0.0,sudeste
 31318108101.0,56,homem,5.0,Branca,11495.0400390625,1.0,sudeste
 31318108102.0,54,mulher,5.0,Parda,11515.2001953125,1.0,sudeste
-31318109101.0,33,homem,11.0,Branca,9500.759948730467,0.0,sudeste
+31318109101.0,33,homem,11.0,Branca,9500.759948730469,0.0,sudeste
 31318110101.0,58,homem,5.0,Branca,15264.0,1.0,sudeste
 31318110102.0,56,mulher,5.0,Parda,5229.0,1.0,sudeste
 31318110103.0,26,mulher,15.0,Parda,3353.83984375,0.0,sudeste
@@ -21916,7 +21916,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31368802101.0,37,homem,15.0,Branca,71280.0,1.0,sudeste
 31368802102.0,25,mulher,15.0,Branca,17820.0,1.0,sudeste
 31368803101.0,22,homem,11.0,Parda,3240.0,0.0,sudeste
-31368804101.0,44,mulher,15.0,Parda,28906.560119628906,0.0,sudeste
+31368804101.0,44,mulher,15.0,Parda,28906.560119628903,0.0,sudeste
 31368804102.0,22,homem,15.0,Parda,,0.0,sudeste
 31368805101.0,30,homem,11.0,Branca,6177.599609375,1.0,sudeste
 31368805102.0,23,mulher,11.0,Parda,,1.0,sudeste
@@ -22541,7 +22541,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31396311102.0,39,mulher,5.0,Parda,,1.0,sudeste
 31396312101.0,42,homem,7.0,Parda,-1.0,1.0,sudeste
 31396312102.0,38,mulher,7.0,Branca,,1.0,sudeste
-31396314101.0,28,homem,11.0,Branca,9772.799987792967,1.0,sudeste
+31396314101.0,28,homem,11.0,Branca,9772.799987792969,1.0,sudeste
 31396314102.0,22,mulher,5.0,Parda,1790.8000183105469,1.0,sudeste
 31396315101.0,37,homem,8.0,Branca,6762.0,1.0,sudeste
 31396315102.0,38,mulher,8.0,Branca,,1.0,sudeste
@@ -22763,7 +22763,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31405604101.0,44,homem,5.0,Parda,3729.599853515625,1.0,sudeste
 31405604102.0,48,mulher,5.0,Parda,31.79999923706055,1.0,sudeste
 31405606101.0,41,homem,5.0,Branca,13155.6005859375,1.0,sudeste
-31405606102.0,36,mulher,5.0,Branca,5610.2398681640625,1.0,sudeste
+31405606102.0,36,mulher,5.0,Branca,5610.239868164063,1.0,sudeste
 31405607103.0,58,mulher,5.0,Branca,,0.0,sudeste
 31405607104.0,56,mulher,5.0,Parda,,0.0,sudeste
 31405607105.0,38,homem,5.0,Branca,684.0,0.0,sudeste
@@ -22889,7 +22889,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 31410206101.0,51,homem,5.0,Parda,4884.0,1.0,sudeste
 31410206102.0,48,mulher,5.0,Parda,1332.0,1.0,sudeste
 31410206103.0,20,homem,9.0,Parda,7606.080078125,0.0,sudeste
-31410208101.0,27,homem,11.0,Branca,10401.200012207033,1.0,sudeste
+31410208101.0,27,homem,11.0,Branca,10401.200012207031,1.0,sudeste
 31410208102.0,22,mulher,11.0,Branca,,1.0,sudeste
 31410210102.0,43,homem,5.0,Parda,6720.0,0.0,sudeste
 31410210103.0,36,homem,5.0,Branca,9548.0,0.0,sudeste
@@ -24927,7 +24927,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 32084607104.0,26,homem,11.0,Branca,,0.0,sudeste
 32084608101.0,28,homem,13.0,Branca,14040.0,0.0,sudeste
 32084609101.0,52,mulher,5.0,Branca,854.9000244140625,1.0,sudeste
-32084609102.0,31,homem,5.0,Branca,427.45001220703125,1.0,sudeste
+32084609102.0,31,homem,5.0,Branca,427.4500122070313,1.0,sudeste
 32084611101.0,55,homem,5.0,Preta,,1.0,sudeste
 32084611102.0,46,mulher,11.0,Parda,5580.0,1.0,sudeste
 32084611103.0,20,homem,7.0,Preta,960.0,0.0,sudeste
@@ -25732,7 +25732,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 32129007102.0,53,mulher,10.0,Branca,5079.599609375,1.0,sudeste
 32129008101.0,33,homem,11.0,Parda,4158.0,1.0,sudeste
 32129008102.0,29,mulher,12.0,Branca,,1.0,sudeste
-32129009102.0,22,homem,5.0,Parda,385.95001220703125,0.0,sudeste
+32129009102.0,22,homem,5.0,Parda,385.9500122070313,0.0,sudeste
 32129010101.0,28,homem,5.0,Parda,5079.599609375,1.0,sudeste
 32129010102.0,25,mulher,7.0,Parda,,1.0,sudeste
 32129011101.0,47,mulher,5.0,Preta,3600.0,0.0,sudeste
@@ -27237,7 +27237,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 32200805101.0,49,homem,5.0,Parda,8549.5205078125,1.0,sudeste
 32200805102.0,56,mulher,12.0,Parda,5940.0,1.0,sudeste
 32200806101.0,34,mulher,5.0,Preta,5332.7998046875,0.0,sudeste
-32200808102.0,29,mulher,12.0,Branca,5631.4000244140625,0.0,sudeste
+32200808102.0,29,mulher,12.0,Branca,5631.400024414063,0.0,sudeste
 32200809103.0,35,mulher,11.0,Parda,,0.0,sudeste
 32200809104.0,34,homem,8.0,Preta,5990.400390625,0.0,sudeste
 32200809105.0,32,homem,9.0,Preta,5412.599609375,0.0,sudeste
@@ -27267,7 +27267,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 32201610101.0,55,homem,12.0,Branca,42720.0,1.0,sudeste
 32201610102.0,47,mulher,11.0,Branca,,1.0,sudeste
 32201610103.0,25,mulher,15.0,Branca,3157.349853515625,0.0,sudeste
-32201610104.0,24,mulher,15.0,Branca,1064.6400146484377,0.0,sudeste
+32201610104.0,24,mulher,15.0,Branca,1064.6400146484375,0.0,sudeste
 32201610105.0,21,homem,11.0,Branca,13968.0,0.0,sudeste
 32201611101.0,36,mulher,11.0,Parda,600.0,0.0,sudeste
 32201612102.0,21,mulher,11.0,Parda,155.1999969482422,0.0,sudeste
@@ -27371,7 +27371,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 32206708104.0,22,mulher,11.0,Parda,6025.7998046875,0.0,sudeste
 32206708105.0,21,homem,13.0,Parda,6451.19970703125,0.0,sudeste
 32206709101.0,44,homem,10.0,Parda,6183.380310058594,1.0,sudeste
-32206709102.0,28,mulher,11.0,Parda,427.20001220703125,1.0,sudeste
+32206709102.0,28,mulher,11.0,Parda,427.2000122070313,1.0,sudeste
 32206709104.0,57,mulher,5.0,Parda,,0.0,sudeste
 32206710101.0,28,mulher,11.0,Parda,6293.43017578125,0.0,sudeste
 32206711101.0,37,homem,10.0,Parda,4017.599853515625,1.0,sudeste
@@ -28008,7 +28008,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 32235009102.0,32,mulher,11.0,Branca,6120.0,1.0,sudeste
 32235010101.0,54,homem,5.0,Branca,,1.0,sudeste
 32235010102.0,43,mulher,11.0,Branca,12240.0,1.0,sudeste
-32235011101.0,28,homem,11.0,Preta,11190.000732421875,1.0,sudeste
+32235011101.0,28,homem,11.0,Preta,11190.000732421877,1.0,sudeste
 32235011102.0,25,mulher,11.0,Branca,,1.0,sudeste
 32236901101.0,48,homem,15.0,Parda,94080.0,1.0,sudeste
 32236901102.0,41,mulher,15.0,Branca,30912.0,1.0,sudeste
@@ -28503,7 +28503,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 32263608101.0,44,homem,5.0,Branca,5378.400390625,1.0,sudeste
 32263608102.0,33,mulher,6.0,Branca,5826.599609375,1.0,sudeste
 32263609101.0,41,homem,5.0,Branca,5702.400390625,1.0,sudeste
-32263609102.0,47,mulher,12.0,Preta,475.20001220703125,1.0,sudeste
+32263609102.0,47,mulher,12.0,Preta,475.2000122070313,1.0,sudeste
 32263611102.0,42,mulher,15.0,Branca,22848.0,0.0,sudeste
 32263613101.0,44,homem,5.0,Preta,5577.599609375,1.0,sudeste
 32263613102.0,40,mulher,12.0,Parda,,1.0,sudeste
@@ -29140,7 +29140,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 32296206102.0,45,mulher,5.0,Parda,1512.0,1.0,sudeste
 32296206103.0,21,mulher,11.0,Parda,6227.2001953125,0.0,sudeste
 32296207101.0,43,homem,15.0,Branca,116100.0,1.0,sudeste
-32296207102.0,41,mulher,15.0,Parda,18716.400024414066,1.0,sudeste
+32296207102.0,41,mulher,15.0,Parda,18716.400024414062,1.0,sudeste
 32296208101.0,57,homem,14.0,Branca,,1.0,sudeste
 32296208102.0,56,mulher,5.0,Branca,,1.0,sudeste
 32296209102.0,22,mulher,11.0,Branca,5378.400390625,0.0,sudeste
@@ -29669,7 +29669,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 32320911102.0,49,mulher,5.0,Branca,424.3200073242188,1.0,sudeste
 32320912101.0,36,homem,5.0,Preta,515.0,1.0,sudeste
 32320912102.0,31,mulher,5.0,Branca,,1.0,sudeste
-32320913101.0,39,homem,5.0,Branca,427.45001220703125,1.0,sudeste
+32320913101.0,39,homem,5.0,Branca,427.4500122070313,1.0,sudeste
 32320913102.0,30,mulher,9.0,Branca,,1.0,sudeste
 32320914101.0,45,homem,7.0,Branca,-1.0,1.0,sudeste
 32320914102.0,46,mulher,5.0,Preta,,1.0,sudeste
@@ -29733,7 +29733,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 32322508101.0,29,homem,5.0,Branca,10791.240234375,1.0,sudeste
 32322508102.0,35,mulher,5.0,Branca,,1.0,sudeste
 32322510102.0,50,mulher,5.0,Parda,,0.0,sudeste
-32322511101.0,51,homem,11.0,Parda,11600.880126953125,1.0,sudeste
+32322511101.0,51,homem,11.0,Parda,11600.880126953123,1.0,sudeste
 32322511102.0,42,mulher,8.0,Branca,1915.2000732421875,1.0,sudeste
 32322512101.0,31,homem,5.0,Branca,10752.0,1.0,sudeste
 32322512102.0,51,mulher,5.0,Branca,1036.800048828125,1.0,sudeste
@@ -29742,7 +29742,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 32322514102.0,31,mulher,5.0,Branca,,1.0,sudeste
 32322516102.0,46,homem,5.0,Branca,4995.0,0.0,sudeste
 32322516103.0,23,mulher,11.0,Branca,,0.0,sudeste
-32322518101.0,44,homem,5.0,Branca,11769.239990234375,1.0,sudeste
+32322518101.0,44,homem,5.0,Branca,11769.239990234377,1.0,sudeste
 32322518102.0,38,mulher,11.0,Parda,,1.0,sudeste
 32323303102.0,48,mulher,5.0,Preta,,0.0,sudeste
 32323304101.0,41,homem,5.0,Parda,4788.0,1.0,sudeste
@@ -30647,7 +30647,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 33035303103.0,22,homem,13.0,Preta,2079.0,0.0,sudeste
 33035304101.0,50,homem,11.0,Parda,495.0,1.0,sudeste
 33035304102.0,56,mulher,10.0,Branca,,1.0,sudeste
-33035304104.0,24,homem,11.0,Branca,6703.2000732421875,0.0,sudeste
+33035304104.0,24,homem,11.0,Branca,6703.200073242188,0.0,sudeste
 33035305102.0,30,mulher,13.0,Branca,,0.0,sudeste
 33035306101.0,49,mulher,11.0,Branca,1004.3999633789062,0.0,sudeste
 33035307101.0,47,homem,11.0,Branca,-1.0,1.0,sudeste
@@ -31319,7 +31319,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 33072808101.0,43,homem,5.0,Parda,2376.0,1.0,sudeste
 33072808102.0,43,mulher,5.0,Parda,,1.0,sudeste
 33072810101.0,33,mulher,5.0,Parda,1440.0,1.0,sudeste
-33072810102.0,30,homem,5.0,Parda,271.60000610351557,1.0,sudeste
+33072810102.0,30,homem,5.0,Parda,271.6000061035156,1.0,sudeste
 33072811101.0,41,mulher,15.0,Parda,18432.0,1.0,sudeste
 33072811102.0,42,homem,10.0,Parda,8064.0,1.0,sudeste
 33072812102.0,56,mulher,5.0,Preta,,0.0,sudeste
@@ -31742,7 +31742,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 33094903101.0,40,mulher,9.0,Parda,1257.449951171875,1.0,sudeste
 33094903102.0,47,homem,5.0,Parda,,1.0,sudeste
 33094904101.0,36,homem,5.0,Branca,10036.80078125,1.0,sudeste
-33094904102.0,36,mulher,5.0,Parda,7311.3599853515625,1.0,sudeste
+33094904102.0,36,mulher,5.0,Parda,7311.359985351562,1.0,sudeste
 33094909101.0,52,mulher,5.0,Branca,,0.0,sudeste
 33094909102.0,21,homem,11.0,Branca,1257.449951171875,0.0,sudeste
 33094910101.0,57,mulher,5.0,Branca,7200.0,0.0,sudeste
@@ -31953,7 +31953,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 33106616101.0,48,homem,11.0,Parda,,1.0,sudeste
 33106616102.0,45,mulher,15.0,Branca,,1.0,sudeste
 33106617101.0,52,mulher,12.0,Parda,8402.400390625,0.0,sudeste
-33106618102.0,55,mulher,7.0,Branca,5549.9996337890625,0.0,sudeste
+33106618102.0,55,mulher,7.0,Branca,5549.999633789063,0.0,sudeste
 33106618103.0,24,homem,8.0,Branca,734.4000244140625,0.0,sudeste
 33106618104.0,22,mulher,11.0,Branca,3959.099853515625,0.0,sudeste
 33106619101.0,57,mulher,12.0,Preta,3636.0,0.0,sudeste
@@ -31976,7 +31976,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 33107408101.0,46,homem,15.0,Preta,15759.0,1.0,sudeste
 33107408102.0,45,mulher,7.0,Parda,,1.0,sudeste
 33107409101.0,44,homem,11.0,Parda,12020.099609375,1.0,sudeste
-33107409102.0,42,mulher,9.0,Parda,427.45001220703125,1.0,sudeste
+33107409102.0,42,mulher,9.0,Parda,427.4500122070313,1.0,sudeste
 33107410101.0,42,homem,11.0,Branca,38316.0,1.0,sudeste
 33107410102.0,32,mulher,15.0,Branca,8762.10009765625,1.0,sudeste
 33107411102.0,58,mulher,15.0,Branca,115452.0,0.0,sudeste
@@ -32315,7 +32315,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 33127916101.0,31,homem,5.0,Parda,10926.0,1.0,sudeste
 33127916102.0,26,mulher,11.0,Branca,,1.0,sudeste
 33128701101.0,50,homem,9.0,Parda,9408.0,1.0,sudeste
-33128701102.0,40,mulher,5.0,Branca,5075.4497985839835,1.0,sudeste
+33128701102.0,40,mulher,5.0,Branca,5075.449798583984,1.0,sudeste
 33128701103.0,23,homem,8.0,Preta,7056.0,0.0,sudeste
 33128701105.0,21,homem,5.0,Branca,6976.80029296875,0.0,sudeste
 33128701106.0,20,mulher,10.0,Parda,1224.0,0.0,sudeste
@@ -32606,7 +32606,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 33142207102.0,59,mulher,12.0,Branca,999999.0,0.0,sudeste
 33142207103.0,41,homem,9.0,Branca,5524.2001953125,0.0,sudeste
 33142207104.0,42,mulher,11.0,Branca,,0.0,sudeste
-33142209102.0,26,homem,15.0,Branca,1417.2000274658205,0.0,sudeste
+33142209102.0,26,homem,15.0,Branca,1417.2000274658203,0.0,sudeste
 33142211102.0,30,homem,15.0,Branca,47520.0,0.0,sudeste
 33142213102.0,60,mulher,12.0,Branca,5050.0,0.0,sudeste
 33143002101.0,34,homem,15.0,Branca,11832.0,0.0,sudeste
@@ -32642,7 +32642,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 33145710105.0,33,mulher,11.0,Branca,7182.0,0.0,sudeste
 33145712101.0,42,homem,11.0,Parda,10858.19970703125,1.0,sudeste
 33145712102.0,42,mulher,11.0,Parda,2850.0,1.0,sudeste
-33146501101.0,34,mulher,10.0,Preta,6012.4000244140625,0.0,sudeste
+33146501101.0,34,mulher,10.0,Preta,6012.400024414063,0.0,sudeste
 33146503101.0,49,homem,9.0,Branca,13431.0,1.0,sudeste
 33146503102.0,46,mulher,6.0,Parda,-1.0,1.0,sudeste
 33146503103.0,21,mulher,5.0,Branca,,0.0,sudeste
@@ -33068,7 +33068,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 33160011101.0,25,homem,7.0,Branca,5809.2001953125,0.0,sudeste
 33160012102.0,45,homem,11.0,Parda,6300.0,0.0,sudeste
 33160012103.0,43,homem,12.0,Branca,6300.0,0.0,sudeste
-33160014101.0,29,homem,7.0,Branca,427.45001220703125,1.0,sudeste
+33160014101.0,29,homem,7.0,Branca,427.4500122070313,1.0,sudeste
 33160014102.0,23,mulher,6.0,Parda,300.0,1.0,sudeste
 33160016101.0,60,homem,15.0,Branca,0.0,1.0,sudeste
 33160016102.0,57,mulher,11.0,Branca,6666.0,1.0,sudeste
@@ -33848,7 +33848,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 35029008102.0,23,homem,11.0,Parda,3663.0,0.0,sudeste
 35029008103.0,26,homem,11.0,Preta,6160.0,0.0,sudeste
 35029008104.0,28,mulher,9.0,Branca,3888.0,0.0,sudeste
-35029009101.0,26,mulher,11.0,Branca,11905.680419921875,0.0,sudeste
+35029009101.0,26,mulher,11.0,Branca,11905.680419921877,0.0,sudeste
 35029010101.0,27,mulher,11.0,Branca,7254.60009765625,1.0,sudeste
 35029010102.0,32,homem,11.0,Branca,8918.0,1.0,sudeste
 35029011101.0,32,mulher,11.0,Branca,13080.0,1.0,sudeste
@@ -34057,7 +34057,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 35039708103.0,27,mulher,15.0,Branca,6381.900390625,0.0,sudeste
 35039709101.0,34,homem,5.0,Parda,10882.0,1.0,sudeste
 35039709102.0,28,mulher,11.0,Parda,13560.0,1.0,sudeste
-35039710101.0,25,homem,5.0,Preta,7254.6002197265625,0.0,sudeste
+35039710101.0,25,homem,5.0,Preta,7254.600219726562,0.0,sudeste
 35039710104.0,22,homem,11.0,Preta,2260.0,0.0,sudeste
 35039712101.0,23,homem,11.0,Branca,12628.0,0.0,sudeste
 35039713101.0,49,homem,11.0,Branca,10848.0,1.0,sudeste
@@ -35320,7 +35320,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 35101602101.0,53,homem,10.0,Branca,999999.0,1.0,sudeste
 35101602102.0,38,mulher,11.0,Parda,7200.0,1.0,sudeste
 35101604101.0,24,homem,12.0,Branca,11124.0,1.0,sudeste
-35101604102.0,22,mulher,12.0,Branca,6997.9000244140625,1.0,sudeste
+35101604102.0,22,mulher,12.0,Branca,6997.900024414063,1.0,sudeste
 35101605101.0,45,homem,11.0,Parda,463.5,1.0,sudeste
 35101605102.0,57,mulher,11.0,Branca,8484.0,1.0,sudeste
 35101606101.0,50,homem,15.0,Parda,24240.0,1.0,sudeste
@@ -35536,7 +35536,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 35112110102.0,32,mulher,11.0,Branca,13860.0,1.0,sudeste
 35112112101.0,46,homem,8.0,Parda,33900.0,1.0,sudeste
 35112112102.0,37,mulher,11.0,Parda,81.5999984741211,1.0,sudeste
-35112112103.0,22,homem,11.0,Parda,414.20001220703125,0.0,sudeste
+35112112103.0,22,homem,11.0,Parda,414.2000122070313,0.0,sudeste
 35112113101.0,37,homem,14.0,Branca,12720.0,1.0,sudeste
 35112113102.0,37,mulher,15.0,Parda,12600.0,1.0,sudeste
 35113001101.0,49,homem,6.0,Branca,8820.0,1.0,sudeste
@@ -36162,7 +36162,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 35144012101.0,29,homem,5.0,Branca,13560.0,0.0,sudeste
 35144013101.0,37,homem,5.0,Branca,9220.7998046875,0.0,sudeste
 35145801101.0,48,homem,11.0,Branca,12615.0,1.0,sudeste
-35145801102.0,42,mulher,11.0,Branca,11961.239990234375,1.0,sudeste
+35145801102.0,42,mulher,11.0,Branca,11961.239990234377,1.0,sudeste
 35145802101.0,37,mulher,5.0,Branca,8676.35986328125,0.0,sudeste
 35145803101.0,33,mulher,5.0,Parda,1944.0,0.0,sudeste
 35145804101.0,33,homem,5.0,Branca,11044.80078125,1.0,sudeste
@@ -36691,7 +36691,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 35169510101.0,23,homem,10.0,Parda,9805.400146484377,1.0,sudeste
 35169510102.0,22,mulher,11.0,Parda,12335.279296875,1.0,sudeste
 35169512103.0,31,homem,10.0,Parda,8888.0,0.0,sudeste
-35169512104.0,20,homem,11.0,Parda,3130.1699829101562,0.0,sudeste
+35169512104.0,20,homem,11.0,Parda,3130.169982910156,0.0,sudeste
 35169513101.0,57,mulher,5.0,Parda,13596.0,0.0,sudeste
 35170901102.0,59,mulher,5.0,Branca,,0.0,sudeste
 35170901103.0,31,homem,11.0,Branca,18180.0,0.0,sudeste
@@ -37595,7 +37595,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 35215210102.0,57,mulher,15.0,Branca,,1.0,sudeste
 35215210103.0,20,homem,13.0,Branca,6870.10009765625,0.0,sudeste
 35215211102.0,55,mulher,5.0,Branca,,0.0,sudeste
-35215211103.0,30,homem,15.0,Branca,11755.199951171875,0.0,sudeste
+35215211103.0,30,homem,15.0,Branca,11755.199951171877,0.0,sudeste
 35215211104.0,25,homem,11.0,Branca,0.0,0.0,sudeste
 35215212101.0,52,mulher,5.0,Branca,15288.0,0.0,sudeste
 35215212102.0,31,homem,7.0,Branca,,0.0,sudeste
@@ -37656,7 +37656,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 35217917102.0,42,mulher,5.0,Branca,,1.0,sudeste
 35217918101.0,50,homem,12.0,Branca,,1.0,sudeste
 35217918102.0,49,mulher,5.0,Branca,21780.0,1.0,sudeste
-35217919101.0,35,homem,11.0,Branca,6757.4000244140625,1.0,sudeste
+35217919101.0,35,homem,11.0,Branca,6757.400024414063,1.0,sudeste
 35217919102.0,32,mulher,11.0,Branca,4248.0,1.0,sudeste
 35217921101.0,42,mulher,7.0,Branca,485.8999938964844,1.0,sudeste
 35217921102.0,50,homem,9.0,Branca,4827.35986328125,1.0,sudeste
@@ -37737,7 +37737,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 35220909102.0,52,mulher,11.0,Parda,8424.0,1.0,sudeste
 35220909103.0,21,homem,15.0,Parda,1404.0,0.0,sudeste
 35220910101.0,23,homem,11.0,Branca,8407.19921875,1.0,sudeste
-35220910102.0,25,mulher,11.0,Branca,1044.1199951171877,1.0,sudeste
+35220910102.0,25,mulher,11.0,Branca,1044.1199951171875,1.0,sudeste
 35220911101.0,51,mulher,15.0,Branca,67968.0,0.0,sudeste
 35220911102.0,20,mulher,12.0,Branca,,0.0,sudeste
 35220912101.0,42,homem,11.0,Branca,20966.3984375,1.0,sudeste
@@ -37878,7 +37878,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 35227602102.0,37,mulher,11.0,Amarela,24192.0,1.0,sudeste
 35227603101.0,54,homem,15.0,Branca,90720.0,1.0,sudeste
 35227603102.0,52,mulher,5.0,Branca,0.0,1.0,sudeste
-35227604101.0,55,homem,5.0,Branca,13.079999923706055,1.0,sudeste
+35227604101.0,55,homem,5.0,Branca,13.079999923706056,1.0,sudeste
 35227604102.0,53,mulher,5.0,Branca,,1.0,sudeste
 35227604103.0,25,mulher,12.0,Branca,,0.0,sudeste
 35227606101.0,48,homem,15.0,Branca,10988.1201171875,1.0,sudeste
@@ -38182,7 +38182,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 35238109101.0,43,mulher,9.0,Branca,7458.0,1.0,sudeste
 35238109102.0,43,homem,5.0,Branca,2178.0,1.0,sudeste
 35238109103.0,20,homem,11.0,Branca,8701.0,0.0,sudeste
-35238110101.0,27,homem,11.0,Branca,5528.4000244140625,1.0,sudeste
+35238110101.0,27,homem,11.0,Branca,5528.400024414063,1.0,sudeste
 35238110102.0,27,mulher,11.0,Parda,3465.0,1.0,sudeste
 35238111101.0,47,homem,5.0,Parda,5558.399993896484,1.0,sudeste
 35238111102.0,45,mulher,5.0,Parda,,1.0,sudeste
@@ -38296,7 +38296,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 35241117102.0,49,mulher,8.0,Branca,8064.0,1.0,sudeste
 35241117103.0,23,homem,12.0,Branca,13560.0,0.0,sudeste
 35242001102.0,46,homem,,Parda,1120.0,0.0,sudeste
-35242001103.0,27,homem,11.0,Parda,10313.600402832033,0.0,sudeste
+35242001103.0,27,homem,11.0,Parda,10313.600402832031,0.0,sudeste
 35242001104.0,26,mulher,11.0,Parda,8136.0,0.0,sudeste
 35242002101.0,24,homem,11.0,Parda,8224.0,1.0,sudeste
 35242002102.0,25,mulher,11.0,Parda,3822.699951171875,1.0,sudeste
@@ -39077,7 +39077,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 35268312102.0,25,mulher,11.0,Branca,,1.0,sudeste
 35268313101.0,35,homem,9.0,Branca,-1.0,1.0,sudeste
 35268313102.0,31,mulher,11.0,Branca,,1.0,sudeste
-35268315101.0,41,mulher,5.0,Parda,1046.4000244140623,1.0,sudeste
+35268315101.0,41,mulher,5.0,Parda,1046.4000244140625,1.0,sudeste
 35268315102.0,44,homem,5.0,Preta,,1.0,sudeste
 35268316102.0,60,mulher,5.0,Parda,,0.0,sudeste
 35268317101.0,30,homem,11.0,Branca,7063.19970703125,0.0,sudeste
@@ -39454,7 +39454,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 35281001102.0,44,mulher,10.0,Branca,,1.0,sudeste
 35281001103.0,22,mulher,15.0,Branca,5604.7998046875,0.0,sudeste
 35281003101.0,30,homem,6.0,Parda,4429.5999755859375,1.0,sudeste
-35281003102.0,34,mulher,8.0,Parda,1039.5999755859377,1.0,sudeste
+35281003102.0,34,mulher,8.0,Parda,1039.5999755859375,1.0,sudeste
 35281004101.0,32,homem,5.0,Branca,11730.0,0.0,sudeste
 35281005102.0,51,mulher,5.0,Branca,,0.0,sudeste
 35281005103.0,30,homem,5.0,Branca,,0.0,sudeste
@@ -40649,7 +40649,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 41064005101.0,49,mulher,5.0,Parda,15840.0,1.0,sul
 41064005102.0,51,homem,5.0,Parda,6105.0,1.0,sul
 41064007101.0,46,homem,5.0,Parda,,0.0,sul
-41064009101.0,31,mulher,5.0,Parda,5762.2000732421875,0.0,sul
+41064009101.0,31,mulher,5.0,Parda,5762.200073242188,0.0,sul
 41064010101.0,53,homem,11.0,Branca,19662.0,1.0,sul
 41064010102.0,47,mulher,5.0,Branca,8000.400390625,1.0,sul
 41064011101.0,34,homem,11.0,Branca,10791.0,0.0,sul
@@ -40925,7 +40925,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 41082902102.0,48,mulher,11.0,Branca,8736.0,1.0,sul
 41082902103.0,25,homem,11.0,Branca,12480.0,0.0,sul
 41082904101.0,58,homem,15.0,Parda,9072.0,0.0,sul
-41082904103.0,33,homem,11.0,Branca,11039.699951171875,0.0,sul
+41082904103.0,33,homem,11.0,Branca,11039.699951171877,0.0,sul
 41082905101.0,43,mulher,15.0,Branca,70887.6015625,0.0,sul
 41082906103.0,25,homem,15.0,Branca,41640.0,0.0,sul
 41082908101.0,56,homem,5.0,Parda,,1.0,sul
@@ -41078,7 +41078,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 41089603102.0,21,mulher,11.0,Branca,7272.0,1.0,sul
 41089604102.0,56,mulher,5.0,Branca,,0.0,sul
 41089605101.0,55,mulher,8.0,Branca,7852.26025390625,0.0,sul
-41089605102.0,25,mulher,5.0,Branca,11026.649658203125,0.0,sul
+41089605102.0,25,mulher,5.0,Branca,11026.649658203123,0.0,sul
 41089605103.0,22,homem,11.0,Parda,5523.2998046875,0.0,sul
 41089607101.0,25,homem,10.0,Parda,6996.0,1.0,sul
 41089607102.0,23,mulher,7.0,Parda,,1.0,sul
@@ -41197,7 +41197,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 41094204102.0,38,mulher,13.0,Branca,5148.0,1.0,sul
 41094205101.0,25,homem,,Branca,13200.0,1.0,sul
 41094205102.0,25,mulher,11.0,Branca,6217.19970703125,1.0,sul
-41094206101.0,36,homem,5.0,Parda,6400.4801025390625,1.0,sul
+41094206101.0,36,homem,5.0,Parda,6400.480102539063,1.0,sul
 41094206102.0,29,mulher,5.0,Parda,5654.0001220703125,1.0,sul
 41094207101.0,38,homem,11.0,Branca,25660.0,1.0,sul
 41094207102.0,37,mulher,5.0,Branca,7390.19970703125,1.0,sul
@@ -41452,7 +41452,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 41105107102.0,50,mulher,5.0,Parda,,1.0,sul
 41105107103.0,21,homem,11.0,Parda,4372.2001953125,0.0,sul
 41105108101.0,26,homem,7.0,Parda,7068.599609375,1.0,sul
-41105108102.0,24,mulher,8.0,Parda,2995.2600708007812,1.0,sul
+41105108102.0,24,mulher,8.0,Parda,2995.260070800781,1.0,sul
 41105109101.0,44,homem,5.0,Branca,5467.43994140625,1.0,sul
 41105109102.0,44,mulher,5.0,Parda,,1.0,sul
 41105109103.0,26,mulher,10.0,Parda,,0.0,sul
@@ -41634,7 +41634,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 41114009101.0,52,mulher,5.0,Parda,,0.0,sul
 41114010103.0,42,homem,9.0,Branca,7800.0,0.0,sul
 41114011103.0,44,mulher,15.0,Parda,46368.0,0.0,sul
-41114012101.0,40,mulher,8.0,Branca,1123.2000732421877,0.0,sul
+41114012101.0,40,mulher,8.0,Branca,1123.2000732421875,0.0,sul
 41114012102.0,23,mulher,11.0,Branca,5712.0,0.0,sul
 41114013101.0,33,homem,5.0,Branca,1526.39990234375,1.0,sul
 41114013102.0,36,mulher,8.0,Branca,1050.0,1.0,sul
@@ -42058,7 +42058,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 41137001101.0,26,mulher,11.0,Branca,2268.840087890625,1.0,sul
 41137001102.0,36,homem,6.0,Branca,,1.0,sul
 41137002101.0,60,mulher,5.0,Branca,,0.0,sul
-41137002102.0,23,homem,11.0,Branca,1025.6400146484377,0.0,sul
+41137002102.0,23,homem,11.0,Branca,1025.6400146484375,0.0,sul
 41137002103.0,30,mulher,11.0,Branca,,0.0,sul
 41137003101.0,55,homem,5.0,Preta,530.0,1.0,sul
 41137003102.0,51,mulher,5.0,Preta,452.3500061035156,1.0,sul
@@ -42128,7 +42128,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 41139613102.0,26,mulher,10.0,Branca,7812.0,0.0,sul
 41139613103.0,23,homem,9.0,Branca,2525.0,0.0,sul
 41140001101.0,48,homem,11.0,Parda,1024.530029296875,1.0,sul
-41140001102.0,43,mulher,12.0,Parda,38.849998474121094,1.0,sul
+41140001102.0,43,mulher,12.0,Parda,38.84999847412109,1.0,sul
 41140001103.0,22,homem,11.0,Parda,1198.800048828125,0.0,sul
 41140002101.0,43,homem,8.0,Parda,2750.580078125,1.0,sul
 41140002102.0,41,mulher,5.0,Parda,,1.0,sul
@@ -42474,7 +42474,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 41156609106.0,22,homem,9.0,Parda,11118.0,0.0,sul
 41156610102.0,44,mulher,8.0,Preta,,0.0,sul
 41156611102.0,52,mulher,5.0,Parda,,0.0,sul
-41156611103.0,24,homem,8.0,Parda,13388.550048828125,0.0,sul
+41156611103.0,24,homem,8.0,Parda,13388.550048828123,0.0,sul
 41156611104.0,21,mulher,10.0,Parda,2817.89990234375,0.0,sul
 41156612101.0,31,mulher,13.0,Branca,11878.560546875,0.0,sul
 41156613101.0,43,homem,8.0,Parda,9245.25,1.0,sul
@@ -42597,7 +42597,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 41162006103.0,23,mulher,11.0,Branca,7093.19970703125,0.0,sul
 41162006104.0,21,homem,11.0,Branca,7920.0,0.0,sul
 41162007101.0,29,homem,10.0,Branca,5280.0,1.0,sul
-41162007102.0,30,mulher,11.0,Branca,5149.4001960754385,1.0,sul
+41162007102.0,30,mulher,11.0,Branca,5149.400196075439,1.0,sul
 41162008101.0,23,mulher,8.0,Branca,1666.5,0.0,sul
 41162009101.0,58,homem,9.0,Parda,37080.0,1.0,sul
 41162009102.0,45,mulher,14.0,Branca,23366.998046875,1.0,sul
@@ -42997,7 +42997,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 41182504102.0,20,mulher,10.0,Branca,6177.599609375,0.0,sul
 41182505101.0,48,homem,11.0,Branca,7365.599609375,0.0,sul
 41182506101.0,48,homem,11.0,Branca,7200.0,0.0,sul
-41182507101.0,27,mulher,8.0,Branca,7060.4000244140625,0.0,sul
+41182507101.0,27,mulher,8.0,Branca,7060.400024414063,0.0,sul
 41182508103.0,40,homem,5.0,Branca,12000.0,0.0,sul
 41182509101.0,40,homem,7.0,Branca,-1.0,1.0,sul
 41182509102.0,34,mulher,11.0,Branca,2660.350006103516,1.0,sul
@@ -43337,7 +43337,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 41198111102.0,43,mulher,15.0,Branca,3170.0,1.0,sul
 41198112101.0,44,homem,11.0,Branca,7692.16015625,0.0,sul
 41198113101.0,45,mulher,12.0,Parda,8120.400390625,0.0,sul
-41199001101.0,28,homem,11.0,Branca,15883.199951171875,1.0,sul
+41199001101.0,28,homem,11.0,Branca,15883.199951171877,1.0,sul
 41199001102.0,31,mulher,6.0,Branca,,1.0,sul
 41199003101.0,31,homem,11.0,Branca,21648.0,1.0,sul
 41199003102.0,45,mulher,8.0,Branca,0.0,1.0,sul
@@ -43493,7 +43493,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 41204012103.0,21,mulher,11.0,Branca,1381.050048828125,0.0,sul
 41204013101.0,49,homem,13.0,Branca,17460.0,1.0,sul
 41204013102.0,41,mulher,12.0,Branca,,1.0,sul
-41204015101.0,32,homem,5.0,Parda,9994.700012207033,1.0,sul
+41204015101.0,32,homem,5.0,Parda,9994.700012207031,1.0,sul
 41204015102.0,34,mulher,5.0,Branca,,1.0,sul
 41204016102.0,38,homem,5.0,Branca,,0.0,sul
 41204016103.0,34,homem,5.0,Branca,,0.0,sul
@@ -44251,7 +44251,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 41228708101.0,37,homem,5.0,Branca,7355.400146484375,1.0,sul
 41228708102.0,24,mulher,5.0,Parda,490.5,1.0,sul
 41228709101.0,40,homem,6.0,Parda,10009.7998046875,1.0,sul
-41228709102.0,38,mulher,5.0,Branca,6507.2401123046875,1.0,sul
+41228709102.0,38,mulher,5.0,Branca,6507.240112304688,1.0,sul
 41228710101.0,49,homem,12.0,Branca,14400.0,1.0,sul
 41228710102.0,43,mulher,11.0,Branca,0.0,1.0,sul
 41228710103.0,21,homem,15.0,Branca,2169.0900268554688,0.0,sul
@@ -45822,7 +45822,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 42081607101.0,24,homem,9.0,Branca,7742.5205078125,1.0,sul
 42081607102.0,23,mulher,6.0,Branca,4788.0,1.0,sul
 42081608101.0,59,mulher,5.0,Branca,7704.0,0.0,sul
-42081608103.0,31,mulher,5.0,Branca,6419.6500244140625,0.0,sul
+42081608103.0,31,mulher,5.0,Branca,6419.650024414063,0.0,sul
 42081609101.0,32,homem,5.0,Preta,5906.400390625,0.0,sul
 42081610101.0,37,homem,5.0,Preta,8286.0,1.0,sul
 42081610102.0,29,mulher,5.0,Preta,,1.0,sul
@@ -46171,7 +46171,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 42098005101.0,23,homem,11.0,Branca,5366.400390625,1.0,sul
 42098005102.0,27,mulher,11.0,Branca,5179.2001953125,1.0,sul
 42098006103.0,25,homem,9.0,Branca,11232.0,0.0,sul
-42098006105.0,20,mulher,10.0,Branca,445.20001220703125,0.0,sul
+42098006105.0,20,mulher,10.0,Branca,445.2000122070313,0.0,sul
 42098007101.0,45,mulher,7.0,Parda,4979.940002441406,0.0,sul
 42098007104.0,21,mulher,11.0,Parda,5141.400268554688,0.0,sul
 42098007105.0,26,homem,11.0,Branca,,0.0,sul
@@ -47225,7 +47225,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 42153709102.0,43,homem,9.0,Branca,408.0,1.0,sul
 42153711101.0,23,homem,11.0,Branca,1712.0,0.0,sul
 42153711102.0,24,homem,13.0,Branca,6380.0,0.0,sul
-42153713101.0,24,homem,14.0,Branca,12164.800048828125,0.0,sul
+42153713101.0,24,homem,14.0,Branca,12164.800048828123,0.0,sul
 42153713102.0,23,homem,10.0,Branca,10302.0,0.0,sul
 42153717101.0,43,mulher,15.0,Branca,7615.81982421875,0.0,sul
 42154501101.0,40,homem,11.0,Branca,12960.0,0.0,sul
@@ -47866,7 +47866,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 42175817103.0,23,homem,11.0,Branca,8760.0,0.0,sul
 42175818101.0,59,homem,5.0,Parda,4824.0,1.0,sul
 42175818102.0,57,mulher,5.0,Branca,,1.0,sul
-42176603101.0,39,mulher,5.0,Branca,382.20001220703125,0.0,sul
+42176603101.0,39,mulher,5.0,Branca,382.2000122070313,0.0,sul
 42176604101.0,54,homem,5.0,Parda,12936.0,1.0,sul
 42176604102.0,48,mulher,5.0,Parda,0.0,1.0,sul
 42176604103.0,21,homem,11.0,Parda,0.0,0.0,sul
@@ -48940,7 +48940,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43054406102.0,31,homem,13.0,Branca,16536.0,0.0,sul
 43054406103.0,26,homem,13.0,Branca,16536.0,0.0,sul
 43054407101.0,56,homem,11.0,Branca,25956.0,1.0,sul
-43054407102.0,43,mulher,11.0,Branca,427.45001220703125,1.0,sul
+43054407102.0,43,mulher,11.0,Branca,427.4500122070313,1.0,sul
 43054411101.0,54,homem,11.0,Preta,2400.0,0.0,sul
 43054411102.0,26,mulher,,Preta,5616.0,0.0,sul
 43054412102.0,57,mulher,11.0,Branca,15600.0,0.0,sul
@@ -49370,7 +49370,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43076511101.0,59,homem,5.0,Branca,13153.67919921875,0.0,sul
 43076511103.0,20,mulher,9.0,Branca,,0.0,sul
 43076513101.0,22,homem,11.0,Branca,7041.959716796875,0.0,sul
-43077301101.0,57,mulher,9.0,Preta,11980.800048828125,0.0,sul
+43077301101.0,57,mulher,9.0,Preta,11980.800048828123,0.0,sul
 43077301102.0,25,mulher,11.0,Parda,,0.0,sul
 43077302101.0,25,homem,8.0,Branca,1333.47998046875,1.0,sul
 43077302102.0,26,mulher,5.0,Branca,,1.0,sul
@@ -49776,7 +49776,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43099406102.0,58,mulher,15.0,Branca,10408.80029296875,1.0,sul
 43099406103.0,24,homem,13.0,Branca,10836.0,0.0,sul
 43099407102.0,49,mulher,8.0,Branca,,0.0,sul
-43099408101.0,34,mulher,15.0,Branca,12611.199951171875,0.0,sul
+43099408101.0,34,mulher,15.0,Branca,12611.199951171877,0.0,sul
 43099409101.0,49,mulher,15.0,Branca,3780.0,0.0,sul
 43099410102.0,25,homem,7.0,Branca,14124.0,0.0,sul
 43099410103.0,24,mulher,,Branca,1498.0,0.0,sul
@@ -49891,7 +49891,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43105210101.0,47,mulher,8.0,Branca,20808.0,1.0,sul
 43105210102.0,50,homem,11.0,Branca,5003.3203125,1.0,sul
 43105210103.0,28,homem,13.0,Branca,10876.80078125,0.0,sul
-43105210104.0,23,homem,11.0,Branca,13902.910400390625,0.0,sul
+43105210104.0,23,homem,11.0,Branca,13902.910400390623,0.0,sul
 43105211101.0,49,homem,15.0,Branca,0.0,1.0,sul
 43105211102.0,30,mulher,15.0,Branca,,1.0,sul
 43105212102.0,45,mulher,15.0,Branca,,0.0,sul
@@ -49957,7 +49957,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43109508101.0,54,mulher,5.0,Parda,,0.0,sul
 43109510101.0,20,mulher,7.0,Parda,,1.0,sul
 43109510102.0,28,homem,5.0,Parda,3708.0,1.0,sul
-43109511101.0,40,mulher,11.0,Branca,9397.880065917967,0.0,sul
+43109511101.0,40,mulher,11.0,Branca,9397.880065917969,0.0,sul
 43109512101.0,45,homem,8.0,Parda,5871.0,1.0,sul
 43109512102.0,35,mulher,9.0,Parda,504.0,1.0,sul
 43110901101.0,22,mulher,7.0,Amarela,-1.0,0.0,sul
@@ -49975,11 +49975,11 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43110907102.0,45,mulher,6.0,Branca,-1.0,1.0,sul
 43110908101.0,28,homem,6.0,Parda,12326.3994140625,1.0,sul
 43110908102.0,23,mulher,7.0,Branca,7527.759765625,1.0,sul
-43110910101.0,41,homem,5.0,Parda,11570.699951171875,1.0,sul
+43110910101.0,41,homem,5.0,Parda,11570.699951171877,1.0,sul
 43110910102.0,33,mulher,9.0,Branca,8051.900146484375,1.0,sul
 43110910105.0,30,mulher,5.0,Branca,,0.0,sul
 43110911101.0,54,homem,5.0,Branca,10015.19921875,1.0,sul
-43110911102.0,50,mulher,5.0,Branca,3253.5999145507812,1.0,sul
+43110911102.0,50,mulher,5.0,Branca,3253.599914550781,1.0,sul
 43110912101.0,60,homem,5.0,Amarela,10111.5,1.0,sul
 43110912102.0,53,mulher,5.0,Branca,4430.25,1.0,sul
 43110912103.0,34,homem,8.0,Branca,6240.039794921875,0.0,sul
@@ -50185,7 +50185,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43120608103.0,23,mulher,6.0,Parda,3744.0,0.0,sul
 43120609101.0,45,mulher,5.0,Parda,2436.0,0.0,sul
 43120612101.0,43,homem,5.0,Parda,10560.0,1.0,sul
-43120612102.0,39,mulher,6.0,Branca,15312.000244140625,1.0,sul
+43120612102.0,39,mulher,6.0,Branca,15312.000244140623,1.0,sul
 43120612103.0,20,mulher,9.0,Parda,8520.0,0.0,sul
 43120613101.0,35,homem,5.0,Branca,10200.0,1.0,sul
 43120613102.0,35,mulher,11.0,Parda,8250.0,1.0,sul
@@ -50553,7 +50553,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43139712101.0,55,homem,5.0,Branca,11014.19921875,1.0,sul
 43139712102.0,51,mulher,12.0,Branca,1836.0,1.0,sul
 43140003101.0,23,homem,15.0,Branca,22339.19921875,1.0,sul
-43140003102.0,22,mulher,11.0,Branca,9155.519714355467,1.0,sul
+43140003102.0,22,mulher,11.0,Branca,9155.519714355469,1.0,sul
 43140005101.0,52,homem,11.0,Branca,,1.0,sul
 43140005102.0,46,mulher,15.0,Branca,42186.59765625,1.0,sul
 43140005103.0,21,mulher,12.0,Branca,6300.0,0.0,sul
@@ -50913,7 +50913,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43158301101.0,41,homem,5.0,Branca,9064.0,1.0,sul
 43158301102.0,37,mulher,5.0,Branca,3012.0,1.0,sul
 43158302102.0,51,mulher,15.0,Branca,13631.3603515625,0.0,sul
-43158303101.0,47,homem,5.0,Branca,1052.6400146484377,1.0,sul
+43158303101.0,47,homem,5.0,Branca,1052.6400146484375,1.0,sul
 43158303102.0,35,mulher,5.0,Branca,2824.7998046875,1.0,sul
 43158304101.0,44,homem,5.0,Branca,0.0,1.0,sul
 43158304102.0,40,mulher,10.0,Branca,,1.0,sul
@@ -50931,7 +50931,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43158313102.0,53,mulher,5.0,Branca,2564.7001953125,1.0,sul
 43158313103.0,24,homem,5.0,Branca,2564.7001953125,0.0,sul
 43158314101.0,42,homem,5.0,Branca,3014.5,1.0,sul
-43158314102.0,40,mulher,8.0,Branca,1102.0999755859377,1.0,sul
+43158314102.0,40,mulher,8.0,Branca,1102.0999755859375,1.0,sul
 43158315101.0,36,homem,6.0,Branca,43380.0,1.0,sul
 43158315102.0,31,mulher,6.0,Branca,19980.0,1.0,sul
 43158315105.0,22,mulher,13.0,Branca,0.0,0.0,sul
@@ -51061,7 +51061,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43163010101.0,44,homem,5.0,Parda,3337.2001953125,1.0,sul
 43163010102.0,35,mulher,5.0,Parda,0.0,1.0,sul
 43163011101.0,60,homem,5.0,Branca,,0.0,sul
-43163012101.0,42,homem,5.0,Parda,7677.3599853515625,0.0,sul
+43163012101.0,42,homem,5.0,Parda,7677.359985351562,0.0,sul
 43163013101.0,43,homem,11.0,Branca,5475.599609375,1.0,sul
 43163013102.0,35,mulher,8.0,Branca,4326.0,1.0,sul
 43163014101.0,36,homem,8.0,Preta,3030.300048828125,1.0,sul
@@ -51142,7 +51142,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43167203101.0,48,homem,5.0,Branca,18566.6396484375,1.0,sul
 43167203102.0,34,mulher,5.0,Branca,4032.0,1.0,sul
 43167204101.0,35,homem,5.0,Branca,6360.0,1.0,sul
-43167204102.0,29,mulher,5.0,Branca,10810.799987792967,1.0,sul
+43167204102.0,29,mulher,5.0,Branca,10810.799987792969,1.0,sul
 43167205101.0,40,homem,5.0,Branca,12535.200012207031,1.0,sul
 43167205102.0,35,mulher,5.0,Preta,0.0,1.0,sul
 43167206101.0,28,homem,6.0,Branca,8357.0400390625,1.0,sul
@@ -51282,7 +51282,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43171020101.0,55,homem,5.0,Preta,5301.0,1.0,sul
 43171020102.0,47,mulher,5.0,Preta,,1.0,sul
 43172902101.0,48,homem,5.0,Branca,4662.0,0.0,sul
-43172902102.0,23,homem,5.0,Branca,7130.8199462890625,0.0,sul
+43172902102.0,23,homem,5.0,Branca,7130.819946289063,0.0,sul
 43172902103.0,21,homem,7.0,Branca,10952.400146484377,0.0,sul
 43172903101.0,60,homem,9.0,Branca,11232.0,1.0,sul
 43172903102.0,57,mulher,5.0,Branca,,1.0,sul
@@ -51397,7 +51397,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43176105102.0,58,mulher,5.0,Branca,,0.0,sul
 43176105103.0,26,homem,8.0,Branca,12591.1201171875,0.0,sul
 43176105104.0,26,mulher,7.0,Branca,10812.0,0.0,sul
-43176106101.0,46,homem,6.0,Branca,12084.419677734375,1.0,sul
+43176106101.0,46,homem,6.0,Branca,12084.419677734377,1.0,sul
 43176106102.0,44,mulher,5.0,Branca,12804.23974609375,1.0,sul
 43176107101.0,57,mulher,5.0,Branca,1284.0,0.0,sul
 43176108101.0,48,homem,8.0,Branca,59530.0,0.0,sul
@@ -51561,7 +51561,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 43181813102.0,49,mulher,12.0,Branca,,1.0,sul
 43181814102.0,49,mulher,5.0,Parda,2542.320007324219,0.0,sul
 43181814103.0,51,homem,5.0,Parda,5778.0,0.0,sul
-43181815101.0,57,mulher,5.0,Branca,9446.399597167967,0.0,sul
+43181815101.0,57,mulher,5.0,Branca,9446.399597167969,0.0,sul
 43181816101.0,34,homem,5.0,Branca,10272.0,1.0,sul
 43181816102.0,33,mulher,5.0,Preta,756.0,1.0,sul
 43181817101.0,60,homem,5.0,Branca,4662.0,1.0,sul
@@ -52703,7 +52703,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 50045303102.0,51,homem,12.0,Branca,37440.0,1.0,centro-oeste
 50045304101.0,54,mulher,5.0,Branca,2496.0,0.0,centro-oeste
 50045307101.0,31,homem,5.0,Indigena,19080.0,1.0,centro-oeste
-50045307102.0,29,mulher,11.0,Branca,5635.9500732421875,1.0,centro-oeste
+50045307102.0,29,mulher,11.0,Branca,5635.950073242188,1.0,centro-oeste
 50045308101.0,29,homem,5.0,Branca,19440.0,0.0,centro-oeste
 50045309101.0,59,homem,5.0,Indigena,,0.0,centro-oeste
 50045310101.0,43,mulher,12.0,Parda,7544.69970703125,0.0,centro-oeste
@@ -53657,7 +53657,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 50085213108.0,38,homem,8.0,Parda,16268.8798828125,0.0,centro-oeste
 50086001101.0,55,homem,5.0,Branca,12840.0,1.0,centro-oeste
 50086001102.0,48,mulher,5.0,Parda,6097.919921875,1.0,centro-oeste
-50086001103.0,21,mulher,7.0,Parda,6693.4000244140625,0.0,centro-oeste
+50086001103.0,21,mulher,7.0,Parda,6693.400024414063,0.0,centro-oeste
 50086002101.0,45,homem,5.0,Parda,12600.0,1.0,centro-oeste
 50086002102.0,30,mulher,8.0,Branca,,1.0,centro-oeste
 50086003101.0,21,gestante,6.0,Branca,904.7000122070312,0.0,centro-oeste
@@ -53825,7 +53825,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 50093310102.0,31,mulher,5.0,Branca,,1.0,centro-oeste
 50093310106.0,26,mulher,11.0,Branca,1800.0,0.0,centro-oeste
 50093311101.0,32,homem,5.0,Branca,7140.0,1.0,centro-oeste
-50093311102.0,34,mulher,11.0,Branca,6146.4000244140625,1.0,centro-oeste
+50093311102.0,34,mulher,11.0,Branca,6146.400024414063,1.0,centro-oeste
 50093312103.0,32,mulher,11.0,Parda,,0.0,centro-oeste
 50093312104.0,39,mulher,5.0,Branca,,0.0,centro-oeste
 50093313101.0,28,homem,11.0,Parda,7500.0,1.0,centro-oeste
@@ -53840,7 +53840,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 50094104102.0,40,mulher,10.0,Parda,5029.7998046875,1.0,centro-oeste
 50094105101.0,31,homem,9.0,Branca,1590.0,1.0,centro-oeste
 50094105102.0,29,mulher,11.0,Branca,19440.0,1.0,centro-oeste
-50094106101.0,27,homem,11.0,Branca,12105.749755859375,1.0,centro-oeste
+50094106101.0,27,homem,11.0,Branca,12105.749755859377,1.0,centro-oeste
 50094106102.0,28,mulher,6.0,Branca,5029.7998046875,1.0,centro-oeste
 50094109101.0,36,homem,11.0,Parda,108000.0,1.0,centro-oeste
 50094109102.0,31,mulher,13.0,Branca,9696.0,1.0,centro-oeste
@@ -53898,7 +53898,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 50097601101.0,37,homem,5.0,Branca,63600.0,1.0,centro-oeste
 50097601102.0,32,mulher,15.0,Branca,10440.0,1.0,centro-oeste
 50097602101.0,29,homem,15.0,Branca,38880.0,1.0,centro-oeste
-50097602102.0,24,mulher,15.0,Branca,6739.2000732421875,1.0,centro-oeste
+50097602102.0,24,mulher,15.0,Branca,6739.200073242188,1.0,centro-oeste
 50097604101.0,50,homem,11.0,Branca,14544.0,1.0,centro-oeste
 50097604102.0,44,mulher,11.0,Branca,8820.0,1.0,centro-oeste
 50097604103.0,24,mulher,15.0,Branca,7272.0,0.0,centro-oeste
@@ -54401,11 +54401,11 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 50120404103.0,26,mulher,10.0,Parda,,0.0,centro-oeste
 50120405101.0,25,homem,5.0,Preta,5374.260009765625,1.0,centro-oeste
 50120405102.0,22,mulher,11.0,Preta,,1.0,centro-oeste
-50120406101.0,36,mulher,6.0,Branca,6328.8004150390625,0.0,centro-oeste
+50120406101.0,36,mulher,6.0,Branca,6328.800415039063,0.0,centro-oeste
 50120407101.0,45,mulher,7.0,Parda,,1.0,centro-oeste
 50120407102.0,43,homem,5.0,Parda,,1.0,centro-oeste
 50120408101.0,29,homem,7.0,Parda,5428.2001953125,1.0,centro-oeste
-50120408102.0,23,mulher,11.0,Parda,468.95001220703125,1.0,centro-oeste
+50120408102.0,23,mulher,11.0,Parda,468.9500122070313,1.0,centro-oeste
 50120409101.0,33,homem,9.0,Parda,19800.0,1.0,centro-oeste
 50120409102.0,31,mulher,11.0,Branca,7700.0,1.0,centro-oeste
 50120410101.0,28,homem,11.0,Parda,19800.0,1.0,centro-oeste
@@ -54440,7 +54440,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 50121211102.0,36,mulher,5.0,Parda,,1.0,centro-oeste
 50121211103.0,20,mulher,10.0,Branca,,0.0,centro-oeste
 50121212102.0,59,mulher,12.0,Parda,999999.0,0.0,centro-oeste
-50121213101.0,48,homem,10.0,Parda,1046.4000244140623,1.0,centro-oeste
+50121213101.0,48,homem,10.0,Parda,1046.4000244140625,1.0,centro-oeste
 50121213102.0,47,mulher,5.0,Parda,784.7999877929688,1.0,centro-oeste
 50121213103.0,23,homem,7.0,Parda,,0.0,centro-oeste
 50121213104.0,22,mulher,10.0,Parda,,0.0,centro-oeste
@@ -54522,7 +54522,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 50125502102.0,41,mulher,5.0,Parda,,1.0,centro-oeste
 50125503101.0,44,homem,11.0,Preta,1730.8800048828125,1.0,centro-oeste
 50125503102.0,29,mulher,8.0,Indigena,,1.0,centro-oeste
-50125504101.0,43,mulher,5.0,Parda,1046.4000244140623,0.0,centro-oeste
+50125504101.0,43,mulher,5.0,Parda,1046.4000244140625,0.0,centro-oeste
 50125505103.0,37,homem,11.0,Parda,6111.0,0.0,centro-oeste
 50125507101.0,28,homem,5.0,Parda,10054.80078125,1.0,centro-oeste
 50125507102.0,22,mulher,6.0,Parda,,1.0,centro-oeste
@@ -55065,7 +55065,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 50147602101.0,41,homem,5.0,Branca,10836.240234375,1.0,centro-oeste
 50147602102.0,38,mulher,5.0,Parda,,1.0,centro-oeste
 50147603101.0,26,homem,7.0,Parda,5820.0,1.0,centro-oeste
-50147603102.0,22,mulher,9.0,Parda,5621.6102294921875,1.0,centro-oeste
+50147603102.0,22,mulher,9.0,Parda,5621.610229492188,1.0,centro-oeste
 50147604101.0,35,homem,5.0,Parda,15552.0,1.0,centro-oeste
 50147604102.0,36,mulher,7.0,Parda,,1.0,centro-oeste
 50147605101.0,37,homem,5.0,Branca,15840.0,1.0,centro-oeste
@@ -55482,7 +55482,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 50160310101.0,57,homem,5.0,Branca,13092.0,1.0,centro-oeste
 50160310102.0,49,mulher,5.0,Parda,5580.0,1.0,centro-oeste
 50160311101.0,23,homem,11.0,Branca,9905.0,1.0,centro-oeste
-50160311102.0,23,mulher,11.0,Branca,39.599998474121094,1.0,centro-oeste
+50160311102.0,23,mulher,11.0,Branca,39.59999847412109,1.0,centro-oeste
 50160313101.0,33,homem,5.0,Branca,14004.0,0.0,centro-oeste
 50160314101.0,26,homem,5.0,Parda,10802.0,0.0,centro-oeste
 50160316101.0,42,homem,5.0,Parda,9996.0,1.0,centro-oeste
@@ -55590,7 +55590,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 50164607102.0,28,mulher,7.0,Parda,2520.0,1.0,centro-oeste
 50164608101.0,43,homem,6.0,Parda,8937.0,1.0,centro-oeste
 50164608102.0,45,mulher,5.0,Parda,3356.0,1.0,centro-oeste
-50164609101.0,56,homem,5.0,Preta,12487.800048828125,1.0,centro-oeste
+50164609101.0,56,homem,5.0,Preta,12487.800048828123,1.0,centro-oeste
 50164609102.0,50,mulher,5.0,Parda,0.0,1.0,centro-oeste
 50164610101.0,41,homem,9.0,Branca,10458.0,1.0,centro-oeste
 50164610102.0,46,mulher,5.0,Parda,9668.39990234375,1.0,centro-oeste
@@ -57795,7 +57795,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 51111007101.0,45,homem,8.0,Parda,18900.0,1.0,centro-oeste
 51111007102.0,46,mulher,5.0,Parda,,1.0,centro-oeste
 51111008101.0,37,homem,6.0,Branca,9072.0,0.0,centro-oeste
-51111010101.0,57,mulher,5.0,Parda,367.20001220703125,0.0,centro-oeste
+51111010101.0,57,mulher,5.0,Parda,367.2000122070313,0.0,centro-oeste
 51111010103.0,20,mulher,11.0,Parda,,0.0,centro-oeste
 51111011101.0,32,mulher,5.0,Parda,5229.0,0.0,centro-oeste
 51111012101.0,32,homem,9.0,Parda,13860.0,1.0,centro-oeste
@@ -58123,7 +58123,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 51126913101.0,32,homem,11.0,Preta,36540.0,1.0,centro-oeste
 51126913102.0,32,mulher,13.0,Branca,21750.0,1.0,centro-oeste
 51127701101.0,24,homem,9.0,Parda,18774.0,1.0,centro-oeste
-51127701102.0,24,mulher,11.0,Parda,1046.4000244140623,1.0,centro-oeste
+51127701102.0,24,mulher,11.0,Parda,1046.4000244140625,1.0,centro-oeste
 51127702101.0,50,homem,5.0,Branca,,1.0,centro-oeste
 51127702102.0,45,mulher,8.0,,5129.400390625,1.0,centro-oeste
 51127703101.0,46,homem,5.0,Preta,18900.0,1.0,centro-oeste
@@ -58467,7 +58467,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 51142005102.0,30,mulher,10.0,Parda,4800.0,1.0,centro-oeste
 51142006101.0,24,homem,5.0,Parda,9722.7294921875,1.0,centro-oeste
 51142006102.0,29,mulher,7.0,Parda,,1.0,centro-oeste
-51142007101.0,29,homem,6.0,Branca,13225.199951171875,1.0,centro-oeste
+51142007101.0,29,homem,6.0,Branca,13225.199951171877,1.0,centro-oeste
 51142007102.0,28,mulher,11.0,Parda,5400.0,1.0,centro-oeste
 51142009101.0,31,homem,5.0,Parda,14256.0,1.0,centro-oeste
 51142009102.0,22,mulher,8.0,Parda,,1.0,centro-oeste
@@ -58515,7 +58515,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 51145502101.0,58,homem,11.0,Branca,3060.0,1.0,centro-oeste
 51145502102.0,59,mulher,15.0,Branca,4703.400390625,1.0,centro-oeste
 51145503101.0,43,homem,9.0,Branca,3240.0,1.0,centro-oeste
-51145503102.0,42,mulher,12.0,Parda,441.45001220703125,1.0,centro-oeste
+51145503102.0,42,mulher,12.0,Parda,441.4500122070313,1.0,centro-oeste
 51145505101.0,47,homem,5.0,Parda,2120.0,1.0,centro-oeste
 51145505102.0,42,mulher,9.0,Parda,163.5,1.0,centro-oeste
 51145505103.0,26,homem,11.0,Parda,,0.0,centro-oeste
@@ -59058,10 +59058,10 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 51171410101.0,26,homem,5.0,Preta,4788.0,0.0,centro-oeste
 51171411102.0,60,mulher,5.0,Branca,,0.0,centro-oeste
 51171412101.0,34,homem,11.0,Parda,5670.0,0.0,centro-oeste
-51171413101.0,28,homem,8.0,Parda,14475.800048828125,1.0,centro-oeste
+51171413101.0,28,homem,8.0,Parda,14475.800048828123,1.0,centro-oeste
 51171413102.0,27,mulher,12.0,Branca,,1.0,centro-oeste
 51171414102.0,38,mulher,8.0,Preta,,0.0,centro-oeste
-51171416101.0,54,mulher,5.0,Preta,1113.8399658203123,0.0,centro-oeste
+51171416101.0,54,mulher,5.0,Preta,1113.8399658203125,0.0,centro-oeste
 51171418101.0,31,homem,14.0,Parda,7320.599609375,1.0,centro-oeste
 51171418102.0,26,mulher,10.0,Parda,,1.0,centro-oeste
 51172201101.0,39,homem,5.0,Parda,10059.599609375,1.0,centro-oeste
@@ -61167,7 +61167,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 52048920102.0,51,mulher,5.0,Branca,,1.0,centro-oeste
 52049701101.0,31,mulher,12.0,Parda,1680.0,0.0,centro-oeste
 52049701104.0,49,mulher,5.0,Branca,,0.0,centro-oeste
-52049703101.0,44,mulher,8.0,Parda,434.70001220703125,1.0,centro-oeste
+52049703101.0,44,mulher,8.0,Parda,434.7000122070313,1.0,centro-oeste
 52049703102.0,48,homem,5.0,Parda,4200.0,1.0,centro-oeste
 52049703104.0,20,homem,5.0,Parda,5229.0,0.0,centro-oeste
 52049705101.0,48,homem,11.0,Branca,3517.5,0.0,centro-oeste
@@ -61275,7 +61275,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 52052707102.0,50,mulher,5.0,Parda,,0.0,centro-oeste
 52052707103.0,30,homem,7.0,Parda,12720.0,0.0,centro-oeste
 52052708101.0,36,homem,6.0,Parda,5544.0,1.0,centro-oeste
-52052708102.0,39,mulher,8.0,Branca,10973.799987792967,1.0,centro-oeste
+52052708102.0,39,mulher,8.0,Branca,10973.799987792969,1.0,centro-oeste
 52052709101.0,31,homem,5.0,Parda,8190.0,0.0,centro-oeste
 52052710101.0,58,homem,5.0,Amarela,11340.0,1.0,centro-oeste
 52052710102.0,56,mulher,5.0,Parda,,1.0,centro-oeste
@@ -61891,7 +61891,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 52078011101.0,41,homem,5.0,Parda,10908.9599609375,1.0,centro-oeste
 52078011102.0,38,mulher,8.0,Parda,3024.0,1.0,centro-oeste
 52078012101.0,51,mulher,5.0,Branca,,0.0,centro-oeste
-52078012102.0,25,homem,8.0,Parda,1065.5999755859377,0.0,centro-oeste
+52078012102.0,25,homem,8.0,Parda,1065.5999755859375,0.0,centro-oeste
 52078013101.0,58,homem,5.0,Preta,15120.0,1.0,centro-oeste
 52078013102.0,54,mulher,11.0,Preta,12474.0,1.0,centro-oeste
 52078013103.0,31,mulher,8.0,Preta,,0.0,centro-oeste
@@ -62681,7 +62681,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 52116709101.0,49,homem,8.0,Parda,35640.0,1.0,centro-oeste
 52116709102.0,43,mulher,11.0,Parda,5940.0,1.0,centro-oeste
 52116710102.0,54,mulher,5.0,Parda,,0.0,centro-oeste
-52116711101.0,41,homem,5.0,Parda,11124.749755859375,1.0,centro-oeste
+52116711101.0,41,homem,5.0,Parda,11124.749755859377,1.0,centro-oeste
 52116711102.0,32,mulher,7.0,Parda,,1.0,centro-oeste
 52116712102.0,51,mulher,6.0,Parda,-1.0,0.0,centro-oeste
 52116713101.0,41,homem,11.0,Parda,5635.7998046875,1.0,centro-oeste
@@ -62744,7 +62744,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 52119109104.0,22,mulher,13.0,Parda,62806.94995117188,0.0,centro-oeste
 52119110101.0,37,homem,14.0,Parda,48904.203125,1.0,centro-oeste
 52119110102.0,28,mulher,11.0,Parda,,1.0,centro-oeste
-52119111102.0,34,mulher,11.0,Parda,448.20001220703125,0.0,centro-oeste
+52119111102.0,34,mulher,11.0,Parda,448.2000122070313,0.0,centro-oeste
 52119111103.0,32,homem,11.0,Branca,6240.0,0.0,centro-oeste
 52119111104.0,28,homem,11.0,Parda,6108.47998046875,0.0,centro-oeste
 52119111105.0,31,mulher,11.0,Branca,1307.25,0.0,centro-oeste
@@ -63140,7 +63140,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 52139610102.0,42,mulher,11.0,Branca,,1.0,centro-oeste
 52139611101.0,25,homem,5.0,Parda,2180.0,1.0,centro-oeste
 52139611102.0,20,mulher,7.0,Parda,,1.0,centro-oeste
-52139612101.0,34,mulher,11.0,Branca,12272.100830078125,1.0,centro-oeste
+52139612101.0,34,mulher,11.0,Branca,12272.100830078123,1.0,centro-oeste
 52139612102.0,29,homem,7.0,Branca,3867.0,1.0,centro-oeste
 52139613101.0,46,homem,8.0,Branca,24046.14990234375,1.0,centro-oeste
 52139613102.0,38,mulher,6.0,Preta,3081.599853515625,1.0,centro-oeste
@@ -66218,7 +66218,7 @@ id,idade,sexo,anos_estudo,cor_raca,salario,estado_civil,regiao
 53108115102.0,37,mulher,5.0,Parda,7600.0,1.0,centro-oeste
 53108117103.0,53,mulher,15.0,Branca,5289.599609375,0.0,centro-oeste
 53108117104.0,21,homem,13.0,Branca,1911.0,0.0,centro-oeste
-53109001101.0,45,mulher,5.0,Branca,63.599998474121094,0.0,centro-oeste
+53109001101.0,45,mulher,5.0,Branca,63.59999847412109,0.0,centro-oeste
 53109002101.0,51,mulher,5.0,Preta,0.0,0.0,centro-oeste
 53109002102.0,45,homem,5.0,Parda,,0.0,centro-oeste
 53109005101.0,47,mulher,7.0,Parda,1728.0,1.0,centro-oeste
