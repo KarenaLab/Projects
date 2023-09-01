@@ -13,9 +13,9 @@ sys.path.append(r"C:\python_modules")
 
 from autoindustry_tools import *
 
-from data_preparation import *
+from dataframe_preparation import *
 from split_kfold import *
-from scalers_builtin import *
+from normalization_builtin import *
 from regr_linearregression import *
 
 from plot_histogram import *
@@ -46,13 +46,13 @@ n_splits = 5
 filename = "auto_industry.csv"
 df = read_csv(filename)
 
-
-# First Model, very simple (without origin and name)
+# Data Preparation: Very simple (without origin and name)
 cols_remove = ["origin", "name", "model_year"]
 df = df.drop(columns=cols_remove)
 df = dataframe_preparation(df)
 df = units_conversion(df)
 
+"""
 # Featuring Engineering
 df["weight_power_ratio"] = df["weight_kg"] / df["power_hp"]
 
@@ -80,4 +80,4 @@ for i in range(0, n_splits):
     fold_metrics["fold"] = fold
 
     results = append_results(results, fold_metrics)
-
+"""
