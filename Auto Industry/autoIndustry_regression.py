@@ -47,6 +47,7 @@ target = "power_hp"
 
 n_splits = 5
 metrics = ["mae", "rmse", "r2_score", "bias", "pearson"]
+savefig = True
 
 # Program --------------------------------------------------------------
 filename = "auto_industry.csv"
@@ -84,10 +85,8 @@ for i in range(0, n_splits):
     
     results = append_results(results, fold_metrics)
 
-    plot_identityline(y_pred, y_test, xlabel="truth", ylabel="pred")
-    plot_blandaltman(y_test, y_pred)
+    title = f"AutoIndustry - Linear Regression - Fold {fold} - "
+    plot_identityline(y_pred, y_test, title=title + "Identity Line", savefig=savefig)
+    plot_blandaltman(y_test, y_pred, title=title + "Bland Altman", savefig=savefig)
 
-
-
-    
 
