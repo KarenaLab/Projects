@@ -7,6 +7,10 @@ import pandas as pd
 
 # Functions
 def files_csv():
+    """
+    Returns all .csv files in the current folder.
+
+    """
     files_raw = os.listdir()
     files_csv = list()
 
@@ -21,6 +25,10 @@ def files_csv():
 
 
 def rename_cols(DataFrame):
+    """
+    Apply a standard for columns names.
+
+    """
     data = DataFrame.copy()
     updated = False
 
@@ -56,7 +64,6 @@ def rename_cols(DataFrame):
 # Program
 files = files_csv()
 
-
 for f in files:
     data = pd.read_csv(f, sep=",", encoding="utf-8")
     data, updated = rename_cols(data)
@@ -66,3 +73,4 @@ for f in files:
         print(f" > file updated: '{f}'")
 
 
+# end
