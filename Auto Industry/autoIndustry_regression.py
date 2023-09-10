@@ -27,27 +27,26 @@ from plot_blandaltman import *
 
 
 # Functions
-def append_results(DataFrame, new_row_dict):
+def append_results(DataFrame, new_dict):
     """
     Append a dictionary with **new_row_dict** to a **DataFrame**
     
     """
-    DataFrame = pd.concat([DataFrame, pd.Series(new_row_dict).to_frame().T],
+    DataFrame = pd.concat([DataFrame, pd.Series(new_dict).to_frame().T],
                           ignore_index=True)
 
     return DataFrame
 
 
 
-        
-
 # Setup/Config
 seed = 302
 target = "power_hp"
 
 n_splits = 5
-metrics = ["mae", "rmse", "r2_score", "bias", "pearson"]
-savefig = True
+metrics = ["mae", "rmse", "smape", "bias", "r2_score", "pearson"]
+savefig = False
+
 
 # Program --------------------------------------------------------------
 filename = "auto_industry.csv"
@@ -88,5 +87,4 @@ for i in range(0, n_splits):
     title = f"AutoIndustry - Linear Regression - Fold {fold} - "
     plot_identityline(y_pred, y_test, title=title + "Identity Line", savefig=savefig)
     plot_blandaltman(y_test, y_pred, title=title + "Bland Altman", savefig=savefig)
-
 
