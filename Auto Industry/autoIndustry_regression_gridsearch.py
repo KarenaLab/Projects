@@ -38,6 +38,20 @@ def append_results(DataFrame, new_dict):
     return DataFrame
 
 
+def flatten_list(array):
+    """
+    Turns a list of lists into a flat list.
+    
+    """
+    flatten = list()
+    
+    for sub_list in array:
+        for i in sub_list:
+            flatten.append(i)
+
+
+    return flatten
+
 
 # Setup/Config
 seed = 302
@@ -79,10 +93,13 @@ for i in range(0, n_splits):
     x_train, x_test = scaler_standardscore(x_train, x_test)
 
     # Model = Grid Search with Linear Regression
-    results = gridsearch_linreg(x_train, y_train, x_test, y_test, metrics=metrics)
+    fold_results = gridsearch_linreg(x_train, y_train, x_test, y_test,
+                                add_to_results={"fold": fold}, metrics=metrics)
+
+    results.append(fold_results)
 
 
-
+results = results_to_dataframe(flatten_list(results))
 
 
 
