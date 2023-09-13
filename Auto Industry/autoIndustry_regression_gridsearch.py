@@ -6,7 +6,6 @@ import numpy as np
 import pandas as pd
 
 
-
 # Personal modules
 import sys
 sys.path.append(r"C:\python_modules")
@@ -17,6 +16,7 @@ from dataframe_preparation import *
 from split_kfold import *
 from normalization_builtin import *
 from regr_linearregression import *
+from results_analysis import *
 from print_results import *
 
 from plot_histogram import *
@@ -27,30 +27,16 @@ from plot_blandaltman import *
 
 
 # Functions
-def append_results(DataFrame, new_dict):
-    """
-    Append a dictionary with **new_row_dict** to a **DataFrame**
+def results_preparation(array):
+
+    data = results_to_dataframe(flatten_list(array))
+    data = data[["model", "fit_intercept", "positive", "fold",
+                 "pearson", "mae", "rmse", "bias", "r2_score"]]
+
+    data = data.sort_values(by=["model", "fit_intercept", "positive", "fold"])
     
-    """
-    DataFrame = pd.concat([DataFrame, pd.Series(new_dict).to_frame().T],
-                          ignore_index=True)
 
-    return DataFrame
-
-
-def flatten_list(array):
-    """
-    Turns a list of lists into a flat list.
-    
-    """
-    flatten = list()
-    
-    for sub_list in array:
-        for i in sub_list:
-            flatten.append(i)
-
-
-    return flatten
+    return data
 
 
 # Setup/Config
@@ -99,6 +85,4 @@ for i in range(0, n_splits):
     results.append(fold_results)
 
 
-results = results_to_dataframe(flatten_list(results))
-
-
+results = results_preparation(results)
