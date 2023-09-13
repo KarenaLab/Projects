@@ -102,10 +102,3 @@ for i in range(0, n_splits):
 results = results_to_dataframe(flatten_list(results))
 
 
-
-
-
-
-
-    
-
