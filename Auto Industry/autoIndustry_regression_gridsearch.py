@@ -70,7 +70,6 @@ split_table = split_kfold(x, n_splits=n_splits)
 
 # Model Base = Linear Regression
 results = list()
-
 for i in range(0, n_splits):
     fold, train_index, test_index = split_table[i]
     x_train, y_train, x_test, y_test = separate_fold(x, y, train_index, test_index)
@@ -85,4 +84,34 @@ for i in range(0, n_splits):
     results.append(fold_results)
 
 
+# Results from a list of dictionaries to pandas DataFrame
 results = results_preparation(results)
+
+"""
+# Results Analysis
+fit_intercept = results["fit_intercept"].unique()
+positive = results["positive"].unique()
+
+best_fi, best_p = "", ""
+best_rmse = np.inf
+best_mae = np.inf
+
+for fi, p in itertools.product(fit_intercept, positive):
+    data = results.loc[(results["fit_intercept"] == fi) &
+                       (results["positive"] == p)]
+
+    rmse_mean = data["rmse"].mean()
+    mae_mean = data["mae"].mean()
+
+    if(rmse_mean < best_rmse):
+        best_fi = fi
+        best_p = p
+        best_rmse = rmse_mean
+        best_mae = mae_mean
+
+        print("change")
+        print(fi, p, rmse_mean, mae_mean)
+
+
+print(f" > Best parameters: fit_intercept:{best_fi}, positive:{best_p}")
+"""
