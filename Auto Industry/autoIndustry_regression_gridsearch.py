@@ -27,16 +27,7 @@ from plot_blandaltman import *
 
 
 # Functions
-def results_preparation(array):
 
-    data = results_to_dataframe(flatten_list(array))
-    data = data[["model", "fit_intercept", "positive", "fold",
-                 "pearson", "mae", "rmse", "bias", "r2_score"]]
-
-    data = data.sort_values(by=["model", "fit_intercept", "positive", "fold"])
-    
-
-    return data
 
 
 # Setup/Config
@@ -101,7 +92,7 @@ for i in range(0, n_splits):
 
 
 # Results from a list of dictionaries to pandas DataFrame
-#results = results_preparation(results)
+results = results_to_dataframe(results)
 
 
 """
