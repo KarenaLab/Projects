@@ -82,13 +82,29 @@ for i in range(0, n_splits):
     # Scaler = Standard Score
     x_train, x_test = scaler_standardscore(x_train, x_test)
 
-    # Model = Grid Search with Linear Regression
+    # Model = Grid Search with Ridge Regression
     fold_results = gridsearch_ridge(x_train, y_train, x_test, y_test,
                                     alpha=[0.01, 0.5, 1, 2, 5, 10],
                                     fit_intercept=[True], positive=[False],
                                     add_to_results={"fold": fold}, metrics=metrics)
 
-    results.append(fold_results)   
+    results.append(fold_results)
+
+
+for i in range(0, n_splits):
+    fold, train_index, test_index = split_table[i]
+    x_train, y_train, x_test, y_test = separate_fold(x, y, train_index, test_index)
+
+    # Scaler = Standard Score
+    x_train, x_test = scaler_standardscore(x_train, x_test)
+
+    # Model = Grid Search with Lasso Regression
+    fold_results = gridsearch_lasso(x_train, y_train, x_test, y_test,
+                                    alpha=[0.01, 0.5, 1, 2, 5, 10],
+                                    fit_intercept=[True], positive=[False],
+                                    add_to_results={"fold": fold}, metrics=metrics)
+
+    results.append(fold_results)
 
 
 # Results from a list of dictionaries to pandas DataFrame
