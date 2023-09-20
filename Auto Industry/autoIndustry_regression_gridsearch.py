@@ -27,6 +27,51 @@ from plot_blandaltman import *
 
 
 # Functions
+def results_analytics(DataFrame, beta=1, verbose=True):
+    """
+
+
+    Return: best model, best fit_intercept, best positive and best alpha.
+
+    """
+    # Variables selection
+    model = DataFrame["model"].unique()
+    fit_intercept = DataFrame["fit_intercept"].unique()
+    positive = DataFrame["positive"].unique()
+    alpha = DataFrame["alpha"].unique()
+
+    # Reset variables
+    best_m = np.nan
+    best_fi = np.nan
+    best_p = np.nan
+    best_a = np.nan
+    best_score = np.inf
+
+    # Find the best hiperparameters (Grid Search) using F-be
+    for m, fi, p, a in itertools.product(model, fit_intercept, positive, alpha):
+        data = results.loc[(DataFrame["model"] == m) &
+                           (DataFrame["fit_intercept"] == fi) &
+                           (DataFrame["positive"] == p) &
+                           (DataFrame["alpha"] == a)]
+
+        # Calculate RMSE and MAE from Grid Search
+        rmse = data["rmse"].mean()
+        mae = data["mae"].mean()
+        score = fb_score(rmse, mae, beta=beta)
+
+        if(score < best_score):
+            best_m = m
+            best_fi = fi
+            best_p = p
+            best_a = a
+            best_score = score
+
+    # Print values
+    if(verbose == True):
+        print(f" > Best parameters: model:{best_m}, fit_intercept:{best_fi}, positive:{best_p}, alpha:{best_a}")
+
+
+    return best_m, best_fi, best_p, best_a 
 
 
 
@@ -74,6 +119,15 @@ for i in range(0, n_splits):
 
     results.append(fold_results)
 
+# Results from a list of dictionaries to pandas DataFrame
+results = results_to_dataframe(results)
+
+# Select best parameters for regularized models.
+_, best_fi, best_p, _ = results_analytics(results)
+
+
+# Ridge (L2)
+results = list()
 
 for i in range(0, n_splits):
     fold, train_index, test_index = split_table[i]
@@ -85,12 +139,13 @@ for i in range(0, n_splits):
     # Model = Grid Search with Ridge Regression
     fold_results = gridsearch_ridge(x_train, y_train, x_test, y_test,
                                     alpha=[0.01, 0.5, 1, 2, 5, 10],
-                                    fit_intercept=[True], positive=[False],
+                                    fit_intercept=[best_fi], positive=[best_p],
                                     add_to_results={"fold": fold}, metrics=metrics)
 
     results.append(fold_results)
 
 
+# Lasso (L1)
 for i in range(0, n_splits):
     fold, train_index, test_index = split_table[i]
     x_train, y_train, x_test, y_test = separate_fold(x, y, train_index, test_index)
@@ -101,7 +156,7 @@ for i in range(0, n_splits):
     # Model = Grid Search with Lasso Regression
     fold_results = gridsearch_lasso(x_train, y_train, x_test, y_test,
                                     alpha=[0.01, 0.5, 1, 2, 5, 10],
-                                    fit_intercept=[True], positive=[False],
+                                    fit_intercept=[best_fi], positive=[best_p],
                                     add_to_results={"fold": fold}, metrics=metrics)
 
     results.append(fold_results)
@@ -110,32 +165,5 @@ for i in range(0, n_splits):
 # Results from a list of dictionaries to pandas DataFrame
 results = results_to_dataframe(results)
 
-
-"""
-# Results Analysis
-fit_intercept = results["fit_intercept"].unique()
-positive = results["positive"].unique()
-
-best_fi, best_p = "", ""
-best_rmse = np.inf
-best_mae = np.inf
-
-for fi, p in itertools.product(fit_intercept, positive):
-    data = results.loc[(results["fit_intercept"] == fi) &
-                       (results["positive"] == p)]
-
-    rmse_mean = data["rmse"].mean()
-    mae_mean = data["mae"].mean()
-
-    if(rmse_mean < best_rmse):
-        best_fi = fi
-        best_p = p
-        best_rmse = rmse_mean
-        best_mae = mae_mean
-
-        print("change")
-        print(fi, p, rmse_mean, mae_mean)
-
-
-print(f" > Best parameters: fit_intercept:{best_fi}, positive:{best_p}")
-"""
+# Select best parameters for regularized models.
+best_model, best_alpha, best_fi, best_p = results_analytics(results)
