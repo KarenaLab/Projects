@@ -107,6 +107,16 @@ def bagging(DataFrame, size=None):
 
 
     return bag_index, oob_index
+
+
+def regr_lasso():
+    """
+
+
+    """
+    pass
+
+    return None
     
 
 
