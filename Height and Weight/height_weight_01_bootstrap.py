@@ -126,6 +126,68 @@ def sorting_stats(storage, bootstrap):
     return storage
 
 
+def regr_lasso(x_train, x_test, y_train, y_test,
+               alpha=1, fit_intercept=True, positive=False):
+    """
+    Performs a Linear Regression with Lasso (L1) penalty.
+
+    """
+    # Data preparation: Arrays
+    x_train = np.array(x_train)
+    x_test = np.array(x_test)
+    y_train = np.array(y_train)
+    y_test = np.array(y_test)
+
+    # Model set
+    regr = Lasso()
+
+    # Model hyperparameters
+    regr.alpha = alpha
+    regr.fit_intercept = fit_intercept
+    regr.positive = positive
+
+    # Model fit
+    regr.fit(x_train.reshape(-1, 1), y_train.reshape(-1, 1))
+    y_pred = regr.predict(x_test.reshape(-1, 1))
+
+    # Model parameters
+    RegrParams = namedtuple("Lasso", ["intercept", "coefs"])
+    params = RegrParams(regr.intercept_, regr.coef_)
+
+    # Metrics
+    metrics = regr_metrics(y_test, y_pred)
+
+
+    return params, metrics
+
+
+def regr_metrics(y_true, y_pred):
+    """
+    Performs regression metrics.
+
+    """
+    # Data preparation: Arrays
+    y_true = np.array(y_true)
+    y_pred = np.array(y_pred)
+
+
+    # Metrics
+    pearson = st.pearsonr(y_true, y_pred).statistic
+    mae = mean_absolute_error(y_true, y_pred)
+    rmse = mean_squared_error(y_true, y_pred, squared=True)
+    r2 = r2_score(y_true, y_pred)
+
+    # Response
+    RegrMetrics = namedtuple("Metrics", ["pearson", "mae", "rmse", "r2"])
+    metrics = RegrMetrics(pearson, mae, rmse, r2)
+
+
+    return metrics
+    
+
+
+
+
 
     
     
