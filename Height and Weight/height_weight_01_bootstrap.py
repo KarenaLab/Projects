@@ -61,6 +61,12 @@ def load_dataset(reset_index=True):
     return data
 
 
+def set_seed(seed):
+    np.random.seed(seed)
+
+    return None
+
+
 def bootstrap_sorting(DataFrame, size=None):
     """
 
@@ -147,8 +153,8 @@ def regr_lasso(x_train, x_test, y_train, y_test,
     regr.positive = positive
 
     # Model fit
-    regr.fit(x_train.reshape(-1, 1), y_train.reshape(-1, 1))
-    y_pred = regr.predict(x_test.reshape(-1, 1))
+    regr.fit(x_train, y_train)
+    y_pred = regr.predict(x_test)
 
     # Model parameters
     RegrParams = namedtuple("Lasso", ["intercept", "coefs"])
@@ -185,17 +191,25 @@ def regr_metrics(y_true, y_pred):
     return metrics
     
 
+def cumulative_mean(array, return_x=False):
+    """
+    Gets an array with a sequence of values and gives back the cumulative
+    mean for tha array.
+
+    """
+    # Data preparation
+    array = np.array(array)
+    x_space = np.arange(start=1, stop=(array.size + 1))
+
+    mean = np.cumsum(array) / x_space
 
 
+    if(return_x == False):
+        return mean
 
+    else:
+        return x_space, mean
 
-    
-    
-
-
-    
-        
-    
 
 
 # Setup/Config
@@ -203,8 +217,59 @@ def regr_metrics(y_true, y_pred):
 
 
 # Program --------------------------------------------------------------
+
+# Data load
 df = load_dataset()
 
+target = "weight_kg"
+x = df.drop(columns=[target])
+y = df[target]
 
+
+# Base model: Lasso Linear Regression
+train_size = 0.7
+set_seed(137)
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=train_size)
+  
+# Model
+params_base, metrics_base = regr_lasso(x_train, x_test, y_train, y_test, alpha=0.01)
+
+
+# Bootstrapping
+
+# Model hyperparameters
+repeat = 2000
+bag_size_pct = np.linspace(start=10, stop=100, num=int((100 - 10) / 5) + 1)
+
+prog_x = list()
+prog_y = list()
+
+for bg in bag_size_pct:
+    # Size of bagging*
+    bg_size = int(x_train.size * (bg / 100))
+    print(f" Test: {bg}% - bagging size:{bg_size}")
+
+    pearson_list = list()
+    mae_list = list()
+    rmse_list = list()
+
+    set_seed(137)
+    for i in range(0, repeat):
+        bag_index, oob_index = bagging(x_train, size=bg_size)
+
+        # Train (bag) and validation (oob) split
+        bag_x = x_train.loc[bag_index]
+        bag_y = y_train.loc[bag_index]
+        oob_x = x_train.loc[oob_index]
+        oob_y = y_train.loc[oob_index]
+
+        # Model
+        _, metrics_bag = regr_lasso(bag_x, oob_x, bag_y, oob_y, alpha=0.01)
+
+        # Metrics
+        pearson_list.append(metrics_bag.pearson)
+        mae_list.append(metrics_bag.mae)
+        rmse_list.append(metrics_bag.rmse)
+        
 
 # end
