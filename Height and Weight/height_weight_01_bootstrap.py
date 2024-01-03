@@ -109,14 +109,25 @@ def bagging(DataFrame, size=None):
     return bag_index, oob_index
 
 
-def regr_lasso():
+def sorting_stats(storage, bootstrap):
     """
-
+    Stores the indexes from the **bootstrap** in the **storage**.
+    Function to deploy the stats about the indexes in all bootstrap.
 
     """
-    pass
+    for i in bootstrap:
+        if i in storage.keys():
+            storage[i] = storage[i] + 1
 
-    return None
+        else:
+            storage[i] = 1
+
+
+    return storage
+
+
+
+    
     
 
 
