@@ -182,6 +182,35 @@ def regr_linregr(x_train, x_test, y_train, y_test, fit_intercept=True,
     return parameters, results
 
 
+def regr_ridge(x_train, x_test, y_train, y_test, fit_intercept=True,
+                 positive=False, alpha=1, max_iter=None, tol=0.0001):
+    """
+    Applies a **Ridge** linear regression model.
+
+    """
+    # Model
+    regr = Ridge()
+
+    # Hyperparameters
+    regr.fit_intercept = fit_intercept
+    regr.positive = positive
+    regr.alpha =alpha
+    regr.max_iter = max_iter
+    regr.tol = tol
+
+    # Fit and predict
+    regr.fit(x_train, y_train)
+    y_pred = regr.predict(x_test)
+
+    parameters = {"intercept":regr.intercept_, "coefs":regr.coef_}
+
+    # Metrics
+    results = regr_metrics(y_test, y_pred)
+
+
+    return parameters, results
+    
+
 def regr_metrics(y_true, y_pred):
     """
     Calculates the metrics regression.
@@ -205,6 +234,4 @@ def store_results(storage, new_line):
     storage = pd.concat([storage, new_line.to_frame().T], ignore_index=True)
     
     return storage
-
-
 
