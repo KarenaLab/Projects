@@ -24,8 +24,7 @@ from plot_histbox import *
 
 
 # Functions
-def store_results(storage, named_tuple):
-    new_line = named_tuple._asdict()
+def store_results(storage, new_line):
     new_line = pd.Series(data=new_line)
 
     storage = pd.concat([storage, new_line.to_frame().T], ignore_index=True)
