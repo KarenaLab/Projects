@@ -12,8 +12,13 @@ import numpy as np
 import pandas as pd
 import scipy.stats as st
 
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import KFold
+
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Ridge
+from sklearn.linear_model import Lasso
 
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
@@ -46,6 +51,7 @@ def data_preparation(DataFrame, clean_dataframe=True):
 
     # Columns names
     col_names = dict()
+
     for old_name in data.columns:
         new_name = old_name.lower()
         new_name = new_name.replace(" ", "_")\
@@ -91,6 +97,50 @@ def target_split(DataFrame, target):
     return x, y
 
 
+def kfold_generate(DataFrame, n_splits=5, random_state=None, shuffle=True):
+    """
+    Creates KFolds.
+    Returns the **indexes** for train and test. Works with fold_split.
+
+    """
+    # Fold strategy
+    kf = KFold()
+
+    # Folding hyperparameters
+    kf.n_splits = n_splits
+    kf.random_state = random_state
+    kf.shuffle = shuffle
+
+    # Folds
+    kf_indexes = list()
+    for i, (train_index, test_index) in enumerate(kf.split(DataFrame)):
+        fold = [i, train_index, test_index]
+        kf_indexes.append(fold)
+
+
+    return kf_indexes
+
+
+def fold_split(DataFrame, train_index, test_index, target):
+    """
+    Prepares a train and test dataframes for a given fold.
+    Works with kfold_generate.
+
+    """
+    # Variables columns
+    x_cols = DataFrame.columns.to_list()
+    x_cols.remove(target)
+
+    # Data split
+    x_train = DataFrame.loc[train_index, x_cols]
+    x_test = DataFrame.loc[test_index, x_cols]
+    y_train = DataFrame.loc[train_index, target]
+    y_test = DataFrame.loc[test_index, target]
+
+
+    return x_train, x_test, y_train, y_test
+    
+
 def scaler(x_train, x_test, method=StandardScaler()):
     """
     Applies the **method** (that should be a scikit-learn function)
@@ -112,9 +162,6 @@ def regr_linregr(x_train, x_test, y_train, y_test, fit_intercept=True,
     Applies a **Linear Regression** model
 
     """
-    # Data preparation
-    params = namedtuple("parameters", ["intercept", "coefs"])
-
     # Model
     regr = LinearRegression()
 
@@ -126,13 +173,13 @@ def regr_linregr(x_train, x_test, y_train, y_test, fit_intercept=True,
     regr.fit(x_train, y_train)
     y_pred = regr.predict(x_test)
 
-    parameters = params(regr.intercept_, regr.coef_)
+    parameters = {"intercept":regr.intercept_, "coefs":regr.coef_}
 
     # Metrics
     results = regr_metrics(y_test, y_pred)
 
 
-    return params, results
+    return parameters, results
 
 
 def regr_metrics(y_true, y_pred):
@@ -140,16 +187,24 @@ def regr_metrics(y_true, y_pred):
     Calculates the metrics regression.
     
     """
-    # Data preparation
-    metrics = namedtuple("results", ["mae", "rmse", "r2", "pearson"])
-
     # Calc
     mae = mean_absolute_error(y_true, y_pred)
     rmse = np.sqrt(mean_squared_error(y_true, y_pred))
     r2 = r2_score(y_true, y_pred)
     pearson = st.pearsonr(y_true, y_pred).statistic
 
-    results = metrics(mae, rmse, r2, pearson)
+    results = {"mae":mae, "rmse":rmse, "r2":r2, "pearson":pearson}
+    
 
     return results
+
+
+def store_results(storage, new_line):
+    new_line = pd.Series(data=new_line)
+
+    storage = pd.concat([storage, new_line.to_frame().T], ignore_index=True)
     
+    return storage
+
+
+
