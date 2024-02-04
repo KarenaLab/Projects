@@ -24,12 +24,7 @@ from plot_histbox import *
 
 
 # Functions
-def store_results(storage, new_line):
-    new_line = pd.Series(data=new_line)
 
-    storage = pd.concat([storage, new_line.to_frame().T], ignore_index=True)
-    
-    return storage
 
 
 # Setup/Config
@@ -54,7 +49,7 @@ for seed in np.random.randint(low=0, high=1000, size=50):
     df_results = store_results(df_results, results)
 
 for col in df_results.columns:
-    plot_histbox(df_results[col], title=f"AutoMPG - LinRegr seed test - {col}", savefig=True)
+    plot_histbox(df_results[col], title=f"AutoMPG - LinRegr seed test - {col}", savefig=False)
 
     mean = df_results[col].mean()
     stddev = df_results[col].std()
