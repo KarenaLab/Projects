@@ -264,3 +264,26 @@ def store_results(storage, new_line):
     
     return storage
 
+
+def find_optimum(metric_list, param_list, best="min"):
+    """
+    Finds the **best** value (min or max) in the **metric_list** and
+    returns the value in **param_list** and **metric_list**.
+
+    """
+    # Define the best function
+    if(best == "min" or best == "minimum"):
+        func = np.min
+
+    elif(best == "max" or best == "maximum"):
+        func = np.max
+
+    # Finder
+    best_index = metric_list.index(func(metric_list))
+
+    best_param = param_list[best_index]
+    best_metric = metric_list[best_index]
+
+    results = {"param": best_param, "value": best_metric}
+
+    return results
