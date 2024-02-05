@@ -114,7 +114,7 @@ def kfold_generate(DataFrame, n_splits=5, random_state=None, shuffle=True):
     # Folds
     kf_indexes = list()
     for i, (train_index, test_index) in enumerate(kf.split(DataFrame)):
-        fold = [i, train_index, test_index]
+        fold = (i, train_index, test_index)
         kf_indexes.append(fold)
 
 
