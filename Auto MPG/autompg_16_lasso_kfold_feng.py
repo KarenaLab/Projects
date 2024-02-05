@@ -39,7 +39,7 @@ df["power_to_weight"] = df["power_hp"] / df["weight_kg"]
 
 # Data preparation
 kf_folds = kfold_generate(df, shuffle=True, random_state=137)
-alpha_list = np.linspace(start=0.001, stop=0.5, num=100)
+alpha_list = np.linspace(start=0.001, stop=0.02, num=100)
 
 df_results = pd.DataFrame(data=[])
 for fold, train_index, test_index in kf_folds:
@@ -47,7 +47,7 @@ for fold, train_index, test_index in kf_folds:
     x_train, x_test = scaler(x_train, x_test, method=StandardScaler())
 
     for alpha in alpha_list:
-        _, results = regr_ridge(x_train, x_test, y_train, y_test, alpha=alpha)
+        _, results = regr_lasso(x_train, x_test, y_train, y_test, alpha=alpha)
         results["alpha"] = alpha
         results["fold"] = fold
 
@@ -62,6 +62,7 @@ mae_list = list()
 rmse_list = list()
 pearson_list = list()
 
+# Sumarize folds performance by alpha
 for alpha in alpha_list:
     data = df_results.groupby(by="alpha").get_group(alpha)
 
@@ -69,13 +70,10 @@ for alpha in alpha_list:
     rmse_list.append(data["rmse"].mean())
     pearson_list.append(data["pearson"].mean())
 
-
+# Plots
 for ylabel, metric in zip(["MAE", "RMSE", "Pearson R"], [mae_list, rmse_list, pearson_list]):
     plot_line(alpha_list, metric, title=f"AutoMPG - Ridge - {ylabel}",
               xlabel="alpha param", ylabel=ylabel, savefig=False)
     
 
-    
-
 # end
-
