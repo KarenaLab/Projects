@@ -72,8 +72,8 @@ for alpha in alpha_list:
 
 # Plots
 for ylabel, metric in zip(["MAE", "RMSE", "Pearson R"], [mae_list, rmse_list, pearson_list]):
-    plot_line(alpha_list, metric, title=f"AutoMPG - Ridge - {ylabel}",
-              xlabel="alpha param", ylabel=ylabel, savefig=False)
+    plot_line(alpha_list, metric, title=f"AutoMPG - Lasso - {ylabel}",
+              xlabel="alpha param", ylabel=ylabel, savefig=True)
     
 
 # end
