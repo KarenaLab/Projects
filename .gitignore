@@ -6,7 +6,7 @@ __pycache__/
 # C extensions
 *.so
 
-# Distribution/packaging
+# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -56,6 +56,7 @@ coverage.xml
 *.pot
 
 # Django stuff:
+*.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -130,23 +131,11 @@ dmypy.json
 # Links
 *.lnk
 
-# Backup
+# Backup and old code
 backup/
 deprecated/
 
-# ALL logs
-*.log
-
-# ignore ALL docs files
-*.pdf
-*.doc
-*.xls
-
-# ignore ALL image files
-*.jpg
-*.png
-
-# ignore backup Folders
-backup/
-deprecated/
+# Images
 report/
+
+
