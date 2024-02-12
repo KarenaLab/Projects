@@ -1,5 +1,4 @@
 # AutoMPG [P316]
-# (optional) Short description of the program/module.
 
 
 # Libraries
@@ -20,14 +19,6 @@ import matplotlib.pyplot as plt
 sys.path.append(r"c:\python_modules")
 
 from autompg_tools import *
-
-
-# Functions
-
-
-
-# Setup/Config
-
 
 
 # Program --------------------------------------------------------------
