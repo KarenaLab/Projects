@@ -1,6 +1,4 @@
 # AutoMPG [P316]
-# (optional) Short description of the program/module.
-
 
 # Libraries
 import os
@@ -23,20 +21,6 @@ from autompg_tools import *
 from plot_histbox import *
 
 
-# Functions
-def store_results(storage, named_tuple):
-    new_line = named_tuple._asdict()
-    new_line = pd.Series(data=new_line)
-
-    storage = pd.concat([storage, new_line.to_frame().T], ignore_index=True)
-    
-    return storage
-
-
-# Setup/Config
-
-
-
 # Program --------------------------------------------------------------
 df = load_dataset()
 df = df.drop(columns=["model_year", "origin", "car_name"])
@@ -55,8 +39,9 @@ for seed in np.random.randint(low=0, high=1000, size=50):
 
     df_results = store_results(df_results, results)
 
+
 for col in df_results.columns:
-    plot_histbox(df_results[col], title=f"AutoMPG - LinRegr seed test - {col}", savefig=True)
+    plot_histbox(df_results[col], title=f"AutoMPG - 12 - LinRegr with Feat Eng - {col}", savefig=True)
 
     mean = df_results[col].mean()
     stddev = df_results[col].std()
@@ -64,4 +49,3 @@ for col in df_results.columns:
     
 
 # end
-
