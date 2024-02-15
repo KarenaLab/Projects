@@ -1,6 +1,4 @@
 # AutoMPG [P316]
-# (optional) Short description of the program/module.
-
 
 # Libraries
 import os
@@ -21,14 +19,6 @@ sys.path.append(r"c:\python_modules")
 
 from autompg_tools import *
 from plot_line import *
-
-
-# Functions
-
-
-
-# Setup/Config
-
 
 
 # Program --------------------------------------------------------------
@@ -72,8 +62,8 @@ for alpha in alpha_list:
 
 # Plots
 for ylabel, metric in zip(["MAE", "RMSE", "Pearson R"], [mae_list, rmse_list, pearson_list]):
-    plot_line(alpha_list, metric, title=f"AutoMPG - Lasso - {ylabel}",
-              xlabel="alpha param", ylabel=ylabel, savefig=True)
+    plot_line(alpha_list, metric, title=f"AutoMPG - 16 - Lasso - {ylabel}",
+              xlabel="alpha param", ylabel=ylabel, savefig=False)
     
 
 # end
