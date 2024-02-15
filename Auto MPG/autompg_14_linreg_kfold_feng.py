@@ -1,6 +1,4 @@
 # AutoMPG [P316]
-# (optional) Short description of the program/module.
-
 
 # Libraries
 import os
@@ -20,14 +18,6 @@ import matplotlib.pyplot as plt
 sys.path.append(r"c:\python_modules")
 
 from autompg_tools import *
-
-
-# Functions
-
-
-
-# Setup/Config
-
 
 
 # Program --------------------------------------------------------------
@@ -50,4 +40,3 @@ for i, train_index, test_index in kf_folds:
     
 
 # end
-
