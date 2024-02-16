@@ -287,3 +287,35 @@ def find_optimum(metric_list, param_list, best="min"):
     results = {"param": best_param, "value": best_metric}
 
     return results
+
+def model_report(data, confidence=0.95, decimals=6):
+    """
+    Creates an easy way to look for the model performance metrics
+    confidence.
+
+    """
+    data = np.array(array)
+
+    mean = np.round(np.mean(data), decimals=decimals)
+    stddev = np.round(np.std(data), decimals=decimals)
+    ic = np.round(confidence_interval(data, confidence=confidence), decimals=decimals)
+
+    results = {"mean": mean, "stddev": stddev, "ic": ic}
+
+    return results
+
+
+def confidence_interval(data, confidence=0.95):
+    """
+
+
+    """
+    data = np.array(data)
+
+    ic = st.t.interval(confidence=confidence,
+                       df=(data.size - 1),      # Degrees of Freedom
+                       loc=np.mean(data),
+                       scale=st.sem(data))      # Standard Error of Mean
+
+    return ic
+
