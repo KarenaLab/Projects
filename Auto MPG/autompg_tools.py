@@ -6,8 +6,6 @@
 
 
 # Libraries
-from collections import namedtuple
-
 import numpy as np
 import pandas as pd
 import scipy.stats as st
@@ -15,6 +13,7 @@ import scipy.stats as st
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold
 
+from sklearn.preprocessing import PowerTransformer
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import Ridge
@@ -148,10 +147,33 @@ def scaler(x_train, x_test, method=StandardScaler()):
 
     """
     sc = method
+
+    # Fit and transform
     sc = sc.fit(x_train)
 
     x_train = sc.transform(x_train)
     x_test = sc.transform(x_test)
+
+    return x_train, x_test
+
+
+def powertransform(x_train, x_test, method="yeo-johnson", standardize=True):
+    """
+    Applies the **method** (Yeo-Johnson or Box-Cox) to x_train and
+    x_test.
+
+    """
+    pt = PowerTranformer()
+
+    # Hyperparameters
+    pt.method = method
+    pt.standardize = standardize
+
+    # Fit and tranform
+    pt = pt.fit(x_train)
+
+    x_train = pt.transform(x_train)
+    x_test = pt.transform(x_test)
 
     return x_train, x_test
 
