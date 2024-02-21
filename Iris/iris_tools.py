@@ -4,8 +4,10 @@
 # Libraries
 import numpy as np
 import pandas as pd
-
 import scipy.stats as st
+
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import StandardScaler
 
 import matplotlib.pyplot as plt
 
@@ -49,4 +51,31 @@ def target_split(DataFrame, target):
     return x, y
 
 
+def scaler(x_train, x_test, method="Standard"):
+    """
+    Applies **Scaler** to variables.
+    Could be **StandardScaler** or **MinMaxScaler**
 
+    """
+    if(method == "Standard" or method == "MinMax"):
+        # Select method
+        if(method == "Standard"):
+            sc = StandardScaler()
+
+        elif(method == "MinMax"):
+            sc = MinMaxScaler()
+
+        # Fit and transform
+        sc = sc.fit(x_train)
+        x_train = sc.transform(x_train)
+        x_test = sc.transform(x_test)
+        
+    else:
+        # Method is not valid
+        print(f" >>> Warning: Invalid method, no scaler applied")
+
+
+    return x_train, x_test
+
+
+# end
