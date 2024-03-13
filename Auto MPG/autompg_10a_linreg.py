@@ -28,18 +28,25 @@ df = df.drop(columns=["model_year", "origin"])
 # Data preparation
 x, y = target_split(df, target="kpl")
 
-x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.65, random_state=331)
+seed = 331
+train_size = 0.8
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=train_size, random_state=seed)
 x_train, x_test = scaler(x_train, x_test, method=StandardScaler())
 _, results = regr_linregr(x_train, x_test, y_train, y_test)
 
 print(results)
 
 
-
-
+# First round
 # train_size=0.8, seed:331 - pearson: 0.87212
 # train_size=0.8, seed:734 - pearson: 0.83041
 # train_size=0.8, seed:439 - pearson: 0.81095
+
+# Second round (after train-test performance graph)
+#
+
+
 # (( values could change with python, numpy and scikit-learn versions ))
 
 # end
