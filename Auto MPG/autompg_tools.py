@@ -4,7 +4,6 @@
 # Insights, improvements and bugfix
 #
 
-
 # Libraries
 import numpy as np
 import pandas as pd
@@ -80,8 +79,8 @@ def data_preparation(DataFrame, clean_dataframe=True):
         data = data.dropna()
         data = data.drop_duplicates()
         data = data.reset_index(drop=True)
-    
 
+    
     return data
 
 
