@@ -77,7 +77,7 @@ plot_lineduo(x1=train_size_list, y1=inside_pearson, label1="train",
              y2=outside_pearson, label2="test",
              title=f"AutoMPG - 10b - Train and test performance",
              xlabel="train size (%)", ylabel="pearson", legend_loc="lower left",
-             savefig=True)
+             savefig=False)
 
 
 # end
