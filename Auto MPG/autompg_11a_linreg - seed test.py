@@ -28,12 +28,13 @@ df = df.drop(columns=["model_year", "origin"])
 # Data preparation
 x, y = target_split(df, target="kpl")
 
+# Model preparation
+df_results = pd.DataFrame(data=[])
+
 np.random.seed(137)
 seed_list = np.random.randint(low=0, high=1000, size=50)
 
-# Model with different seed. Create a pool
-df_results = pd.DataFrame(data=[])
-
+# Model performance and results
 for seed in seed_list:
     x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.65, random_state=seed)
     x_train, x_test = scaler(x_train, x_test, method=StandardScaler())
@@ -44,7 +45,7 @@ for seed in seed_list:
 
 # Pool performance
 for col in df_results.columns:
-    plot_histbox(df_results[col], title=f"AutoMPG - 11a - LinRegr with seed control - {col}", savefig=True)
+    #plot_histbox(df_results[col], title=f"AutoMPG - 11a - LinRegr with seed control - {col}", savefig=True)
 
     mean = df_results[col].mean()
     stddev = df_results[col].std()
@@ -54,18 +55,19 @@ for col in df_results.columns:
 # T-Test (one sample)
 # https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_1samp.html
 
-mean_ref = 0.87212
-# Mean from last experiment with a single seed (331)
+df_results["seed"] = seed_list
 
-ttest = st.ttest_1samp(df_results["pearson"], popmean=mean_ref, alternative="two-sided").pvalue
-print(f" > T-Test: {ttest:.5f}, popmean={mean_ref}")
+print("")
+print(" seed   pearson    center     lower     upper")
+print(" --------------------------------------------")
+#      12345123456789_123456789_123456789_123456789_
 
+for seed, x in zip(seed_list, df_results["pearson"]):
+    pvalue_center = st.ttest_1samp(df_results["pearson"], popmean=x, alternative="two-sided").pvalue
+    pvalue_lower = st.ttest_1samp(df_results["pearson"], popmean=x, alternative="less").pvalue
+    pvalue_upper = st.ttest_1samp(df_results["pearson"], popmean=x, alternative="greater").pvalue
 
-
-
-
-
-
+    print(f"{seed: >5}{np.round(x, decimals=5): >10}{np.round(pvalue_center, decimals=5): >10}{np.round(pvalue_lower, decimals=5): >10}{np.round(pvalue_upper, decimals=5): >10}")
 
 
 # end
