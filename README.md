@@ -1,6 +1,7 @@
 ### Projects
 -----
 
-(( description of the projects ))
+(( description and links of the projects ))
+
 
 
