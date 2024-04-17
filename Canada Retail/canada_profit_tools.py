@@ -102,33 +102,3 @@ def numeric_to_categoric(data, no_cat=5):
 
     return segment_list    
 
-
-def split_target(DataFrame, target):
-    x = DataFrame.drop(columns=[target])
-    y = DataFrame[[target]]
-
-    return x, y
-
-
-def regr_metrics(y_true, y_pred):
-    """
-
-
-    """
-    # Data preparation
-    y_true = np.array(y_true).ravel()
-    y_pred = np.array(y_pred).ravel()
-
-    mae = mean_absolute_error(y_true, y_pred)
-    rmse = root_mean_squared_error(y_true, y_pred)
-    r2 = r2_score(y_true, y_pred)
-    pearsonr = st.pearsonr(y_true, y_pred).statistic
-
-    results = dict()
-    results["mae"]= mae
-    results["rmse"] = rmse
-    results["r2_score"] = r2
-    results["pearsonr"] = pearsonr
-
-    return results
-    
