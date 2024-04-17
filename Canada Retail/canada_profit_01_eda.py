@@ -14,34 +14,35 @@ import matplotlib.pyplot as plt
 
 
 # Personal modules
-sys.path.append(r"c:\python_modules")
-
 from canada_profit_tools import *
 
+sys.path.append(r"c:\python_modules")
+from plot_barv import plot_barv
+from plot_histbox import plot_histbox
 
 # Functions
 
 
 
 # Setup/Config
-
+savefig = False
 
 
 # Program --------------------------------------------------------------
 df = load_dataset()
 
-"""
+
 for col in cat_cols():
     data = df[col].value_counts()
     x = np.array(data.index)
     y = list(data.values)
-    plot_barv(x, height=y, title=f"ecommerce - Category - {col}", savefig=True)
+    plot_barv(x, height=y, title=f"ecommerce - Category - {col}", savefig=savefig)
     
 for col in num_cols():
     data = df[col]
-    plot_histbox(data, title=f"ecommerce - Histogram - {col}", savefig=True)
+    plot_histbox(data, title=f"ecommerce - Histogram - {col}", savefig=savefig)
 
-"""
+
 
 """
 # Numerical to Categoric
