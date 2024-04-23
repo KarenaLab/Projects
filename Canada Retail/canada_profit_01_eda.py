@@ -25,7 +25,7 @@ from plot_histbox import plot_histbox
 
 
 # Setup/Config
-savefig = False
+SAVEFIG = False
 
 
 # Program --------------------------------------------------------------
@@ -36,11 +36,11 @@ for col in cat_cols():
     data = df[col].value_counts()
     x = np.array(data.index)
     y = list(data.values)
-    plot_barv(x, height=y, title=f"ecommerce - Category - {col}", savefig=savefig)
+    plot_barv(x, height=y, title=f"ecommerce - Category - {col}", savefig=SAVEFIG)
     
 for col in num_cols():
     data = df[col]
-    plot_histbox(data, title=f"ecommerce - Histogram - {col}", savefig=savefig)
+    plot_histbox(data, title=f"ecommerce - Histogram - {col}", savefig=SAVEFIG)
 
 
 
