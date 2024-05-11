@@ -1,8 +1,7 @@
-# Name [Pxxx]
-# (optional) Short description
+# Advertising (ISLP) [P425]
 
 # Versions
-# 01 - Date - Starter
+# 01 - May 10th, 2024 - Starter
 # 02 -
 
 
@@ -11,8 +10,6 @@
 
 
 # Libraries
-from collections import namedtuple
-
 import numpy as np
 import pandas as pd
 import scipy.stats as st
@@ -22,12 +19,8 @@ import matplotlib.pyplot as plt
 
 
 # ----------------------------------------------------------------------
-def name():
-    """
-    Description of the function
-    Information about variables and **kwargs
-
-    """
+def load_dataset_advertising():
+    pass
 
     return None    
 
