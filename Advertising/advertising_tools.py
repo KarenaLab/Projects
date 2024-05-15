@@ -20,7 +20,15 @@ import matplotlib.pyplot as plt
 
 # ----------------------------------------------------------------------
 def load_dataset_advertising():
-    pass
+    filename = "advertising.csv"
+    data = pd.read_csv(filename, sep=",", encoding="utf-8")
 
-    return None    
+    col_names = dict()
+    for old_name in data.columns:
+        new_name = old_name.lower()
+        col_names[old_name] = new_name
 
+    data = data.rename(columns=col_names)
+    
+
+    return data
