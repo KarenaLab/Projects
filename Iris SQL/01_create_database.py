@@ -11,9 +11,6 @@ import sqlite3
 
 import numpy as np
 import pandas as pd
-import scipy.stats as st
-
-import matplotlib.pyplot as plt
 
 
 # Personal modules
