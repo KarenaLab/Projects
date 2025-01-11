@@ -4,6 +4,7 @@
 import os
 import sys
 
+import datetime as dt
 import numpy as np
 import pandas as pd
 
@@ -14,6 +15,10 @@ import pandas as pd
 
 # Functions
 def load_dataset():
+    """
+
+
+    """
     # Load data
     filename = "GEFCom2014-E.csv"
     data = pd.read_csv(filename, index_col=0, sep=",", encoding="utf-8")
@@ -32,6 +37,9 @@ def load_dataset():
 
 
     return data
+
+def data_preparation(DataFrame, start_time, end_time):
+    
 
 
 # Program --------------------------------------------------------------
