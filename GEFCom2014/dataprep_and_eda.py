@@ -54,16 +54,19 @@ def data_preparation(DataFrame, start_time, end_time):
     return DataFrame
 
 
-def _hour_to_string(x):
+def _hour_to_string(hour):
     # Substitute hour 24 per 0
-    if(x == 24):
-        x = 0
+    if(hour == 24):
+        hour = 0
 
     # Insert a zero suffix for two digits padded hour
-    if(x <= 9): hour_suffix = "0"
-    else: hour_suffix = ""
+    if(hour <= 9):
+        hour_suffix = "0"
+    else:
+        hour_suffix = ""
 
-    string = hour_suffix + str(x) + ":00"
+    # Create %HH:%MM string
+    string = f"{hour_suffix}{hour}:00"
 
     return string
     
@@ -74,6 +77,4 @@ df = load_dataset()
 df = data_preparation(df, "2012-01-01", "2014-12-31")
 
     
-
-    
-    
+# end
