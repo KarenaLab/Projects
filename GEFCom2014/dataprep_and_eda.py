@@ -16,7 +16,8 @@ import pandas as pd
 # Functions
 def load_dataset():
     """
-
+    Load the complete **dataset** from GEFCom2014 project.
+    Focused in Time Series learning methods.
 
     """
     # Load data
@@ -38,11 +39,17 @@ def load_dataset():
     data["datetime"] = pd.to_datetime(data["datetime"], format="%Y-%m-%d %H:%M")
     data.index = data["datetime"]
     data = data.drop(columns=["date", "hour", "datetime"])
+
     
     return data
 
 
 def data_preparation(DataFrame, start_time, end_time):
+    """
+    Slices the DataFrame between **start_time** and **end_time**.
+    Important: Inclusive in both sides: [start_time, end_time].
+
+    """
     # Date and Time prep
     for var in [start_time, end_time]:
         var = pd.to_datetime(var, format="%Y-%m-%d")
@@ -55,6 +62,13 @@ def data_preparation(DataFrame, start_time, end_time):
 
 
 def _hour_to_string(hour):
+    """
+    Internal function.
+    Transforms an hour informed as an integer(1; 24) and returns the
+    hour as a string pre-formated to be used as datetime stamp (HH:MM)
+    and (00:00; 23:59)
+
+    """
     # Substitute hour 24 per 0
     if(hour == 24):
         hour = 0
