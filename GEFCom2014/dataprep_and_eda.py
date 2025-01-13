@@ -83,8 +83,36 @@ def _hour_to_string(hour):
     string = f"{hour_suffix}{hour}:00"
 
     return string
-    
 
+
+def check_nans(DataFrame, columns="all", decimals=2, verbose=True):
+    """
+    Check the number of NaNs (Not a Number) in given **columns**.
+    Columns could be a list if desired some specific columns to check.
+
+    """
+    # Columns preparation
+    if(columns == "all" or columns == None):
+        columns = list(DataFrame.columns)
+
+
+    # NaNs check
+    nans_register = dict()
+
+    no_rows = DataFrame.shape[0]
+    for col in columns:
+        no_nans = DataFrame[col].isna().sum()
+        pct_nans = np.round((no_nans / no_rows) * 100, decimals=decimals)
+
+        nans_register[col] = [no_nans, pct_nans]
+        print(f" > {col}: NaNs= {no_nans} ({pct_nans}%)")
+
+    # [1] Create an function to print it more friendly
+    # [2] Create a plot to receive this information and transform it
+    # into a plot
+    
+    return nans_register
+         
 
 # Program --------------------------------------------------------------
 df = load_dataset()
