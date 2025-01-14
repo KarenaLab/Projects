@@ -8,6 +8,11 @@ import datetime as dt
 import numpy as np
 import pandas as pd
 
+import statsmodels.api as sm
+
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+
 
 # Setup/Config
 
