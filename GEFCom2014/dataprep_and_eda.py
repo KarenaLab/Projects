@@ -45,6 +45,9 @@ def load_dataset():
     data.index = data["datetime"]
     data = data.drop(columns=["date", "hour", "datetime"])
 
+    # Prepare data format (temperature)
+    data["temperature"] = data["temperature"].apply(lambda x: coerce_nan(x, float, fahrenheit_to_celsius))
+
     # Prepare index frequency
     data = data.asfreq(freq="H")
     
@@ -174,10 +177,56 @@ def ts_decomposition(DataFrame, model="additive", filt=None, period=None):
 
 
     return None
-    
-    
-         
 
+
+def fahrenheit_to_celsius(temp_f, decimals=3):
+    """
+    Tranforms the temperature in Fahrenheit (°F) to Celsius (°C).
+    Equation: Temp_C = (Temp_F - 32) * (9/5)
+
+    """
+    temp_c = (temp_f - 32) * (9 / 5)
+    temp_c = np.round(temp_c, decimals=decimals)
+
+    return temp_c
+
+
+def celsius_to_fahrenheit(temp_c, decimals=3):
+    """
+    Transforms the temperature in Celsius (°C) to Fahrenheit (°F).
+    Equation: Temp_F = ((9/5) * Temp_C) + 32
+
+    """
+    temp_f = ((9/5) * temp_c) + 32
+    temp_f = np.round(temp_f, decimals=decimals)
+
+    return temp_f
+
+
+def coerce_nan(value, kind, function):
+    """
+    Function to help lambdas functions to handle missing data or data
+    not standartized.
+
+    Variables:
+    * value: Value to be checked, transformed by function if follows the
+             kind,
+    * kind: Type of data that function expects, any data out of this
+            will be coerced to np.nan,
+    * function: Function to be applied to the value if its follows the
+                expected kind.
+    
+
+    """
+    if(isinstance(value, kind) == True and pd.isnull(value) == False):
+        answer = function(value)
+
+    else:
+        answer = np.nan
+
+    return answer
+   
+    
 # Program --------------------------------------------------------------
 df = load_dataset()
 df = data_preparation(df, "2012-01-01", "2014-12-31")
