@@ -45,6 +45,9 @@ def load_dataset():
     data.index = data["datetime"]
     data = data.drop(columns=["date", "hour", "datetime"])
 
+    # Prepare index frequency
+    data = data.asfreq(freq="H")
+    
     
     return data
 
