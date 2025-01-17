@@ -135,11 +135,9 @@ def mape(y_true, y_pred):
     y_pred = np.array(y_pred)
 
     # Calculation
-    mape = np.mean((np.abs(y_true - y_pred) / y_true))
-    mape = mape * 100
-    
+    result = np.mean((np.abs(y_true - y_pred) / y_true))
 
-    return mape
+    return result
 
 
 def ts_decomposition(DataFrame, model="additive", filt=None, period=None):
