@@ -55,20 +55,21 @@ def load_dataset():
     return data
 
 
-def data_preparation(DataFrame, start_time, end_time):
+def data_preparation(DataFrame, start_time=None, end_time=None):
     """
     Slices the DataFrame between **start_time** and **end_time**.
     Important: Inclusive in both sides: [start_time, end_time].
 
     """
-    # Date and Time prep
-    for var in [start_time, end_time]:
-        var = pd.to_datetime(var, format="%Y-%m-%d")
+    # Slice start_time
+    if(isinstance(start_time, str) == True):
+        start_time = pd.to_datetime(start_time, format="%Y-%m-%d")
+        DataFrame = DataFrame[DataFrame.index >= start_time]
 
-    # DataFrame slicing [start_time, end_time]
-    DataFrame = DataFrame[DataFrame.index >= start_time]
-    DataFrame = DataFrame[DataFrame.index <= end_time]
-
+    if(isinstance(end_time, str) == True):
+        end_time = pd.to_datetime(end_time, format="%Y-%m-%d")
+        DataFrame = DataFrame[DataFrame.index <= end_time]
+        
     return DataFrame
 
 
@@ -162,7 +163,7 @@ def ts_decomposition(DataFrame, model="additive", filt=None, period=None):
     """
     # Model check
     model = model.lower()
-    if(model != "additive" or model != "multiplicative"):
+    if(model != "additive" and model != "multiplicative"):
         model = "additive"
         print(f' > Warning: Selected model "additive" as default.')
 
@@ -175,8 +176,18 @@ def ts_decomposition(DataFrame, model="additive", filt=None, period=None):
     residual = decomposition.resid
     weights = decomposition.weights
 
+    # Return decomposition as a dataframe
+    data = pd.DataFrame(data=[])
+    for info in [observed, trend, seasonal, residual]:
+        data[info.name] = info
 
-    return None
+    # Append `weights` only if values are different from scalar (1).
+    if(len(weights.unique()) > 1):
+        data[weights.name] = weights
+        
+
+    return data
+
 
 
 def fahrenheit_to_celsius(temp_f, decimals=3):
@@ -297,5 +308,6 @@ def inv_scaler_standard(Series, params):
 df = load_dataset()
 df = data_preparation(df, "2012-01-01", "2014-12-31")
 
+decomposition = ts_decomposition(df["load"])
     
 # end
