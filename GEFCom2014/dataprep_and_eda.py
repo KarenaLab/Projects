@@ -228,10 +228,53 @@ def create_lagged_features(DataFrame, variable, max_lag, freq):
 
     return DataFrame
 
-def create_rolling_window_stats(DataFrame, window, stats=["mean", "min", "max"]):
-    pass
+def create_rolling_window_stats(DataFrame, variable, window, stats=["mean", "min", "max"],
+                                decimals=None):
+    """
+    Compute statistics on the values from a given **variable** by defining
+    a range called *window* that means this number of samples before the
+    sample used.
 
-    return DataFrame
+    Variables:
+    * DataFrame:
+    * variable:
+    * window:
+    * stats:
+
+    All stats available:
+
+
+    More info:
+    https://pandas.pydata.org/pandas-docs/stable/reference/window.html
+    
+
+    """
+    # Window treatment
+    info = DataFrame[variable]
+    info = info.shift(window-1)
+    info = info.rolling(window=window)
+
+    # Create Windowed response
+    data = pd.DataFrame(data=[])
+    for s in stats:
+        if(s == "mean"):
+            data["mean"] = info.mean()
+
+        elif(s == "min"):
+            data["min"] = info.min()
+
+        elif(s == "max"):
+            data["max"] = info.max()
+
+    # Apply rounded values (if called):
+    if(isinstance(decimals, int) == True):
+        for col in data.columns:
+            data[col] = np.round(data[col], decimals=decimals)
+
+    # Append the final target
+    data[variable] = DataFrame[variable]
+
+    return data
 
 
 def fahrenheit_to_celsius(temp_f, decimals=3):
@@ -353,5 +396,6 @@ df = load_dataset()
 df = data_preparation(df, "2012-01-01", "2014-12-31")
 
 decomposition = ts_decomposition(df["load"])
-    
+data = create_rolling_window_stats(df, variable="load", window=4, decimals=1)
+
 # end
