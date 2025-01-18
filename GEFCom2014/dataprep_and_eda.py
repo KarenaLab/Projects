@@ -246,8 +246,8 @@ def create_rolling_window_stats(DataFrame, variable, window, stats=["mean", "min
 
     More info:
     https://pandas.pydata.org/pandas-docs/stable/reference/window.html
+    https://pandas.pydata.org/pandas-docs/stable/user_guide/window.html
     
-
     """
     # Window treatment
     info = DataFrame[variable]
@@ -258,13 +258,14 @@ def create_rolling_window_stats(DataFrame, variable, window, stats=["mean", "min
     data = pd.DataFrame(data=[])
     for s in stats:
         if(s == "mean"):
-            data["mean"] = info.mean()
+            data[f"mean_w{window}"] = info.mean()
 
         elif(s == "min"):
-            data["min"] = info.min()
+            data[f"min_w{window}"] = info.min()
 
         elif(s == "max"):
-            data["max"] = info.max()
+            data[f"max_w{window}"] = info.max()
+
 
     # Apply rounded values (if called):
     if(isinstance(decimals, int) == True):
@@ -275,6 +276,12 @@ def create_rolling_window_stats(DataFrame, variable, window, stats=["mean", "min
     data[variable] = DataFrame[variable]
 
     return data
+
+
+def create_expanded_window_stats():
+    pass
+
+    return None
 
 
 def fahrenheit_to_celsius(temp_f, decimals=3):
@@ -396,6 +403,7 @@ df = load_dataset()
 df = data_preparation(df, "2012-01-01", "2014-12-31")
 
 decomposition = ts_decomposition(df["load"])
-data = create_rolling_window_stats(df, variable="load", window=4, decimals=1)
+df_window = create_rolling_window_stats(df, variable="load", window=4,
+                                        decimals=0)
 
 # end
