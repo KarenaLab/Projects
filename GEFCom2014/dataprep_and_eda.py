@@ -7,6 +7,7 @@ import sys
 import datetime as dt
 import numpy as np
 import pandas as pd
+import scipy.stats as st
 
 import statsmodels.api as sm
 
@@ -50,8 +51,8 @@ def load_dataset():
 
     # Prepare index frequency
     data = data.asfreq(freq="H")
-    
-    
+
+        
     return data
 
 
@@ -69,6 +70,7 @@ def data_preparation(DataFrame, start_time=None, end_time=None):
     if(isinstance(end_time, str) == True):
         end_time = pd.to_datetime(end_time, format="%Y-%m-%d")
         DataFrame = DataFrame[DataFrame.index <= end_time]
+
         
     return DataFrame
 
@@ -106,7 +108,6 @@ def check_nans(DataFrame, columns="all", decimals=2, verbose=True):
     # Columns preparation
     if(columns == "all" or columns == None):
         columns = list(DataFrame.columns)
-
 
     # NaNs check
     nans_register = dict()
@@ -191,12 +192,44 @@ def ts_decomposition(DataFrame, model="additive", filt=None, period=None):
 
 def create_lagged_features(DataFrame, variable, max_lag, freq):
     """
+    Lagged features are create with the assumption that what happened
+    in the past can influence or contain a sort of intrinsic information
+    about the future.
 
+    Function will create [1, **max_lag**] variables (columns) with
+    **freq** based in the given **variable**.
 
+    Variables:
+    * DataFrame: Pandas dataframe where data is,
+    * variable: Single variable (as a string) to be shifted,
+    * max_lag: integer or a list. If given an integer, function will create
+               a list from [1, max_lag] and interate the shift with this.
+               Also could inform directly the desired list. Inform a list
+               with a single value if you wish a single new variable creation.
+    * freq: Timestamp frequency to create lagged variables.
+
+    More info:
+    https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.shift.html
+    https://medium.com/@rahulholla1/advanced-feature-engineering-for-time-series-data-5f00e3a8ad29
+    
     """
-    for t in range(1, max_lag+1):
+    # `max_lag` preparation:
+    if(isinstance(max_lag, int) == True):
+        lag_list = range(1, max_lag+1)
+
+    elif(isinstance(max_lag, list) == True):
+        lag_list = max_lag[:]
+
+    # Lagged variables
+    for t in lag_list:
         new_variable = f"{variable}_lag{t}"
         DataFrame[new_variable] = DataFrame[variable].shift(t, freq=freq)
+
+
+    return DataFrame
+
+def create_rolling_window_stats(DataFrame, window, stats=["mean", "min", "max"]):
+    pass
 
     return DataFrame
 
