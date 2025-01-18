@@ -189,6 +189,17 @@ def ts_decomposition(DataFrame, model="additive", filt=None, period=None):
     return data
 
 
+def create_lagged_features(DataFrame, variable, max_lag, freq):
+    """
+
+
+    """
+    for t in range(1, max_lag+1):
+        new_variable = f"{variable}_lag{t}"
+        DataFrame[new_variable] = DataFrame[variable].shift(t, freq=freq)
+
+    return DataFrame
+
 
 def fahrenheit_to_celsius(temp_f, decimals=3):
     """
