@@ -228,7 +228,7 @@ def create_lagged_features(DataFrame, variable, max_lag, freq):
 
     return DataFrame
 
-def create_rolling_window_stats(DataFrame, variable, window, stats=["mean", "min", "max"],
+def create_rolling_window_stats(DataFrame, variable, window, stats=["min", "mean", "max"],
                                 decimals=None):
     """
     Compute statistics on the values from a given **variable** by defining
@@ -257,11 +257,11 @@ def create_rolling_window_stats(DataFrame, variable, window, stats=["mean", "min
     # Create Windowed response
     data = pd.DataFrame(data=[])
     for s in stats:
-        if(s == "mean"):
-            data[f"mean_w{window}"] = info.mean()
+        if(s == "min"):
+            data[f"min_w{window}"] = info.mean()
 
-        elif(s == "min"):
-            data[f"min_w{window}"] = info.min()
+        elif(s == "mean"):
+            data[f"mean_w{window}"] = info.min()
 
         elif(s == "max"):
             data[f"max_w{window}"] = info.max()
@@ -278,10 +278,37 @@ def create_rolling_window_stats(DataFrame, variable, window, stats=["mean", "min
     return data
 
 
-def create_expanded_window_stats():
-    pass
+def create_expanded_window_stats(DataFrame, variable, stats=["min", "mean", "max"], decimals=None):
+    """
 
-    return None
+
+    """
+    # Window treatment
+    info = DataFrame[variable]
+    info = info.expanding()
+
+    # Create Windowed response
+    data = pd.DataFrame(data=[])
+    for s in stats:
+        if(s == "min"):
+            data["min_expand"] = info.mean()
+
+        elif(s == "mean"):
+            data["mean_expand"] = info.min()
+
+        elif(s == "max"):
+            data["max_expand"] = info.max()
+
+
+    # Apply rounded values (if called):
+    if(isinstance(decimals, int) == True):
+        for col in data.columns:
+            data[col] = np.round(data[col], decimals=decimals)
+
+    # Append the final target
+    data[variable] = DataFrame[variable]
+
+    return data           
 
 
 def fahrenheit_to_celsius(temp_f, decimals=3):
@@ -405,5 +432,7 @@ df = data_preparation(df, "2012-01-01", "2014-12-31")
 decomposition = ts_decomposition(df["load"])
 df_window = create_rolling_window_stats(df, variable="load", window=4,
                                         decimals=0)
+
+df_expand = create_expanded_window_stats(df, variable="load")
 
 # end
