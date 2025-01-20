@@ -199,7 +199,7 @@ def create_lagged_features(DataFrame, variable, max_lag, freq):
     Function will create [1, **max_lag**] variables (columns) with
     **freq** based in the given **variable**.
 
-    Variables:
+    Variables
     * DataFrame: Pandas dataframe where data is,
     * variable: Single variable (as a string) to be shifted,
     * max_lag: integer or a list. If given an integer, function will create
@@ -235,13 +235,14 @@ def create_rolling_window_stats(DataFrame, variable, window, stats=["min", "mean
     a range called *window* that means this number of samples before the
     sample used.
 
-    Variables:
-    * DataFrame:
-    * variable:
-    * window:
-    * stats:
+    Variables
+    * DataFrame: Pandas dataframe where data is,
+    * variable: Single variable (as a string) to be windowed,
+    * window: integer number to consider as a past window,
+    * stats: Statistics to calculate the rolling window values.
+             Default is: ["min, "mean", "max"]
 
-    All stats available:
+    List of stats available:
 
 
     More info:
@@ -280,7 +281,7 @@ def create_rolling_window_stats(DataFrame, variable, window, stats=["min", "mean
 
 def create_expanded_window_stats(DataFrame, variable, stats=["min", "mean", "max"], decimals=None):
     """
-
+    Compute statistics that include all previous data.
 
     """
     # Window treatment
