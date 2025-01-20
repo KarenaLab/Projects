@@ -3,6 +3,7 @@
 # Libraries
 import os
 import sys
+import warnings
 
 import datetime as dt
 import numpy as np
@@ -166,7 +167,7 @@ def ts_decomposition(DataFrame, model="additive", filt=None, period=None):
     model = model.lower()
     if(model != "additive" and model != "multiplicative"):
         model = "additive"
-        print(f' > Warning: Selected model "additive" as default.')
+        warnings.warn('Model Error: Selected model "additive" as default.')
 
     # Time Series decomposition
     decomposition = sm.tsa.seasonal_decompose(DataFrame, model=model, filt=filt, period=period)
