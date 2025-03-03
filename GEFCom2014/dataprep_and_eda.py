@@ -9,7 +9,6 @@ import datetime as dt
 import numpy as np
 import pandas as pd
 import scipy.stats as st
-
 import statsmodels.api as sm
 
 import matplotlib.pyplot as plt
@@ -38,7 +37,8 @@ def load_dataset():
         col_names[old_name] = new_name
 
     data = data.rename(columns=col_names)
-    data = data.rename(columns={"t": "temperature"})
+    data = data.rename(columns={"t": "temp_c",
+                                "load": "load_kwh"})
 
     # Prepare date and time
     data["hour"] = data["hour"].apply(_hour_to_string)  
@@ -48,7 +48,7 @@ def load_dataset():
     data = data.drop(columns=["date", "hour", "datetime"])
 
     # Prepare data format (temperature)
-    data["temperature"] = data["temperature"].apply(lambda x: coerce_nan(x, float, fahrenheit_to_celsius))
+    data["temp_c"] = data["temp_c"].apply(lambda x: coerce_nan(x, float, fahrenheit_to_celsius))
 
     # Prepare index frequency
     data = data.asfreq(freq="H")
@@ -429,12 +429,12 @@ def inv_scaler_standard(Series, params):
     
 # Program --------------------------------------------------------------
 df = load_dataset()
-df = data_preparation(df, "2012-01-01", "2014-12-31")
+df = data_preparation(df, start_time="2012-01-01", end_time="2014-12-31")
 
-decomposition = ts_decomposition(df["load"])
-df_window = create_rolling_window_stats(df, variable="load", window=4,
+decomposition = ts_decomposition(df["load_kwh"])
+df_window = create_rolling_window_stats(df, variable="load_kwh", window=4,
                                         decimals=0)
 
-df_expand = create_expanded_window_stats(df, variable="load")
+df_expand = create_expanded_window_stats(df, variable="load_kwh")
 
 # end
