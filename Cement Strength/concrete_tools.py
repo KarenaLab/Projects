@@ -9,7 +9,6 @@ import scipy.stats as stats
 import matplotlib.pyplot as plt
 
 
-
 # ----------------------------------------------------------------------
 def load_dataset():
     filename = "concrete_strength.csv"
