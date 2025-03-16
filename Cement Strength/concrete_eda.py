@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 
 # Personal modules
 sys.path.append(r"c:\python_modules")
-
+from eda_taxonomy import eda_taxonomy
 
 from concrete_tools import load_dataset
 
