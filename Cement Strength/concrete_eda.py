@@ -31,6 +31,4 @@ from concrete_tools import load_dataset
 df = load_dataset()
 cols_class = eda_taxonomy(df, verbose=True)
 
-
-
 # end
