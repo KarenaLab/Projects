@@ -3,7 +3,6 @@
 
 # Libraries
 import os
-import sys
 
 import numpy as np
 import pandas as pd
@@ -13,13 +12,17 @@ import matplotlib.pyplot as plt
 
 
 # Personal modules
-sys.path.append(r"c:\python_modules")
-from eda_taxonomy import eda_taxonomy
-
 from concrete_tools import load_dataset
 
 
 # Functions
+def cols_variable():
+    cols = ["cement_kg_p_m3", "blast_furnace_slag_kg_p_m3",
+            "fly_ash_kg_p_m3", "water_kg_p_m3", "superplasticizer_kg_p_m3",
+            "coarse_aggregate_kg_p_m3", "fine_aggregate_kg_p_m3", "age_days"]
+
+    return cols
+
 
 
 
@@ -29,6 +32,17 @@ from concrete_tools import load_dataset
 
 # Program --------------------------------------------------------------
 df = load_dataset()
-cols_class = eda_taxonomy(df, verbose=True)
+target = "compressive_strength_mpa"
+
+# Univariate analysis
+
+# Bivariate analysis
+
+# Variables versus target
+
+# Heatmap
+
+# Insights
+
 
 # end
