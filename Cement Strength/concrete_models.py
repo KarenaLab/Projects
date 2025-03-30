@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 
 # Personal modules
 from concrete_tools import load_dataset
-
+from src.split_trainval_test import split_train_test
 
 # Functions
 def cols_variable():
@@ -33,15 +33,11 @@ def cols_variable():
 df = load_dataset()
 target = "compressive_strength_mpa"
 
-# Univariate analysis
+# Train/Validation/Test strategy
+trainval, test = split_train_test(df, train_size=70, seed=314)
+train, valid = split_train_test(trainval, train_size=70)
 
-# Bivariate analysis
 
-# Variables versus target
-
-# Heatmap
-
-# Insights
 
 
 # end
