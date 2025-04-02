@@ -50,6 +50,7 @@ def prep_pipeline(DataFrame, train_index, test_index, target):
                                                      fit_intercept=True, positive=False)
 
     return hyperparams, params, results
+
     
 
 def data_split(DataFrame, train_index, test_index, target):
@@ -99,7 +100,7 @@ def linear_regression(x_train, y_train, x_test, y_test,
     # Train score
 
     # Predictions and Parameters
-    y_pred = regr.prdict(x_test)
+    y_pred = regr.predict(x_test)
 
     params = dict()
     params["coefs"] = regr.coef_
@@ -125,4 +126,18 @@ def regr_metrics(y_true, y_pred):
     results["RMSE"] = rmse
 
     return results
+
+
+def aggregate_results(DataFrame, results):
+    # Index
+    fold = results["fold"]
+    
+    for (var, value) in zip(results.keys(), results.values()):
+        DataFrame.loc[fold, var] = value
+
+
+    return DataFrame
+
+
+
     
