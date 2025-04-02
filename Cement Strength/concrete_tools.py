@@ -121,7 +121,7 @@ def regr_metrics(y_true, y_pred):
 
     # Results
     results = dict()
-    results["R2 score"] = r2
+    results["R2 Score"] = r2
     results["MAE"] = mae
     results["RMSE"] = rmse
 
