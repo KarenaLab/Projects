@@ -91,6 +91,7 @@ def linear_regression(x_train, y_train, x_test, y_test,
     regr.positive = positive
 
     hyperparams = dict()
+    hyperparams["model"] = type(regr).__name__
     hyperparams["fit_intercept"] = fit_intercept
     hyperparams["positive"] = positive
 
