@@ -45,10 +45,11 @@ skf_folds = stratified_continuous_kfold(trainval, target=target)
 folds_results = pd.DataFrame(data=[])
 
 for (i, train_index, test_index) in skf_folds:
-    _, _, results = prep_pipeline(df, train_index, test_index, target)
-
-    results["fold"] = i
-    fold_results = aggregate_results(folds_results, results)
+    hyperparams, _, results = prep_pipeline(df, train_index, test_index, target)
+    
+    for dictionary in [hyperparams, results]:
+        dictionary["fold"] = i
+        fold_results = aggregate_results(folds_results, dictionary)
 
 
 # end
