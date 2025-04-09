@@ -32,6 +32,20 @@ def find_best_solution(DataFrame):
 
     return None
 
+
+def print_results(DataFrame, hyperparams, metrics):
+    params = list()
+    for i in hyperparams:
+        info = list(DataFrame[i].unique())
+        params.append(info)
+
+
+    for i in metrics:
+        pass
+
+
+    return None
+        
         
 # Setup/Config
 
@@ -54,6 +68,6 @@ for (i, train_index, test_index) in skf_folds:
     for dictionary in [hyperparams, results]:
         dictionary["fold"] = i
         fold_results = aggregate_results(folds_results, dictionary)
-
+        
 
 # end
