@@ -22,6 +22,11 @@ def load_dataset():
     filename = "concrete_strength.csv"
     data = pd.read_csv(filename, sep=",", encoding="utf-8")
 
+    # Remove duplicated
+    data = data.drop_duplicates()
+    data = data.reset_index(drop=True)
+    
+
     return data
 
 
@@ -119,12 +124,14 @@ def regr_metrics(y_true, y_pred):
     r2 = r2_score(y_true, y_pred)
     mae = mean_absolute_error(y_true, y_pred)
     rmse = root_mean_squared_error(y_true, y_pred)
+    corr_pearson, _ = stats.pearsonr(y_true, y_pred)
 
     # Results
     results = dict()
     results["R2 Score"] = r2
     results["MAE"] = mae
     results["RMSE"] = rmse
+    results["Pearson"] = corr_pearson
 
     return results
 
