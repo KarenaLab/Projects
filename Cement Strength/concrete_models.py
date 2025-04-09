@@ -27,6 +27,10 @@ from src.plot_histbox import plot_histbox
 
 
 # Functions
+def find_best_solution(DataFrame):
+    pass
+
+    return None
 
         
 # Setup/Config
