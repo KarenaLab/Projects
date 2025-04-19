@@ -3,6 +3,7 @@
 
 # Libraries
 import os
+import itertools
 
 import numpy as np
 import pandas as pd
@@ -39,6 +40,16 @@ def cols_variable():
 # Setup/Config
 
 
+def cross_target(variables, target):
+    combination = list()
+    for i in variables:
+        info = (i, target)
+        combination.append(info)
+
+
+    return combination
+        
+
 
 # Program --------------------------------------------------------------
 df = load_dataset()
@@ -52,9 +63,11 @@ for col in cols_categorical():
     pass
 
 # Bivariate analysis
+var_comb = list(itertools.combinations(cols_numerical(), 2))
 
 
 # Variables versus target
+var_comb = cross_target(cols_variable(), target)
 
 
 # Heatmap
