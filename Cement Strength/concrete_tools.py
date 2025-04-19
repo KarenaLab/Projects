@@ -49,11 +49,19 @@ def prep_pipeline(DataFrame, train_index, test_index, target):
     # Standard Scaler
     x_train, x_test = data_scaler(x_train, x_test)
 
-    # Model
-    # Add hyperparams as args and kwargs
-    hyperparams, params, results = linear_regression(x_train, y_train, x_test, y_test,
-                                                     fit_intercept=True, positive=False)
+    # Models
+    # [1] Improve - Add hyperparams as args and kwargs
+    hyperparams = dict()
+    params = dict()
+    results = dict()
+    
+    model_hp, model_p, model_r = linear_regression(x_train, y_train, x_test, y_test,
+                                                   fit_intercept=True, positive=False)
 
+    hyperparams = model_hp
+    params = model_p
+    results = model_r
+   
     return hyperparams, params, results
 
     
