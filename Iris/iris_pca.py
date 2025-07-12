@@ -57,6 +57,61 @@ def apply_pca(DataFrame, n_components=None):
     
 
     return x_pca, results 
+
+
+def plot_pca_principals(DataFrame, label, title=None, savefig=False, verbose=True):
+    """
+
+
+    """
+    # Data preparation
+    variables = DataFrame[label].unique()
+    colors = ["navy", "darkred", "orange", "darkgreen", "darkviolet"]
+    colors = colors[0: variables.size]
+
+    # Title
+    if(title == None):
+        title = "PCA Principals"
+
+    # RC Params
+    plt.rcParams["font.family"] = "Helvetica"
+    plt.rcParams["figure.dpi"] = 120
+    plt.rcParams["ps.papersize"] = "A4"
+    plt.rcParams["xtick.direction"] = "inout"
+    plt.rcParams["ytick.direction"] = "inout"
+    plt.rcParams["xtick.major.size"] = 3.5
+    plt.rcParams["ytick.major.size"] = 3.5
+
+    # Plot
+    fig = plt.figure(figsize=[6, 3.375])    # Widescreen 16:9
+    fig.suptitle(title, fontsize=10, fontweight="bold", x=0.98, ha="right")
+
+    for var, color in zip(variables, colors):
+        data = DataFrame.groupby(by=label).get_group(var)
+        plt.scatter(x=data["PC1"], y=data["PC2"], s=15, color=color, edgecolor="white",
+                    alpha=0.6, label=var, zorder=20)
+
+    plt.xlabel("PC1", loc="center")
+    plt.ylabel("PC2", loc="center")
+
+    plt.grid(axis="both", color="grey", linestyle="--", linewidth=0.5, zorder=5)       
+    plt.legend(loc="best", framealpha=1).set_zorder(99)
+
+    plt.tight_layout()
+
+    # Printing 
+    if(savefig == True):
+        plt.savefig(title, dpi=320)
+
+        if(verbose == True):
+            print(f' > saved plot as "{title}.png"')
+
+    else:
+        plt.show()
+
+    plt.close(fig)
+
+    return None
     
     
 # Setup/Config
@@ -70,7 +125,11 @@ target = "species"
 df_pca = df.drop(columns=[target])
 df_pca, results = apply_pca(df_pca)
 
-plot_pca_explain(results["explained_variance"],
-                 title="Iris - PCA Explained variance", savefig=True)
+#plot_pca_explain(results["explained_variance"], title="Iris - PCA Explained variance", savefig=False)
+
+df_pca = df_pca[["PC1", "PC2"]]
+df_pca[target] = df[target]
+
+plot_pca_principals(df_pca, label=target, title="Iris - PCA Principals", savefig=True)
 
 # end
