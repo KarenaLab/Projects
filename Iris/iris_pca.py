@@ -17,6 +17,8 @@ import matplotlib.pyplot as plt
 
 # Personal modules
 from iris_tools import (load_dataset)
+from src.plot_pca_explain import plot_pca_explain
+
 
 
 # Functions
@@ -68,5 +70,7 @@ target = "species"
 df_pca = df.drop(columns=[target])
 df_pca, results = apply_pca(df_pca)
 
+plot_pca_explain(results["explained_variance"], title="Iris - PCA Explained variance",
+                 savefig=True)
 
 # end
