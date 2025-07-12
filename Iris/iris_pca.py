@@ -70,7 +70,7 @@ target = "species"
 df_pca = df.drop(columns=[target])
 df_pca, results = apply_pca(df_pca)
 
-plot_pca_explain(results["explained_variance"], title="Iris - PCA Explained variance",
-                 savefig=True)
+plot_pca_explain(results["explained_variance"],
+                 title="Iris - PCA Explained variance", savefig=True)
 
 # end
