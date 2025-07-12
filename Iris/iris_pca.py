@@ -59,14 +59,19 @@ def apply_pca(DataFrame, n_components=None):
     return x_pca, results 
 
 
-def plot_pca_principals(DataFrame, label, title=None, savefig=False, verbose=True):
+def plot_pca_principals(DataFrame, label, title=None, color_map=None,
+                        savefig=False, verbose=True):
     """
 
 
     """
     # Data preparation
     variables = DataFrame[label].unique()
-    colors = ["navy", "darkred", "orange", "darkgreen", "darkviolet"]
+
+    # Colors
+    if(color_map == None):
+        colors = ["navy", "darkred", "orange", "darkgreen", "darkviolet"]
+
     colors = colors[0: variables.size]
 
     # Title
@@ -75,6 +80,7 @@ def plot_pca_principals(DataFrame, label, title=None, savefig=False, verbose=Tru
 
     # RC Params
     plt.rcParams["font.family"] = "Helvetica"
+    plt.rcParams["font.size"] = 8
     plt.rcParams["figure.dpi"] = 120
     plt.rcParams["ps.papersize"] = "A4"
     plt.rcParams["xtick.direction"] = "inout"
@@ -88,7 +94,7 @@ def plot_pca_principals(DataFrame, label, title=None, savefig=False, verbose=Tru
 
     for var, color in zip(variables, colors):
         data = DataFrame.groupby(by=label).get_group(var)
-        plt.scatter(x=data["PC1"], y=data["PC2"], s=15, color=color, edgecolor="white",
+        plt.scatter(x=data["PC1"], y=data["PC2"], s=20, color=color, edgecolor="white",
                     alpha=0.6, label=var, zorder=20)
 
     plt.xlabel("PC1", loc="center")
