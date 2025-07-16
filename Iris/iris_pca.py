@@ -56,13 +56,13 @@ def apply_pca(DataFrame, n_components=None):
     results["cumulative_explain"] = np.cumsum(pca.explained_variance_ratio_)
     
 
-    return x_pca, results 
+    return x_pca, results
 
 
 def plot_pca_principals(DataFrame, label, title=None, color_map=None,
                         savefig=False, verbose=True):
     """
-
+    
 
     """
     # Data preparation
@@ -121,6 +121,7 @@ def plot_pca_principals(DataFrame, label, title=None, color_map=None,
     
     
 # Setup/Config
+savefig = True
 
 
 
@@ -131,11 +132,13 @@ target = "species"
 df_pca = df.drop(columns=[target])
 df_pca, results = apply_pca(df_pca)
 
-#plot_pca_explain(results["explained_variance"], title="Iris - PCA Explained variance", savefig=False)
+plot_pca_explain(results["explained_variance"], title="Iris - PCA Explained variance",
+                 savefig=savefig)
 
 df_pca = df_pca[["PC1", "PC2"]]
 df_pca[target] = df[target]
 
-plot_pca_principals(df_pca, label=target, title="Iris - PCA Principals", savefig=True)
+plot_pca_principals(df_pca, label=target, title="Iris - PCA Principals",
+                    savefig=savefig)
 
 # end
