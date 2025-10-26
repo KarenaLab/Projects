@@ -59,7 +59,7 @@ target = "compressive_strength_mpa"
 # Univariate analysis
 for col in cols_numerical():
     info = df[col]
-    plot_histbox(info, title="Cement strength - HistBox - {col}")
+    plot_histbox(info, title=f"Cement strength - HistBox - {col}")
     
     
 for col in cols_categorical():
