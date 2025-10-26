@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 
 # Personal modules
 from concrete_tools import load_dataset
+from src.plot_histbox import plot_histbox
 
 
 # Functions
@@ -58,7 +59,7 @@ target = "compressive_strength_mpa"
 # Univariate analysis
 for col in cols_numerical():
     info = df[col]
-    print(info)
+    plot_histbox(info, title="Cement strength - HistBox - {col}")
     
     
 for col in cols_categorical():
