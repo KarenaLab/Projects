@@ -57,10 +57,13 @@ target = "compressive_strength_mpa"
 
 # Univariate analysis
 for col in cols_numerical():
-    pass
-
+    info = df[col]
+    print(info)
+    
+    
 for col in cols_categorical():
-    pass
+    info = df[col]
+    
 
 # Bivariate analysis
 var_comb = list(itertools.combinations(cols_numerical(), 2))
