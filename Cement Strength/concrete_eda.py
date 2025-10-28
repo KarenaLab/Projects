@@ -3,6 +3,7 @@
 
 # Libraries
 import os
+import shutil
 import itertools
 
 import numpy as np
@@ -49,7 +50,31 @@ def cross_target(variables, target):
 
 
     return combination
-        
+
+
+def organize_report(path=None):
+    # Path
+    path_back = os.getcwd()
+    if(path != None):
+        os.chdir(path)
+
+    # Move
+    for f in os.listdir():
+        name, extension = os.path.splitext(f)
+
+        if(extension == ".png"):
+            src = os.path.join(os.getcwd(), f)
+            dst = os.path.join(os.getcwd(), "report", f)
+            shutil.move(src, dst)
+
+    os.chdir(path_back)
+
+    return None
+
+
+# Setup/Config
+savefig = False
+
 
 
 # Program --------------------------------------------------------------
@@ -59,8 +84,8 @@ target = "compressive_strength_mpa"
 # Univariate analysis
 for col in cols_numerical():
     info = df[col]
-    plot_histbox(info, title=f"Cement strength - HistBox - {col}")
-    
+    plot_histbox(info, title=f"Cement Strength - HistBox - {col}", savefig=savefig)
+        
     
 for col in cols_categorical():
     info = df[col]
@@ -79,5 +104,8 @@ var_comb = cross_target(cols_variable(), target)
 
 # Insights
 
+
+# Organize folder
+organize_report()
 
 # end
