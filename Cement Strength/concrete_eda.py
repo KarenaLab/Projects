@@ -16,6 +16,8 @@ import matplotlib.pyplot as plt
 # Personal modules
 from concrete_tools import load_dataset
 from src.plot_histbox import plot_histbox
+from src.plot_barh import plot_barh
+from src.plot_scatterhist import plot_scatterhist
 
 
 # Functions
@@ -72,6 +74,20 @@ def organize_report(path=None):
     return None
 
 
+def series_to_count(Series):
+    counter = dict()
+
+    for i in Series:
+        if i in counter:
+            counter[i] = counter[i] + 1
+
+        else:
+            counter[i] = 1
+
+       
+    return counter
+
+
 # Setup/Config
 savefig = False
 
@@ -83,21 +99,26 @@ target = "compressive_strength_mpa"
 
 # Univariate analysis
 for col in cols_numerical():
-    info = df[col]
-    plot_histbox(info, title=f"Cement Strength - HistBox - {col}", savefig=savefig)
-        
+    #plot_histbox(df[col], title=f"Cement Strength - HistBox - {col}", savefig=savefig)
+    pass   
     
 for col in cols_categorical():
-    info = df[col]
-    
+    info = series_to_count(df[col])
+        
 
 # Bivariate analysis
 var_comb = list(itertools.combinations(cols_numerical(), 2))
-
+for var_x, var_y in var_comb:
+    plot_scatterhist(x=df[var_x], y=df[var_y], title=f"Cement Strengh - {var_x} vs {var_y}",
+                     xlabel=var_x, ylabel=var_y, mark_size=15, savefig=True)
+    
 
 # Variables versus target
 var_comb = cross_target(cols_variable(), target)
-
+for var_x, var_y in var_comb:
+    plot_scatterhist(x=df[var_x], y=df[var_y], title=f"Cement Strengh - {var_x} vs {var_y}",
+                     color="darkred", xlabel=var_x, ylabel=var_y, mark_size=15, savefig=True)
+    
 
 # Heatmap
 
