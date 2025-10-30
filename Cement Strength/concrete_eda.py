@@ -110,14 +110,14 @@ for col in cols_categorical():
 var_comb = list(itertools.combinations(cols_numerical(), 2))
 for var_x, var_y in var_comb:
     plot_scatterhist(x=df[var_x], y=df[var_y], title=f"Cement Strengh - {var_x} vs {var_y}",
-                     xlabel=var_x, ylabel=var_y, mark_size=15, savefig=True)
+                     xlabel=var_x, ylabel=var_y, mark_size=15, savefig=False)
     
 
 # Variables versus target
 var_comb = cross_target(cols_variable(), target)
 for var_x, var_y in var_comb:
     plot_scatterhist(x=df[var_x], y=df[var_y], title=f"Cement Strengh - {var_x} vs {var_y}",
-                     color="darkred", xlabel=var_x, ylabel=var_y, mark_size=15, savefig=True)
+                     color="darkred", xlabel=var_x, ylabel=var_y, mark_size=15, savefig=False)
     
 
 # Heatmap
