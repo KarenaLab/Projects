@@ -18,6 +18,7 @@ from concrete_tools import load_dataset
 from src.plot_histbox import plot_histbox
 from src.plot_barh import plot_barh
 from src.plot_scatterhist import plot_scatterhist
+from src.plot_heatmap import plot_heatmap
 
 
 # Functions
@@ -98,9 +99,9 @@ df = load_dataset()
 target = "compressive_strength_mpa"
 
 # Univariate analysis
+"""
 for col in cols_numerical():
-    #plot_histbox(df[col], title=f"Cement Strength - HistBox - {col}", savefig=savefig)
-    pass   
+    plot_histbox(df[col], title=f"Cement Strength - HistBox - {col}", savefig=savefig)      
     
 for col in cols_categorical():
     info = series_to_count(df[col])
@@ -118,10 +119,11 @@ var_comb = cross_target(cols_variable(), target)
 for var_x, var_y in var_comb:
     plot_scatterhist(x=df[var_x], y=df[var_y], title=f"Cement Strengh - {var_x} vs {var_y}",
                      color="darkred", xlabel=var_x, ylabel=var_y, mark_size=15, savefig=False)
-    
+"""   
 
 # Heatmap
-
+plot_heatmap(df, columns=cols_numerical(), title=f"Cement Strength - Heatmap",
+             savefig=True)
 
 # Insights
 
