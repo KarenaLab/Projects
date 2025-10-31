@@ -155,5 +155,3 @@ def aggregate_results(DataFrame, results):
     return DataFrame
 
 
-
-    
