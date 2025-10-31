@@ -125,6 +125,7 @@ for var_x, var_y in var_comb:
 plot_heatmap(df, columns=cols_numerical(), title=f"Cement Strength - Heatmap",
              savefig=True)
 
+plot
 # Insights
 
 
