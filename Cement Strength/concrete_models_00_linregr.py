@@ -78,11 +78,14 @@ def regr_metrics(y_true, y_pred):
 df = load_dataset()
 target = "compressive_strength_mpa"
 
-
+# Data Split
 x, y = split_target(df, target=target)
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.30, random_state=53)
+
+# Scaler
 x_train, x_test = scaler(x_train, x_test)
 
-y_pred, params = model_linregr(x_train, x_test, y_train)
+# Model: Linear Regression
+y_pred, _ = model_linregr(x_train, x_test, y_train)
 results = regr_metrics(y_test, y_pred)
 
