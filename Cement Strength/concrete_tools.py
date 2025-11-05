@@ -2,6 +2,9 @@
 
 
 # Libraries
+import os
+import shutil
+
 import numpy as np
 import pandas as pd
 import scipy.stats as stats
@@ -154,4 +157,23 @@ def aggregate_results(DataFrame, results):
 
     return DataFrame
 
+
+def organize_report(path=None):
+    # Path
+    path_back = os.getcwd()
+    if(path != None):
+        os.chdir(path)
+
+    # Move
+    for f in os.listdir():
+        name, extension = os.path.splitext(f)
+
+        if(extension == ".png"):
+            src = os.path.join(os.getcwd(), f)
+            dst = os.path.join(os.getcwd(), "report", f)
+            shutil.move(src, dst)
+
+    os.chdir(path_back)
+
+    return None
 
