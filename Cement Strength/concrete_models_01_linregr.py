@@ -95,7 +95,7 @@ target = "compressive_strength_mpa"
 
 # Data Split
 seed = 1
-size = 25
+size = 30
 
 np.random.seed(seed)
 for seed in np.random.randint(low=0, high=500, size=size):
