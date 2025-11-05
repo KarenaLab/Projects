@@ -69,7 +69,22 @@ def regr_metrics(y_true, y_pred):
     return results
 
 
-                     
+def pipeline(DataFrame, target, test_size=0.20, random_state=None):
+    # Data split
+    x, y = split_target(DataFrame, target=target)
+    x_train, x_test, y_train, y_test = train_test_split(x, y,
+                                                        test_size=test_size,
+                                                        random_state=random_state)
+    x_train, x_test = scaler(x_train, x_test)
+
+    # Model: Linear Regression
+    y_pred, _ = model_linregr(x_train, x_test, y_train)
+    results = regr_metrics(y_test, y_pred)
+
+    return results
+    
+    
+                  
 # Setup/Config
 
 
@@ -79,13 +94,11 @@ df = load_dataset()
 target = "compressive_strength_mpa"
 
 # Data Split
-x, y = split_target(df, target=target)
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.30, random_state=53)
+seed = 1
+size = 25
 
-# Scaler
-x_train, x_test = scaler(x_train, x_test)
-
-# Model: Linear Regression
-y_pred, _ = model_linregr(x_train, x_test, y_train)
-results = regr_metrics(y_test, y_pred)
+np.random.seed(seed)
+for seed in np.random.randint(low=0, high=500, size=size):
+    results = pipeline(df, target=target, test_size=0.30, random_state=seed)
+    print(seed, results)
 
