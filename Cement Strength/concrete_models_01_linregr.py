@@ -1,5 +1,5 @@
 # [P504] Cement compressive strength
-# Performs EDA (Exploratory Data Analysis)
+# Linear Regression model with seed variation
 
 # Libraries
 import os
@@ -20,7 +20,9 @@ import matplotlib.pyplot as plt
 
 # Personal modules
 from concrete_tools import (load_dataset, cols_variable, prep_pipeline,
-                            aggregate_results)
+                            aggregate_results, organize_report)
+
+from src.plot_histbox import plot_histbox
 
 
 # Functions
@@ -86,7 +88,7 @@ def pipeline(DataFrame, target, test_size=0.20, random_state=None):
     
                   
 # Setup/Config
-
+savefig = True
 
     
 # Program --------------------------------------------------------------
@@ -95,10 +97,23 @@ target = "compressive_strength_mpa"
 
 # Data Split
 seed = 1
-size = 30
-
 np.random.seed(seed)
+
+df_results = pd.DataFrame(data=[])
+
+size = 100
 for seed in np.random.randint(low=0, high=500, size=size):
     results = pipeline(df, target=target, test_size=0.30, random_state=seed)
-    print(seed, results)
 
+    for key, _ in results.items():
+        df_results.loc[seed, key] = results[key]
+
+
+for col in df_results.columns:
+    plot_histbox(df_results[col], title=f"Concrete Strength - Linear Regression v01 - {col}",
+                 savefig=savefig)
+
+
+# Scout theme
+# "Always leave the campsite cleaner than you found it"
+organize_report()
