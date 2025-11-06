@@ -88,7 +88,7 @@ def pipeline(DataFrame, target, test_size=0.20, random_state=None):
     
                   
 # Setup/Config
-savefig = True
+savefig = False
 
     
 # Program --------------------------------------------------------------
