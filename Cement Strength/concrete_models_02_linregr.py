@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 from concrete_tools import (load_dataset, cols_variable, prep_pipeline,
                             aggregate_results, organize_report)
 
-#from src.plot_histbox import plot_histbox
+from src.plot_histbox import plot_histbox
 
 
 # Functions
@@ -164,7 +164,11 @@ for seed in np.random.randint(low=0, high=500, size=size):
 
     for key, value in results.items():
         df_results.loc[seed, key] = value
-    
+
+
+for col in df_results.columns:  
+    plot_histbox(df_results[col], title=f"Concrete Strength - LinRegr with CV 5 folds - {col}",
+                 savefig=savefig)
     
    
 # Scout theme: "Always leave the campsite cleaner than you found it"
