@@ -120,10 +120,9 @@ def summarize_results(array):
     return summary
 
 
-
 def pipeline(DataFrame, target, random_state=None):
     # Data split
-    folds = create_kfold(df, random_state=seed)
+    folds = create_kfold(df, random_state=random_state)
     results = list()
     
     for i in folds.keys():
@@ -145,7 +144,17 @@ def pipeline(DataFrame, target, random_state=None):
     
                  
 # Setup/Config
-savefig = False
+savefig = True
+
+
+def check_results(results):
+    for col in results.columns:
+        print(f" *** {col} ***")
+        print(f"   Mean: {results[col].mean()}")
+        print(f" StdDev: {results[col].std()}")
+        print("")
+
+    return None
 
     
 # Program --------------------------------------------------------------
@@ -169,7 +178,8 @@ for seed in np.random.randint(low=0, high=500, size=size):
 for col in df_results.columns:  
     plot_histbox(df_results[col], title=f"Concrete Strength - LinRegr with CV 5 folds - {col}",
                  savefig=savefig)
-    
+
+check_results(df_results)    
    
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report()
