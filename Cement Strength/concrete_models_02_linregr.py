@@ -103,15 +103,8 @@ df_results = pd.DataFrame(data=[])
 
 size = 100
 for seed in np.random.randint(low=0, high=500, size=size):
-    results = pipeline(df, target=target, test_size=0.30, random_state=seed)
+    pass
 
-    for key, _ in results.items():
-        df_results.loc[seed, key] = results[key]
-
-
-for col in df_results.columns:
-    plot_histbox(df_results[col], title=f"Concrete Strength - Linear Regression v01 - {col}",
-                 savefig=savefig)
 
 
 # Scout theme
