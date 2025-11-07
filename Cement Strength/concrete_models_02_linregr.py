@@ -156,12 +156,16 @@ target = "compressive_strength_mpa"
 seed = 1
 np.random.seed(seed)
 
+df_results = pd.DataFrame(data=[])
+
 size = 100
 for seed in np.random.randint(low=0, high=500, size=size):
     results = pipeline(df, target, random_state=seed)
-    print(results)
-    
 
+    for key, value in results.items():
+        df_results.loc[seed, key] = value
     
+    
+   
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report()
