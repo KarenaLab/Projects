@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import scipy.stats as stats
 
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import KFold
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
 
@@ -22,16 +22,45 @@ import matplotlib.pyplot as plt
 from concrete_tools import (load_dataset, cols_variable, prep_pipeline,
                             aggregate_results, organize_report)
 
-from src.plot_histbox import plot_histbox
+#from src.plot_histbox import plot_histbox
 
 
 # Functions
-def split_target(DataFrame, target):
-    x = DataFrame.drop(columns=[target])
-    y = DataFrame[target]
+def create_kfold(DataFrame, n_splits=5, random_state=None):
+    # Shuffle and random state
+    if(random_state == None):
+        shuffle = False
 
-    return x, y
+    else:
+        shuffle = True
+        
+    # Split folds
+    kf = KFold(n_splits=n_splits, shuffle=shuffle,
+               random_state=random_state)
 
+    folds = dict()
+    for i, (train_index, test_index) in enumerate(kf.split(DataFrame)):
+        folds[i] = [train_index, test_index]
+
+
+    return folds
+
+
+def split_fold(DataFrame, target, train_index, test_index):
+    # Target split
+    variables = list(DataFrame.columns)
+    variables.remove(target)
+    
+    # Train and Test split
+    x_train = DataFrame.loc[train_index, variables]
+    x_test = DataFrame.loc[test_index, variables]
+
+    y_train = DataFrame.loc[train_index, target]
+    y_test = DataFrame.loc[test_index, target]
+
+    
+    return x_train, x_test, y_train, y_test
+    
 
 def scaler(x_train, x_test):
     scaler = StandardScaler()
@@ -71,22 +100,50 @@ def regr_metrics(y_true, y_pred):
     return results
 
 
-def pipeline(DataFrame, target, test_size=0.20, random_state=None):
-    # Data split
-    x, y = split_target(DataFrame, target=target)
-    x_train, x_test, y_train, y_test = train_test_split(x, y,
-                                                        test_size=test_size,
-                                                        random_state=random_state)
-    x_train, x_test = scaler(x_train, x_test)
+def summarize_results(array):
+    summary = dict()
 
-    # Model: Linear Regression
-    y_pred, _ = model_linregr(x_train, x_test, y_train)
-    results = regr_metrics(y_test, y_pred)
+    # Cluster same metric
+    for i in array:
+        for key, value in i.items():
+            if key not in summary:
+                summary[key] = [value]
+
+            else:
+                summary[key].append(value)
+
+    # Calculate the mean (average) of each metric
+    for key, value in summary.items():
+        summary[key] = np.mean(summary[key])
+
+
+    return summary
+
+
+
+def pipeline(DataFrame, target, random_state=None):
+    # Data split
+    folds = create_kfold(df, random_state=seed)
+    results = list()
+    
+    for i in folds.keys():
+        train_index = folds[i][0]
+        test_index = folds[i][1]
+        
+        x_train, x_test, y_train, y_test = split_fold(df, target, train_index, test_index)
+        x_train, x_test = scaler(x_train, x_test)
+
+        # Model: Linear Regression
+        y_pred, _ = model_linregr(x_train, x_test, y_train)
+        fold_results = regr_metrics(y_test, y_pred)
+        results.append(fold_results)
+
+
+    results = summarize_results(results) 
 
     return results
     
-    
-                  
+                 
 # Setup/Config
 savefig = False
 
@@ -99,14 +156,12 @@ target = "compressive_strength_mpa"
 seed = 1
 np.random.seed(seed)
 
-df_results = pd.DataFrame(data=[])
-
 size = 100
 for seed in np.random.randint(low=0, high=500, size=size):
-    pass
+    results = pipeline(df, target, random_state=seed)
+    print(results)
+    
 
-
-
-# Scout theme
-# "Always leave the campsite cleaner than you found it"
+    
+# Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report()
