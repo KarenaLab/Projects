@@ -10,7 +10,7 @@ import scipy.stats as stats
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LinearRegression, Ridge
+from sklearn.linear_model import Ridge
 
 from sklearn.metrics import (mean_absolute_error, root_mean_squared_error,
                              r2_score)
@@ -48,22 +48,6 @@ def scaler(x_train, x_test):
     return train, test
 
 
-def regr_linregr(x_train, x_test, y_train):
-    # Model
-    regr = LinearRegression()
-
-    # Fit and predict
-    regr.fit(x_train, y_train)
-    y_pred = regr.predict(x_test)
-
-    # Parameters
-    params = dict()
-    params["coef"] = regr.coef_
-    params["intercept"] = regr.intercept_
-
-    return y_pred, params
-
-
 def regr_ridge(x_train, x_test, y_train, alpha=1):
     regr = Ridge(alpha=1)
     # Main parameters: Alpha*, fit_intercept, positive and
@@ -84,7 +68,7 @@ def regr_ridge(x_train, x_test, y_train, alpha=1):
 
 
 def alpha_range():
-    values_10 = [0.001, 0.01, 0.1, 1, 10, 100, 1000]
+    values_10 = [0, 0.001, 0.01, 0.1, 1, 10, 100, 1000]
     values_log = [3.16227766e-03, 3.16227766e-02, 3.16227766e-01,
                   3.16227766e+00, 3.16227766e+01, 3.16227766e+02,
                   3.16227766e+03]
