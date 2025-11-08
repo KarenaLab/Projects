@@ -89,6 +89,40 @@ def regr_metrics(y_true, y_pred):
     return results
 
 
+def find_best_hyperp(DataFrame, metric, best):
+    """
+
+
+    """
+    # Data preparation
+    DataFrame = DataFrame.dropna()
+
+    # Set best parameters   
+    if(best == "lower"):
+        best_metric = np.inf
+
+    elif(best == "upper"):
+        best_metric = 0
+
+    # Finder
+    best_param = None
+
+    for i in DataFrame.index:
+        value = DataFrame.loc[i, metric]
+        if(best == "lower" and value < best_metric):
+            best_metric = value
+            best_param = i
+
+        elif(best == "upper" and value > best_metric):
+            best_metric = value
+            best_param = i
+
+        else:
+            break
+
+
+    return best_param 
+
                      
 # Setup/Config
 savefig = False
@@ -116,6 +150,9 @@ for a in alpha_range():
         df_results.loc[a, key] = value
 
 
+hparam = find_best_hyperp(df_results, metric="mae", best="lower")
+
+
 # Plots
 plot_lineduo(x1=df_results.index, y1=df_results["mae"], label1="MAE",
              y2=df_results["rmse"], label2="RMSE", xlabel="alpha",
@@ -124,3 +161,4 @@ plot_lineduo(x1=df_results.index, y1=df_results["mae"], label1="MAE",
 
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report()
+
