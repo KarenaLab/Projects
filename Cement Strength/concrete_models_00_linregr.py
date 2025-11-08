@@ -80,7 +80,8 @@ target = "compressive_strength_mpa"
 
 # Data Split
 x, y = split_target(df, target=target)
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.30, random_state=53)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.30,
+                                                    random_state=27)
 
 # Scaler
 x_train, x_test = scaler(x_train, x_test)
@@ -89,3 +90,10 @@ x_train, x_test = scaler(x_train, x_test)
 y_pred, _ = model_linregr(x_train, x_test, y_train)
 results = regr_metrics(y_test, y_pred)
 
+
+# Seed and results
+# -----------------------------------------------------------------------
+# Seed     MAE     RMSE   R2 Score  Pearson
+#   42   8.985   11.235     0.5608   0.7494   
+#   53   8.082   10.195     0.5896   0.7654
+#   27   8.182   10.494     0.5794   0.7613
