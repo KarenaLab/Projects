@@ -105,8 +105,8 @@ size = 100
 for seed in np.random.randint(low=0, high=500, size=size):
     results = pipeline(df, target=target, test_size=0.30, random_state=seed)
 
-    for key, _ in results.items():
-        df_results.loc[seed, key] = results[key]
+    for key, value in results.items():
+        df_results.loc[seed, key] = value
 
 
 for col in df_results.columns:
@@ -114,6 +114,5 @@ for col in df_results.columns:
                  savefig=savefig)
 
 
-# Scout theme
-# "Always leave the campsite cleaner than you found it"
+# Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report()
