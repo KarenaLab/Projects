@@ -20,7 +20,9 @@ import matplotlib.pyplot as plt
 
 # Personal modules
 from concrete_tools import (load_dataset, cols_variable, prep_pipeline,
-                            aggregate_results)
+                            aggregate_results, organize_report)
+
+from src.plot_lineduo import plot_lineduo
 
 
 # Functions
@@ -105,7 +107,7 @@ def regr_metrics(y_true, y_pred):
 
                      
 # Setup/Config
-
+savefig = False
 
     
 # Program --------------------------------------------------------------
@@ -120,22 +122,21 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.30,
 # Scaler
 x_train, x_test = scaler(x_train, x_test)
 
-df_results = pd.DataFrame(data=[])
 # Model: Ridge (L2)
+df_results = pd.DataFrame(data=[])
 for a in alpha_range():
-    y_pred, params = regr_ridge(x_train, x_test, y_train, alpha=a)
+    y_pred, _ = regr_ridge(x_train, x_test, y_train, alpha=a)
     results = regr_metrics(y_test, y_pred)    
 
     for key, value in results.items():
         df_results.loc[a, key] = value
 
 
+# Plots
+plot_lineduo(x1=df_results.index, y1=df_results["mae"], label1="MAE",
+             y2=df_results["rmse"], label2="RMSE", xlabel="alpha",
+             title=f"Concrete Strength - Ridge", savefig=savefig)
 
 
-
-
-
-
-
-
-
+# Scout theme: "Always leave the campsite cleaner than you found it"
+organize_report()
