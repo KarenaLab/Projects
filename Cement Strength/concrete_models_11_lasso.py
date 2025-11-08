@@ -125,7 +125,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.30,
 # Scaler
 x_train, x_test = scaler(x_train, x_test)
 
-# Model: Ridge (L2)
+# Model: Lasso (L1)
 df_results = pd.DataFrame(data=[])
 for a in alpha_range():
     y_pred, _ = regr_lasso(x_train, x_test, y_train, alpha=a)
@@ -138,7 +138,7 @@ for a in alpha_range():
 # Plots
 plot_lineduo(x1=df_results.index, y1=df_results["mae"], label1="MAE",
              y2=df_results["rmse"], label2="RMSE", xlabel="alpha",
-             title=f"Concrete Strength - Ridge", savefig=savefig)
+             title=f"Concrete Strength - Lasso L1", savefig=savefig)
 
 
 # Scout theme: "Always leave the campsite cleaner than you found it"
