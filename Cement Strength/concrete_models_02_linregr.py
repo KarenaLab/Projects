@@ -28,15 +28,14 @@ from src.plot_histbox import plot_histbox
 # Functions
 def create_kfold(DataFrame, n_splits=5, random_state=None):
     # Shuffle and random state
-    if(random_state == None):
+    if(isinstance(random_state, int) == True):
         shuffle = False
 
     else:
         shuffle = True
         
     # Split folds
-    kf = KFold(n_splits=n_splits, shuffle=shuffle,
-               random_state=random_state)
+    kf = KFold(n_splits=n_splits, shuffle=shuffle, random_state=random_state)
 
     folds = dict()
     for i, (train_index, test_index) in enumerate(kf.split(DataFrame)):
@@ -141,10 +140,6 @@ def pipeline(DataFrame, target, random_state=None):
     results = summarize_results(results) 
 
     return results
-    
-                 
-# Setup/Config
-savefig = True
 
 
 def check_results(results):
@@ -155,6 +150,10 @@ def check_results(results):
         print("")
 
     return None
+
+                 
+# Setup/Config
+savefig = False
 
     
 # Program --------------------------------------------------------------
