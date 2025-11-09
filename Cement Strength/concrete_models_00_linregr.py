@@ -1,5 +1,4 @@
 # [P504] Cement compressive strength
-# Performs EDA (Exploratory Data Analysis)
 
 # Libraries
 import os
@@ -36,14 +35,11 @@ def scaler(x_train, x_test):
     scaler.fit(x_train)
 
     cols = x_train.columns
-    train = scaler.transform(x_train)
-    train = pd.DataFrame(data=train, columns=cols)
+    for i in [x_train, x_test]:
+        i = scaler.transform(i)
+        i = pd.DataFrame(data=i, columns=cols)
 
-    cols = x_test.columns
-    test = scaler.transform(x_test)
-    test = pd.DataFrame(data=test, columns=cols)    
-
-    return train, test
+    return x_train, x_test
 
 
 def model_linregr(x_train, x_test, y_train, y_test=None):
@@ -69,6 +65,18 @@ def regr_metrics(y_true, y_pred):
     return results
 
 
+def print_results(dictionary, decimals=3):
+    seed = results["seed"]
+    mae = np.round(results["mae"], decimals=decimals)
+    rmse = np.round(results["rmse"], decimals=decimals)
+    r2 = np.round(results["r2_score"], decimals=4)
+    pearson = np.round(results["pearson_r"], decimals=4)
+
+    print("  Seed      MAE     RMSE   R2 Score    Pearson")
+    print(f"{str(seed):>6s}{str(mae):>9s}{str(rmse):>9s}{str(r2):>11s}{str(pearson):>11s}")
+
+    return None
+
                      
 # Setup/Config
 
@@ -77,23 +85,25 @@ def regr_metrics(y_true, y_pred):
 # Program --------------------------------------------------------------
 df = load_dataset()
 target = "compressive_strength_mpa"
+seed = 15
 
 # Data Split
 x, y = split_target(df, target=target)
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.30,
-                                                    random_state=27)
-
-# Scaler
-x_train, x_test = scaler(x_train, x_test)
+                                                    random_state=seed)
 
 # Model: Linear Regression
+x_train, x_test = scaler(x_train, x_test)
 y_pred, _ = model_linregr(x_train, x_test, y_train)
+
+# Results
 results = regr_metrics(y_test, y_pred)
+results["seed"] = seed
 
+print_results(results)
 
-# Seed and results
-# -----------------------------------------------------------------------
-# Seed     MAE     RMSE   R2 Score  Pearson
-#   42   8.985   11.235     0.5608   0.7494   
-#   53   8.082   10.195     0.5896   0.7654
-#   27   8.182   10.494     0.5794   0.7613
+# Seed      MAE     RMSE   R2 Score    Pearson
+#   42    8.985   11.235     0.5608     0.7494   
+#   53    8.082   10.195     0.5896     0.7654
+#   27    8.182   10.494     0.5794     0.7613
+#   15    7.792    9.901     0.6167     0.7853
