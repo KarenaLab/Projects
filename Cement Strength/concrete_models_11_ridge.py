@@ -158,7 +158,7 @@ results = regr_metrics(y_test, y_pred)
 # Plots
 plot_lineduo(x1=df_results.index, y1=df_results["mae"], label1="MAE",
              y2=df_results["rmse"], label2="RMSE", xlabel="alpha",
-             title=f"Concrete Strength - Ridge", savefig=savefig)
+             title=f"Concrete Strength - Ridge_v02", savefig=savefig)
 
 
 # Scout theme: "Always leave the campsite cleaner than you found it"
