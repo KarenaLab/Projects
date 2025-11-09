@@ -51,7 +51,6 @@ def cross_target(variables, target):
         info = (i, target)
         combination.append(info)
 
-
     return combination
 
 
@@ -64,14 +63,12 @@ def series_to_count(Series):
 
         else:
             counter[i] = 1
-
        
     return counter
 
 
 # Setup/Config
-savefig = False
-
+savefig = True
 
 
 # Program --------------------------------------------------------------
@@ -79,9 +76,9 @@ df = load_dataset()
 target = "compressive_strength_mpa"
 
 # Univariate analysis
-"""
+
 for col in cols_numerical():
-    plot_histbox(df[col], title=f"Cement Strength - HistBox - {col}", savefig=savefig)      
+    plot_histbox(df[col], title=f"Concrete Strength - EDA - HistBox - {col}", savefig=savefig)      
     
 for col in cols_categorical():
     info = series_to_count(df[col])
@@ -90,23 +87,21 @@ for col in cols_categorical():
 # Bivariate analysis
 var_comb = list(itertools.combinations(cols_numerical(), 2))
 for var_x, var_y in var_comb:
-    plot_scatterhist(x=df[var_x], y=df[var_y], title=f"Cement Strengh - {var_x} vs {var_y}",
-                     xlabel=var_x, ylabel=var_y, mark_size=15, savefig=False)
+    plot_scatterhist(x=df[var_x], y=df[var_y], title=f"Concrete Strength - EDA - {var_x} vs {var_y}",
+                     xlabel=var_x, ylabel=var_y, mark_size=15, savefig=savefig)
     
 
 # Variables versus target
 var_comb = cross_target(cols_variable(), target)
 for var_x, var_y in var_comb:
-    plot_scatterhist(x=df[var_x], y=df[var_y], title=f"Cement Strengh - {var_x} vs {var_y}",
-                     color="darkred", xlabel=var_x, ylabel=var_y, mark_size=15, savefig=False)
+    plot_scatterhist(x=df[var_x], y=df[var_y], title=f"Concrete Strength - EDA - {var_x} vs {var_y}",
+                     color="darkred", xlabel=var_x, ylabel=var_y, mark_size=15, savefig=savefig)
    
 
 # Heatmap
-plot_heatmap(df, columns=cols_numerical(), title=f"Cement Strength - Heatmap",
+plot_heatmap(df, columns=cols_numerical(), title=f"Concrete Strength - EDA - Heatmap",
              savefig=savefig)
 
-"""
-# Insights
 
 
 # Organize folder
