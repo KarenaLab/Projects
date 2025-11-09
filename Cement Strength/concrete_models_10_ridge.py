@@ -150,8 +150,9 @@ for a in alpha_range():
         df_results.loc[a, key] = value
 
 
-hparam = find_best_hyperp(df_results, metric="mae", best="lower")
-
+best_alpha = find_best_hyperp(df_results, metric="rmse", best="lower")
+y_pred, _ = regr_ridge(x_train, x_test, y_train, alpha=a)
+results = regr_metrics(y_test, y_pred)
 
 # Plots
 plot_lineduo(x1=df_results.index, y1=df_results["mae"], label1="MAE",
