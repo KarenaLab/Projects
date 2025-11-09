@@ -66,14 +66,11 @@ def scaler(x_train, x_test):
     scaler.fit(x_train)
 
     cols = x_train.columns
-    train = scaler.transform(x_train)
-    train = pd.DataFrame(data=train, columns=cols)
+    for i in [x_train, x_test]:
+        i = scaler.transform(i)
+        i = pd.DataFrame(data=i, columns=cols)
 
-    cols = x_test.columns
-    test = scaler.transform(x_test)
-    test = pd.DataFrame(data=test, columns=cols)    
-
-    return train, test
+    return x_train, x_test
 
 
 def model_linregr(x_train, x_test, y_train, y_test=None):
@@ -153,32 +150,33 @@ def check_results(results):
 
                  
 # Setup/Config
-savefig = False
+savefig = True
 
     
 # Program --------------------------------------------------------------
 df = load_dataset()
 target = "compressive_strength_mpa"
-
-# Data Split
 seed = 1
+size = 100
+
+# Modeling
 np.random.seed(seed)
 
 df_results = pd.DataFrame(data=[])
-
-size = 100
 for seed in np.random.randint(low=0, high=500, size=size):
     results = pipeline(df, target, random_state=seed)
 
     for key, value in results.items():
         df_results.loc[seed, key] = value
 
-
+# Print
 for col in df_results.columns:  
-    plot_histbox(df_results[col], title=f"Concrete Strength - LinRegr with CV 5 folds - {col}",
+    plot_histbox(df_results[col], title=f"Concrete Strength - Model - LinRegr - CV 5 folds - {col}",
                  savefig=savefig)
 
+
 check_results(df_results)    
+
    
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report()
