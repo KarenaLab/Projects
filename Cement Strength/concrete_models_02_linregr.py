@@ -150,7 +150,7 @@ def check_results(results):
 
                  
 # Setup/Config
-savefig = True
+savefig = False
 
     
 # Program --------------------------------------------------------------
