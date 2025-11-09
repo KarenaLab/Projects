@@ -111,6 +111,5 @@ for col in df_results.columns:
                  savefig=savefig)
 
 
-# Scout theme
-# "Always leave the campsite cleaner than you found it"
+# Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report()
