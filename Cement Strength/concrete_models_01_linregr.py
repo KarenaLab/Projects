@@ -38,14 +38,11 @@ def scaler(x_train, x_test):
     scaler.fit(x_train)
 
     cols = x_train.columns
-    train = scaler.transform(x_train)
-    train = pd.DataFrame(data=train, columns=cols)
+    for i in [x_train, x_test]:
+        i = scaler.transform(i)
+        i = pd.DataFrame(data=i, columns=cols)
 
-    cols = x_test.columns
-    test = scaler.transform(x_test)
-    test = pd.DataFrame(data=test, columns=cols)    
-
-    return train, test
+    return x_train, x_test
 
 
 def model_linregr(x_train, x_test, y_train, y_test=None):
@@ -84,24 +81,24 @@ def pipeline(DataFrame, target, test_size=0.20, random_state=None):
     results = regr_metrics(y_test, y_pred)
 
     return results
-    
-    
+
+   
                   
 # Setup/Config
-savefig = False
+savefig = True
 
     
 # Program --------------------------------------------------------------
 df = load_dataset()
 target = "compressive_strength_mpa"
+seed = 1
+size = 100
 
 # Data Split
-seed = 1
 np.random.seed(seed)
 
 # Model: Linear Regression
 df_results = pd.DataFrame(data=[])
-size = 100
 for seed in np.random.randint(low=0, high=500, size=size):
     results = pipeline(df, target=target, test_size=0.30, random_state=seed)
 
@@ -110,7 +107,7 @@ for seed in np.random.randint(low=0, high=500, size=size):
 
 # Plots
 for col in df_results.columns:
-    plot_histbox(df_results[col], title=f"Concrete Strength - Linear Regression v01 - {col}",
+    plot_histbox(df_results[col], title=f"Concrete Strength - Model - LinRegr - Seed variation - {col}",
                  savefig=savefig)
 
 
