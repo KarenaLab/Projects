@@ -139,7 +139,7 @@ def find_best_hyperp(DataFrame, metric, best):
 
                      
 # Setup/Config
-savefig = False
+savefig = True
 
     
 # Program --------------------------------------------------------------
@@ -155,7 +155,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.30,
 x_train, x_test = scaler(x_train, x_test)
 
 # Model: Ridge (L2)
-# From last model, we took info that alpha closer to 0 was the best for MAE
+# From last model, we took info that alpha closer to 0 was the best for RMSE
 df_results = pd.DataFrame(data=[])
 for a in np.linspace(start=0.001, stop=2, num=50):
     y_pred, _ = regr_lasso(x_train, x_test, y_train, alpha=a)
