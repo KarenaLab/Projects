@@ -117,7 +117,7 @@ def find_best_hyperp(DataFrame, metric, best):
 
                      
 # Setup/Config
-savefig = True
+savefig = False
 
     
 # Program --------------------------------------------------------------
