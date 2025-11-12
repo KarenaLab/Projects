@@ -47,8 +47,7 @@ def scaler(x_train, x_test):
 
 def regr_ridge(x_train, x_test, y_train, alpha=1):
     regr = Ridge()
-    # Main parameters: Alpha*, fit_intercept, positive and
-    #                  random_state
+    # Main parameters: Alpha*, fit_intercept, positive and random_state
 
     # Hyperparams
     regr.alpha = alpha
