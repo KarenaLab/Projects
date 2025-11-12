@@ -117,7 +117,7 @@ def find_best_hyperp(DataFrame, metric, best):
 
                      
 # Setup/Config
-savefig = True
+savefig = False
 
     
 # Program --------------------------------------------------------------
@@ -135,7 +135,7 @@ x_train, x_test = scaler(x_train, x_test)
 # Model: Ridge (L2)
 
 df_results = pd.DataFrame(data=[])
-for n in range(1, 7+1):
+for n in range(2, 7+1):
     y_pred, _ = regr_kneigbors(x_train, x_test, y_train, n_neighbors=n)
     results = regr_metrics(y_test, y_pred)    
 
