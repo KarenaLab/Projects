@@ -66,9 +66,10 @@ def scaler(x_train, x_test, method="Standard"):
             sc = MinMaxScaler()
 
         # Fit and transform
-        sc = sc.fit(x_train)
-        x_train = sc.transform(x_train)
-        x_test = sc.transform(x_test)
+        cols = x_train.columns
+        for i in [x_train, x_test]:
+            i = scaler.transform(i)
+            i = pd.DataFrame(data=i, columns=cols)
         
     else:
         # Method is not valid
@@ -77,5 +78,24 @@ def scaler(x_train, x_test, method="Standard"):
 
     return x_train, x_test
 
+
+def organize_report(path=None):
+    # Path
+    path_back = os.getcwd()
+    if(path != None):
+        os.chdir(path)
+
+    # Move
+    for f in os.listdir():
+        name, extension = os.path.splitext(f)
+
+        if(extension == ".png"):
+            src = os.path.join(os.getcwd(), f)
+            dst = os.path.join(os.getcwd(), "report", f)
+            shutil.move(src, dst)
+
+    os.chdir(path_back)
+
+    return None
 
 # end
