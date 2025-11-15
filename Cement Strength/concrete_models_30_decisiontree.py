@@ -11,6 +11,7 @@ import scipy.stats as stats
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeRegressor
+from sklearn.tree import plot_tree
 
 from sklearn.metrics import (mean_absolute_error, root_mean_squared_error,
                              r2_score)
@@ -46,14 +47,19 @@ def scaler(x_train, x_test):
 
 
 def regr_decisiontree(x_train, x_test, y_train,
+                      criterion="squared_error",
                       max_depth=None, max_leaf_nodes=None, min_samples_leaf=1,
                       min_samples_split=2, min_weight_fraction_leaf=0,
-                      random_state=None):
+                      random_state=None,
+                      title=None, showfig=True, savefig=False):
 
     # Model: Decison Tree
+    # More info:
+    # https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html
     regr = DecisionTreeRegressor()
 
     # Hyperparams
+    regr.criterion = criterion
     regr.max_depth = max_depth
     regr.max_leaf_nodes = max_leaf_nodes
     regr.min_samples_leaf = min_samples_leaf
@@ -67,6 +73,29 @@ def regr_decisiontree(x_train, x_test, y_train,
 
     # Parameters
     params = dict()
+    params["hyperparams"] = regr.get_params()
+    params["feature_names_in"] = list(regr.feature_names_in_)
+    params["feature_importances"] = list(regr.feature_importances_)
+    params["tree_depth"] = regr.get_depth()
+    params["tree_nodes"] = regr.tree_.node_count
+    params["tree_leaves"] = regr.get_n_leaves()
+
+
+    # Plot
+    plot_tree(regr, proportion=True)
+
+    if(title == None):
+        title = "Decision Tree Regression"
+
+    if(savefig == True):
+        plt.savefig(title, dpi=320)
+        print(f' > Plot saved as "{title}.png"')
+        
+    if(showfig == True):
+        plt.show()
+
+    plt.close()
+
 
     return y_pred, params
     
@@ -80,42 +109,7 @@ def regr_metrics(y_true, y_pred):
 
     return results
 
-
-def find_best_hyperp(DataFrame, metric, best):
-    """
-
-
-    """
-    # Data preparation
-    DataFrame = DataFrame.dropna()
-
-    # Set best parameters   
-    if(best == "lower"):
-        best_metric = np.inf
-
-    elif(best == "upper"):
-        best_metric = 0
-
-    # Finder
-    best_param = None
-
-    for i in DataFrame.index:
-        value = DataFrame.loc[i, metric]
-        if(best == "lower" and value < best_metric):
-            best_metric = value
-            best_param = i
-
-        elif(best == "upper" and value > best_metric):
-            best_metric = value
-            best_param = i
-
-        else:
-            break
-
-
-    return best_param 
-
-                     
+                   
 # Setup/Config
 savefig = False
 
@@ -129,14 +123,13 @@ x, y = split_target(df, target=target)
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.30,
                                                     random_state=27)
 
-# Scaler
-x_train, x_test = scaler(x_train, x_test)
 
 # Model: Decision Tree
-y_pred, _ = regr_decisiontree(x_train, x_test, y_train,
-                              random_state=314)
+y_pred, params = regr_decisiontree(x_train, x_test, y_train,
+                                   random_state=314, showfig=False, savefig=savefig)
     
-results = regr_metrics(y_test, y_pred)    
+results = regr_metrics(y_test, y_pred)
+print(params)
 
                  
 # Scout theme: "Always leave the campsite cleaner than you found it"
