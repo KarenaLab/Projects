@@ -49,17 +49,19 @@ def clf_decisiontree(x_train, x_test, y_train,
 
     # GraphViz
     if(graphviz == True):
-        dot_data = export_graphviz(clf)
+        pass
 
-        f = open("dot_data.dot", mode="w", encoding="utf-8")
-        f.write(dot_data)
-        f.close()
+        #dot_data = export_graphviz(clf)
+        #f = open("dot_data.dot", mode="w", encoding="utf-8")
+        #f.write(dot_data)
+        #f.close()
 
-        src = Source.from_file(filename="dot_data.dot")
+        #src = Source.from_file(filename="dot_data.dot")
         #src.render(filename="dot_data", format="png", view=True)
         
         #os.remove("dot_data.dot")
         # https://www.pythontutorials.net/blog/converting-dot-to-png-in-python/
+
 
     return y_pred, params
 
