@@ -1,5 +1,4 @@
-# [Pxxx] Project name
-# (optional) Short description
+# [P336] Iris Dataset - Decision tree model
 
 # Insights, improvements and bugfix
 #
@@ -12,14 +11,22 @@ import scipy.stats as stats
 
 import matplotlib.pyplot as plt
 
+# Project libraries
+from src.iris_tools import (load_dataset)
 
-# ----------------------------------------------------------------------
-def name():
-    """
-    Description of the function
-    Information about variables and **kwargs
 
-    """
+# Functions -------------------------------------------------------------
 
-    return None    
+
+
+# Setup/Config ----------------------------------------------------------
+
+
+
+# Program ---------------------------------------------------------------
+
+
+
+
+# end
 
