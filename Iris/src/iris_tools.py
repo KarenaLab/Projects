@@ -2,6 +2,8 @@
 # Learning machine learning fundamentals with Iris project
 
 # Libraries
+import os
+
 import numpy as np
 import pandas as pd
 import scipy.stats as st
@@ -80,6 +82,11 @@ def scaler(x_train, x_test, method="Standard"):
 
 
 def organize_report(path=None):
+    """
+    Scout theme:
+    "Always leave the campsite cleaner than you found it"
+
+    """
     # Path
     path_back = os.getcwd()
     if(path != None):
