@@ -46,7 +46,8 @@ def scaler(x_train, x_test):
 
 
 def regr_decisiontree(x_train, x_test, y_train,
-                      max_depth=None, max_features=None, max_leaf_nodes=None,
+                      max_depth=None, max_leaf_nodes=None, min_samples_leaf=1,
+                      min_samples_split=2, min_weight_fraction_leaf=0,
                       random_state=None):
 
     # Model: Decison Tree
@@ -54,8 +55,10 @@ def regr_decisiontree(x_train, x_test, y_train,
 
     # Hyperparams
     regr.max_depth = max_depth
-    regr.max_features = max_features
     regr.max_leaf_nodes = max_leaf_nodes
+    regr.min_samples_leaf = min_samples_leaf
+    regr.min_samples_split = min_samples_split
+    regr.min_weight_fraction_leaf = min_weight_fraction_leaf
     regr.random_state = random_state
 
     # Fit and predict
@@ -67,24 +70,6 @@ def regr_decisiontree(x_train, x_test, y_train,
 
     return y_pred, params
     
-
-def regr_kneigbors(x_train, x_test, y_train, n_neighbors=2):
-    regr = KNeighborsRegressor()
-    # Main parameters: n_neighbors, weights, p,
-
-    # Hyperparams
-    regr.n_neighbors = n_neighbors
-
-    # Fit and predict
-    regr.fit(x_train, y_train)
-    y_pred = regr.predict(x_test)
-
-    # Parameters
-    params = dict()
-
-
-    return y_pred, params
-   
 
 def regr_metrics(y_true, y_pred):
     results = dict()
@@ -149,7 +134,6 @@ x_train, x_test = scaler(x_train, x_test)
 
 # Model: Decision Tree
 y_pred, _ = regr_decisiontree(x_train, x_test, y_train,
-                              max_depth=None, max_features=None, max_leaf_nodes=None,
                               random_state=314)
     
 results = regr_metrics(y_test, y_pred)    
