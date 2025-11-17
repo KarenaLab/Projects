@@ -1,11 +1,12 @@
-# [Pxxx] Project name
-# (optional) Short description
+# [P529] Penguins project
 
 # Insights, improvements and bugfix
 #
 
 
 # Libraries
+import os
+
 import numpy as np
 import pandas as pd
 import scipy.stats as stats
@@ -14,12 +15,18 @@ import matplotlib.pyplot as plt
 
 
 # ----------------------------------------------------------------------
-def name():
+def load_csv():
     """
-    Description of the function
-    Information about variables and **kwargs
+    Load Penguins project dataset.
 
     """
+    path = r"D:\01 - Projects Binder\529 - Penguins Project\database"
+    filename = "penguins.csv"
 
-    return None    
+    data = pd.read_csv(os.path.join(path, filename),
+                       sep=",", encoding="utf-8")
+
+    return data    
+
+
 
