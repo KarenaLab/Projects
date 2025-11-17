@@ -26,7 +26,10 @@ def load_csv():
     data = pd.read_csv(os.path.join(path, filename),
                        sep=",", encoding="utf-8")
 
-    return data    
+    return data
 
 
+#def string_prep():
 
+
+# end
