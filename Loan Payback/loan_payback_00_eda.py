@@ -1,5 +1,9 @@
-# [Pxxx] Project name
-# (optional) Short description of the program/module.
+# [P531] Loan payback - S5_E11
+# EDA
+
+# Insights, improvements and bugfix
+#
+
 
 # Libraries
 import os
@@ -12,7 +16,7 @@ import matplotlib.pyplot as plt
 
 
 # Personal modules
-
+from src.loan_payback_tools import load_dataset
 
 
 # Functions
