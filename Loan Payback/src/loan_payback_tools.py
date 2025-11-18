@@ -1,11 +1,12 @@
-# [Pxxx] Project name
-# (optional) Short description
+# [P531] Loan payback - S5_E11
 
 # Insights, improvements and bugfix
 #
 
 
 # Libraries
+import os
+
 import numpy as np
 import pandas as pd
 import scipy.stats as stats
@@ -14,12 +15,10 @@ import matplotlib.pyplot as plt
 
 
 # ----------------------------------------------------------------------
-def name():
-    """
-    Description of the function
-    Information about variables and **kwargs
+def load_dataset():
+    pass
 
-    """
+    return None
 
-    return None    
+
 
