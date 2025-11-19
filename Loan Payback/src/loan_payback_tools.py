@@ -27,3 +27,16 @@ def load_dataset(filename, path=None):
     return data
 
 
+def cols_categoric():
+    cols = ["gender", "marital_status", "education_level",
+            "employment_status", "loan_purpose", "grade_subgrade"]
+
+    return cols
+
+
+def cols_numeric():
+    cols = ["annual_income", "debt_to_income_ratio", "credit_score",
+            "loan_amount", "interest_rate"]
+
+    return cols
+    
