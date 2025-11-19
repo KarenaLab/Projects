@@ -28,7 +28,7 @@ from src.loan_payback_tools import load_dataset
 
 
 # Program --------------------------------------------------------------
-
+df = load_dataset(filename="train.csv", path=".\database")
 
 
 
