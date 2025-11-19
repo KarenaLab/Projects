@@ -137,7 +137,7 @@ for i in range(5, 500+1, 25):
     y_pred, params = regr_decisiontree(x_train, x_test, y_train,
                                        max_leaf_nodes=i,
                                        random_state=314,
-                                       showfig=False, savefig=savefig)
+                                       showfig=False, savefig=False)
     
     results = regr_metrics(y_test, y_pred)
 
@@ -149,7 +149,8 @@ df_results = df_results.sort_index(ascending=False)
 
 plot_lineduo(x1=df_results.index, y1=df_results["mae"], label1="MAE",
              y2=df_results["rmse"], label2="RMSE", xlabel="max_leaf_nodes",
-             title = f"Concrete Strength - Decision Tree - max_leaf_nodes")    
+             title = f"Concrete Strength - Decision Tree - max_leaf_nodes",
+             savefig=savefig)    
 
               
 # Scout theme: "Always leave the campsite cleaner than you found it"
