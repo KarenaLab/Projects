@@ -16,7 +16,8 @@ import matplotlib.pyplot as plt
 
 
 # Personal modules
-from src.loan_payback_tools import load_dataset
+from src.loan_payback_tools import (load_dataset,
+                                    cols_categoric, cols_numeric)
 
 
 # Functions
@@ -29,6 +30,7 @@ from src.loan_payback_tools import load_dataset
 
 # Program --------------------------------------------------------------
 df = load_dataset(filename="train.csv", path=".\database")
+target = "loan_paid_back"
 
 
 
