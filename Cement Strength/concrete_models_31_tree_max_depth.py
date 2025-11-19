@@ -112,7 +112,6 @@ def regr_metrics(y_true, y_pred):
                    
 # Setup/Config
 savefig = False
-
     
 # Program --------------------------------------------------------------
 df = load_dataset()
@@ -133,7 +132,7 @@ for i in range(19, 1, -1):
     y_pred, params = regr_decisiontree(x_train, x_test, y_train,
                                        max_depth=i,
                                        random_state=314,
-                                       showfig=False, savefig=savefig)
+                                       showfig=False, savefig=False)
     
     results = regr_metrics(y_test, y_pred)
 
