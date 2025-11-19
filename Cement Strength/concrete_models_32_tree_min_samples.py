@@ -134,8 +134,7 @@ for i in range(1, 25+1):
     split_pct = np.round(i/100, decimals=2)
     y_pred, params = regr_decisiontree(x_train, x_test, y_train,
                                        min_samples_split=split_pct,
-                                       random_state=314,
-                                       showfig=False, savefig=savefig)
+                                       random_state=314, showfig=False, savefig=False)
     
     results = regr_metrics(y_test, y_pred)
 
@@ -147,7 +146,8 @@ df_results = df_results.sort_index(ascending=False)
 
 plot_lineduo(x1=df_results.index, y1=df_results["mae"], label1="MAE",
              y2=df_results["rmse"], label2="RMSE", xlabel="min_samples_split (%)",
-             title = f"Concrete Strength - Decision Tree - min_samples_split")    
+             title = f"Concrete Strength - Decision Tree - min_samples_split",
+             savefig=savefig)    
 
                  
 # Scout theme: "Always leave the campsite cleaner than you found it"
