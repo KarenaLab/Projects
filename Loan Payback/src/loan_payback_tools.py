@@ -15,10 +15,15 @@ import matplotlib.pyplot as plt
 
 
 # ----------------------------------------------------------------------
-def load_dataset():
-    pass
+def load_dataset(filename, path=None):
+    # Path preparation
+    if(path != None):
+        filename = os.path.join(path, filename)
 
-    return None
+    # Load .csv
+    data = pd.read_csv(filename, index_col=0, sep=",", encoding="utf-8")
 
+
+    return data
 
 
