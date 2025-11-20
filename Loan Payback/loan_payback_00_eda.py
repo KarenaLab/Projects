@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 
 
 # Personal modules
-from src.loan_payback_tools import (load_dataset,
+from src.loan_payback_tools import (load_dataset, organize_report,
                                     cols_categoric, cols_numeric)
 
 from src.plot_histbox import plot_histbox
@@ -40,4 +40,7 @@ for col in cols_numeric():
                  savefig=savefig)
 
 
-# end
+
+# Scout theme: "Always leave the campsite cleaner than you found it"
+organize_report(verbose=True)
+
