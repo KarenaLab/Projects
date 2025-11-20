@@ -3,6 +3,7 @@
 
 # Libraries
 import os
+import itertools
 
 import numpy as np
 import pandas as pd
@@ -130,27 +131,40 @@ df_results = pd.DataFrame(data=[])
 # hyperparams: 'tree_depth': 19, 'tree_nodes': 1387, 'tree_leaves': 694
 # results: 'mae': 4.3981, 'rmse': 6.3464, 'r2_score': 0.8462, 'pearson_r': 0.9206 
 
-# Test 01: range(5, 1400+1, 100)
-# Test 02: range(5, 500+1, 25)
+params_grid = dict()
+params_grid["max_depth"] = [5, 6, 7, 8, 9, 10]
+params_grid["max_leaf_nodes"] = [50, 75, 100, 150, 200, 250, 300]
+params_grid["min_samples_split"] = [0.01, 0.025, 0.05, 0.075, 0.10]
 
-for i in range(5, 500+1, 25):
+params_keys = list(params_grid.keys())
+params_comb = list(itertools.product(*params_grid.values()))
+
+for i, hyper_params in enumerate(params_comb):
+    md, mln, mss = hyper_params
+    
     y_pred, params = regr_decisiontree(x_train, x_test, y_train,
-                                       max_leaf_nodes=i,
+                                       max_depth=md,
+                                       max_leaf_nodes=mln,
+                                       min_samples_split=mss,
                                        random_state=314,
                                        showfig=False, savefig=savefig)
     
     results = regr_metrics(y_test, y_pred)
 
+    # Store Hyperparameters
+    for key, value in zip(params_keys, hyper_params):
+        df_results.loc[i, key] = value
+
+    # Store Results
     for key, value in results.items():
         df_results.loc[i, key] = value
 
-
-df_results = df_results.sort_index(ascending=False)
-
+    
+"""
 plot_lineduo(x1=df_results.index, y1=df_results["mae"], label1="MAE",
              y2=df_results["rmse"], label2="RMSE", xlabel="max_leaf_nodes",
              title = f"Concrete Strength - Decision Tree - max_leaf_nodes")    
 
-              
+"""              
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report()
