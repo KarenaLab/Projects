@@ -22,6 +22,7 @@ from src.loan_payback_tools import (load_dataset, organize_report,
 
 from src.plot_histbox import plot_histbox
 from src.plot_scatterhist import plot_scatterhist
+from src.plot_heatmap import plot_heatmap
 
 
 # Functions
@@ -55,12 +56,17 @@ for var_x, var_y in var_comb:
                      mark_size=15, title=f"Loan payback S5E11 - ScatterHist {var_x} vs {var_y}",
                      savefig=savefig)
 
-"""
+
 # Bivariave analysis: Numerical cols versus target:
 for var_x in cols_numeric():
     plot_scatterhist(x=sample[var_x], xlabel=var_x, y=sample[target], ylabel=target,
                      mark_size=15, color="darkred", title=f"Loan payback S5E11 - ScatterHist {var_x} vs {target}",
-                     savefig=savefig)   
+                     savefig=savefig)
+
+"""
+# Heatmap
+plot_heatmap(sample, columns=cols_numeric(), title=f"Loan payback S5E11 - Heatmap",
+             savefig=savefig)
     
 
 
