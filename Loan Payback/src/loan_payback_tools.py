@@ -58,7 +58,7 @@ def organize_report(path=None, verbose=False):
             shutil.move(src, dst)
 
             if(verbose == True):
-                print(f" > File '{f}' transfered for `\report`")
+                print(f" > File '{f}' transfered for `report`")
                 
 
     os.chdir(path_back)
