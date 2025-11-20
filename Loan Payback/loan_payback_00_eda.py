@@ -47,15 +47,20 @@ for col in cols_numeric():
 for col in cols_categoric():
     pass
 
-"""
-# Bivariate analysis
-var_comb = list(itertools.combinations(cols_numeric(), 2))
 
+# Bivariate analysis: Combination of all numerical cols
+var_comb = list(itertools.combinations(cols_numeric(), 2))
 for var_x, var_y in var_comb:
     plot_scatterhist(x=sample[var_x], xlabel=var_x, y=sample[var_y], ylabel=var_y,
                      mark_size=15, title=f"Loan payback S5E11 - ScatterHist {var_x} vs {var_y}",
                      savefig=savefig)
 
+"""
+# Bivariave analysis: Numerical cols versus target:
+for var_x in cols_numeric():
+    plot_scatterhist(x=sample[var_x], xlabel=var_x, y=sample[target], ylabel=target,
+                     mark_size=15, color="darkred", title=f"Loan payback S5E11 - ScatterHist {var_x} vs {target}",
+                     savefig=savefig)   
     
 
 
