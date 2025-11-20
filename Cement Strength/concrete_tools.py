@@ -158,7 +158,7 @@ def aggregate_results(DataFrame, results):
     return DataFrame
 
 
-def organize_report(path=None):
+def organize_report(path=None, verbose=False):
     # Path
     path_back = os.getcwd()
     if(path != None):
@@ -172,6 +172,10 @@ def organize_report(path=None):
             src = os.path.join(os.getcwd(), f)
             dst = os.path.join(os.getcwd(), "report", f)
             shutil.move(src, dst)
+
+            if(verbose == True):
+                print(f" > File '{f}' transfered for `\report`")
+                
 
     os.chdir(path_back)
 
