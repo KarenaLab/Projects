@@ -116,6 +116,7 @@ def regr_metrics(y_true, y_pred):
 
                    
 # Setup/Config
+path_main = os.getcwd()
 savefig = False
 
     
