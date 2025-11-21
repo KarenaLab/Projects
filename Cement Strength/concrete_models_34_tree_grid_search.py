@@ -25,6 +25,7 @@ from concrete_tools import (load_dataset, cols_variable, prep_pipeline,
                             aggregate_results, organize_report)
 
 from src.plot_lineduo import plot_lineduo
+#from src.plot_contour import plot_contour
 
 
 # Functions
@@ -107,8 +108,11 @@ def regr_metrics(y_true, y_pred):
     results["rmse"] = root_mean_squared_error(y_true, y_pred)
     results["r2_score"] = r2_score(y_true, y_pred)
     results["pearson_r"] = stats.pearsonr(y_true, y_pred).statistic
-
+    results["f_score"] = stats.hmean([results["mae"], results["rmse"]])
+    
     return results
+
+
 
                    
 # Setup/Config
@@ -158,6 +162,7 @@ for i, hyper_params in enumerate(params_comb):
     # Store Results
     for key, value in results.items():
         df_results.loc[i, key] = value
+
 
     
 """
