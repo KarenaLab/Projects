@@ -149,7 +149,7 @@ def check_results(results):
     return None
 
 
-def add_feateng(DataFrame):
+def add_feateng(DataFrame, remove_old=False):
     # Fine and Coarse Ratio
     DataFrame["fc_ratio"] = DataFrame["fine_aggregate_kg_p_m3"] / DataFrame["coarse_aggregate_kg_p_m3"]
 
@@ -159,14 +159,12 @@ def add_feateng(DataFrame):
     # Water and Cement Ratio
     DataFrame["wtrcmt_ratio"] = DataFrame["water_kg_p_m3"] / DataFrame["cement_kg_p_m3"]
 
-    DataFrame = DataFrame.drop(columns=["fine_aggregate_kg_p_m3", "coarse_aggregate_kg_p_m3", "water_kg_p_m3", "cement_kg_p_m3"])
-
-    
+    if(remove_old == True):
+        cols_remove = ["fine_aggregate_kg_p_m3", "coarse_aggregate_kg_p_m3", "water_kg_p_m3", "cement_kg_p_m3"]
+        DataFrame = DataFrame.drop(columns=cols_remove)
+            
 
     return DataFrame
-
-
-
 
                  
 # Setup/Config
@@ -175,7 +173,7 @@ savefig = False
     
 # Program --------------------------------------------------------------
 df = load_dataset()
-df = add_feateng(df)
+df = add_feateng(df, remove_old=False)
 
 target = "compressive_strength_mpa"
 seed = 1
