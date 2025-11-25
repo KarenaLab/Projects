@@ -47,7 +47,7 @@ def brief_category(Series):
 
 
 # Setup/Config
-savefig = True
+savefig = False
 
 
 # Program --------------------------------------------------------------
@@ -56,7 +56,7 @@ target = "loan_paid_back"
 
 sample = df.sample(n=10000, random_state=314)
 
-"""
+
 # Univariate analysis
 for col in cols_numeric():
     plot_histbox(data=sample[col], title=f"Loan payback S5E11 - Histogram {col}",
@@ -85,7 +85,7 @@ for var_x in cols_numeric():
 plot_heatmap(sample, columns=cols_numeric(), title=f"Loan payback S5E11 - Heatmap",
              savefig=savefig)
 
-"""
+
 for col in cols_categoric():
     info = brief_category(df[col])
     plot_barh(x=info.index, width=info["count"], title=f"Loan payback S5E11 - Category {col}", savefig=savefig)
