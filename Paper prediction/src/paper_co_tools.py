@@ -10,11 +10,8 @@ import scipy.stats as stats
 import matplotlib.pyplot as plt
 
 
-# Project libraries
 
-
-
-# Functions
+# Functions ------------------------------------------------------------
 def load_txt(filename, path=None, sep=" "):
     """
     Import project dataset with .txt format.
@@ -92,14 +89,4 @@ def load_dataset(filename, path=None):
     return data
 
 
-    
-# Setup/Config
-path_main = os.getcwd()
-path_database = os.path.join(path_main, "database")
-
-
-# Program ---------------------------------------------------------------
-df = load_dataset(filename="pm_train.txt", path=path_database)
-
-
-
+# end
