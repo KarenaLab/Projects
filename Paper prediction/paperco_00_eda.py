@@ -19,7 +19,10 @@ from src.paper_co_tools import load_dataset
 
 
 # Setup/Config
-
+path_main = os.getcwd()
+path_database = os.path.join(path_main, "database")
+path_report = os.path.join(path_main, "report")
 
 
 # Program ---------------------------------------------------------------
+df = load_dataset(filename="pm_train.txt", path=path_database)
