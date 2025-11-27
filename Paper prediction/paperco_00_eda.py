@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 
 # Project libraries
-from src.paper_co_tools import load_dataset
+from src.paper_co_tools import (load_dataset, organize_report)
 from src.plot_histbox import plot_histbox
 
 
@@ -63,12 +63,9 @@ errors = check_failure_data(df)
 
 # Single variable analysis
 for col in df.columns:
-    plot_histbox(data=df[col], title=f"Paper CO - Histogram - {col}")
+    plot_histbox(data=df[col], title=f"Paper CO - Histogram - {col}", savefig=True)
     
 
+# Scout theme: "Always leave the campsite cleaner than you found it"
+organize_report(src=path_main, dst="report")
 
-
-
-
-
-    
