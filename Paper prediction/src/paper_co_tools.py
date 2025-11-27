@@ -44,7 +44,8 @@ def remove_nan_cols(DataFrame):
 
 def prepare_columns(DataFrame):
     # Create columns names
-    cols = ["asset_id", "runtime"]
+    cols = list()
+    cols = cols + cols_control()         # Control
     cols = cols + cols_settings()        # Settings
     cols = cols + cols_tags()            # Tag/Sensor
 
@@ -82,6 +83,12 @@ def load_dataset(filename, path=None):
     return data
 
 
+def cols_control():
+    cols = ["asset_id", "runtime"]
+
+    return cols
+
+
 def cols_settings():
     cols = list()   
     for i in range(1, 3+1):
@@ -98,6 +105,30 @@ def cols_tags():
         cols.append(tag)
 
     return cols
+
+
+def organize_report(src=None, dst="", verbose=False):
+    # Path
+    path_back = os.getcwd()
+    if(src != None):
+        os.chdir(path)
+
+    # Move
+    for f in os.listdir():
+        name, extension = os.path.splitext(f)
+
+        if(extension == ".png"):
+            path_src = os.path.join(os.getcwd(), f)
+            path_dst = os.path.join(os.getcwd(), dst, f)
+            shutil.move(path_src, path_dst)
+
+            if(verbose == True):
+                print(f" > File '{f}' transfered for `\report`")
+                
+
+    os.chdir(path_back)
+
+    return None
 
     
 # end
