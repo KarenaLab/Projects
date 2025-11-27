@@ -43,17 +43,10 @@ def remove_nan_cols(DataFrame):
         
 
 def prepare_columns(DataFrame):
+    # Create columns names
     cols = ["asset_id", "runtime"]
-
-    # Setting columns
-    for i in range(1, 3+1):
-        tag = f"setting_{i}"
-        cols.append(tag)
-
-    # Tag columns
-    for i in range(1, 21+1):
-        tag = f"tag_{i}"
-        cols.append(tag)
+    cols = cols + cols_settings()        # Settings
+    cols = cols + cols_tags()            # Tag/Sensor
 
     # Rename DataFrame
     cols_rename = dict()
@@ -89,4 +82,22 @@ def load_dataset(filename, path=None):
     return data
 
 
+def cols_settings():
+    cols = list()   
+    for i in range(1, 3+1):
+        tag = f"setting_{i}"
+        cols.append(tag)
+
+    return cols
+
+
+def cols_tags():
+    cols = list()
+    for i in range(1, 21+1):
+        tag = f"tag_{i}"
+        cols.append(tag)
+
+    return cols
+
+    
 # end
