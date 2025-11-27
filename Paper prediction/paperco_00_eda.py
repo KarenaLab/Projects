@@ -51,12 +51,20 @@ path_main = os.getcwd()
 path_database = os.path.join(path_main, "database")
 path_report = os.path.join(path_main, "report")
 
+SAVEFIG = False
+
 
 # Program ---------------------------------------------------------------
 df = load_dataset(filename="pm_train.txt", path=path_database)
 
 # asset_id and runtime data validation
 errors = check_failure_data(df)
+
+
+# Single variable analysis
+for col in df.columns:
+    plot_histbox(data=df[col], title=f"Paper CO - Histogram - {col}")
+    
 
 
 
