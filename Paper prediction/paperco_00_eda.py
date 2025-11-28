@@ -104,8 +104,8 @@ cols_unique = pd.DataFrame(data=[])
 for col in df.columns:
     cols_unique.loc[col, "unique"] = df[col].nunique()
 
-#plot_barv(x=cols_unique.index, height=cols_unique["unique"], xrotation=True,
-#          title=f"Paper CO - Unique values per variable", savefig=False)
+plot_barv(x=cols_unique.index, height=cols_unique["unique"], xrotation=True,
+          title=f"Paper CO - Unique values per variable", savefig=SAVEFIG)
 
 df = remove_cols_unique(df, verbose=False)
 df = feat_eng_runtime_inv(df)
@@ -124,9 +124,6 @@ for (var_x, var_y) in cols_comb:
                      title=f"Paper CO - Scatter - {var_x} vs {var_y}", savefig=SAVEFIG)
 
 plot_heatmap(df_sample, title="Paper CO - Heatmap", savefig=SAVEFIG)
-
-
-
 
 
 
