@@ -2,6 +2,7 @@
 
 # Libraries
 import os
+import shutil
 
 import numpy as np
 import pandas as pd
@@ -111,7 +112,7 @@ def organize_report(src=None, dst="", verbose=False):
     # Path
     path_back = os.getcwd()
     if(src != None):
-        os.chdir(path)
+        os.chdir(src)
 
     # Move
     for f in os.listdir():
