@@ -244,6 +244,45 @@ def feat_eng_runtime_inv(DataFrame):
     return DataFrame
 
 
+def add_failure_tag(DataFrame, threshold):
+    """
+    Converters the runtime_inv into a flag of failure or not, considering
+    a **threshold** of problem.
+
+    Add a column called `failure_flag` where:
+    * 0 (zero) = Not a problem,
+    * 1 (one) = Classified as a problem or potential problem,
+
+    Arguments:
+    * DataFrame: Pandas dataframe of project,
+    * threshold: Value to conside as a trigger of classification.
+          Important: This study is using only negative values for
+          runtime_inv,
+
+    Return:
+    * DataFrame: Processed Pandas DataFrame
+
+    """
+    # Internal function for classification of target
+    def calc_class(value, threshold):
+        """
+        If value is lower or equal than threshold, returns 0 (zero)
+        """
+        if(value >= threshold): answer = 0
+        else: answer = 1
+
+        return answer
+
+
+    # Threshold preparation
+    threshold = np.abs(threshold) * -1
+
+    DataFrame["failure_flag"] = DataFrame["runtime_inv"].apply(lambda x: calc_class(x, threshold))
+
+
+    return DataFrame
+    
+    
 def organize_report(src=None, dst="", verbose=False):
     """
     Move plots figures saved as .png saved in path* and move
