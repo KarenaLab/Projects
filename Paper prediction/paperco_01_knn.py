@@ -12,6 +12,8 @@ import pandas as pd
 import scipy.stats as stats
 
 from sklearn.model_selection import StratifiedKFold
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import roc_curve, roc_auc_score
 
 import matplotlib.pyplot as plt
 
@@ -26,7 +28,8 @@ from src.plot_scatterhist import plot_scatterhist
 from src.plot_heatmap import plot_heatmap
 
 
-# Functions
+
+# Functions -------------------------------------------------------------
 def prepare_dataset(filename, path):
     """
     Import and prepare **DataFrame** for modeling.
@@ -50,12 +53,31 @@ def prepare_dataset(filename, path):
     return data
 
 
+def target_split(DataFrame, target):
+    """
+    Splits **DataFrame** into x (variables) and y(**target**).
+
+    Arguments:
+    * DataFrame: Pandas DataFrame with project data,
+    * target: Target for x (variables) and y (target) split,
+
+    Returns:
+    x: DataFrame with all variables,
+    y: DataFrame (Series) with target,
+
+    """
+    x = DataFrame.drop(columns=[target])
+    y = DataFrame[target]
+
+    return x, y
+    
+
 def holdout_split(DataFrame, target, test_size=0.2, random_state=42):
     """
     Splits DataFrame into **two** Dataframes for Train, Validation and Test.
 
     Arguments:
-    * DataFrame:
+    * DataFrame: Pandas DataFrame with project data,
     * target: Target for Stratified KFold keep the proportions constant,
     * test_size: Size of test dataframe,
     * random_state: Seed for tests reproducibility,
@@ -85,8 +107,7 @@ def holdout_split(DataFrame, target, test_size=0.2, random_state=42):
     skf.random_state = random_state
 
     # Target split
-    x = DataFrame.drop(columns=[target])
-    y = DataFrame[target]
+    x, y = target_split(DataFrame, target=target)
 
     # trainval and test split
     trainval = np.array(DataFrame.index)
@@ -138,8 +159,7 @@ def kfold_split(DataFrame, target, n_splits=5, random_state=42):
     skf.random_state = random_state
 
     # Target split
-    x = DataFrame.drop(columns=[target])
-    y = DataFrame[target]
+    x, y = target_split(DataFrame, target=target)
 
     # Folds
     folds = dict()
@@ -148,6 +168,60 @@ def kfold_split(DataFrame, target, n_splits=5, random_state=42):
 
 
     return folds
+
+
+def clf_kneighbors(x_train, x_test, y_train, n_neighbors=2, weights="uniform"):
+    """
+
+
+    """
+    # KNeighbors Classifier
+    clf = KNeighborsClassifier()
+
+    # Hyperparams
+    clf.n_neighbors = n_neighbors
+    clf.weights = weights
+
+    # Fit and predict
+    clf.fit(x_train, y_train)
+    y_pred = clf.predict(x_test)
+
+    # Parameters
+    params = dict()
+    
+
+    return y_pred, params
+
+
+def clf_metrics(y_true, y_pred):
+    """
+
+
+    """
+    # ROC (Receiver Operating Chracteristic Curve) and
+    # AUC (Area Under Curve)
+    fpr, tpr, thresholds = roc_curve(y_true, y_pred)
+    auc_score = roc_auc_score(y_true, y_pred)
+
+    # Results
+    results = Results
+    results.fpr = fpr
+    results.tpr = tpr
+    results.thresholds = thresholds
+    results.auc_score = auc_score
+
+    return results         
+        
+
+
+# Classes and Objects ---------------------------------------------------
+class Results:
+    def __init__(self, fpr, tpr, thresholds, auc_score):
+        self.fpr = fpr
+        self.tpr = tpr
+        self.thresholds = thresholds
+        self.auc_score = auc_score
+
 
 
 # Setup/Config ----------------------------------------------------------
@@ -160,19 +234,45 @@ warnings.filterwarnings("ignore")
 SAVEFIG = True
 
 
+
 # Program ---------------------------------------------------------------
 
 # Import dataset for Models
 df = prepare_dataset(filename="pm_train.txt", path=path_database)
 target = "failure_flag"
 
+n_splits = 5
 df_trainval, df_test = holdout_split(df, target, test_size=.2, random_state=314)
+folds = kfold_split(df_trainval, target, n_splits=n_splits, random_state=314)
 
-folds = kfold_split(df_trainval, target, n_splits=5, random_state=314)
+df_results = pd.DataFrame(data=[])
+for n in range(3, 9+1):
+    print(f" > n_neigbors: {n}")
 
+    # Cross-Validation    
+    for i, [train_index, test_index] in folds.items():
+        x, y = target_split(df, target=target)
 
+        x_train = x.loc[train_index, :]
+        x_test = x.loc[test_index, :]
+        y_train = y.loc[train_index]
+        y_test = y.loc[test_index]
 
+        y_pred, params = clf_kneighbors(x_train, x_test, y_train, n_neighbors=n)
+        fold_results = clf_metrics(y_test, y_pred)
 
+        df_results.loc[n, f"fold_{i}"] = fold_results.auc_score
+
+    # Calculate Mean and Standard Deviation of Fold
+    values = np.array([])
+    for i in range(0, n_splits):
+        values = np.append(values, df_results.loc[n, f"fold_{i}"])
+
+    df_results.loc[n, "mean"] = np.mean(values)
+    df_results.loc[n, "stddev"] = np.std(values)
+    
+    
+  
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report(src=path_main, dst="report")
 
