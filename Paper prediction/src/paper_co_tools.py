@@ -219,6 +219,31 @@ def remove_cols_unique(DataFrame, verbose=False):
     return DataFrame
 
 
+def feat_eng_runtime_inv(DataFrame):
+    """
+    Inverts the runtime cycle, number will be a count down to the failure.
+    Important: Using **negative** numbers to avoid conflict with runtime values.
+
+    Arguments:
+    * DataFrame: Pandas DataFrame
+
+    Return:
+    * DataFrame: Processed Pandas DataFrame
+
+    """
+    
+    for asset in DataFrame["asset_id"].unique():
+        info = DataFrame.groupby(by="asset_id").get_group(asset)
+        runtime_max = info["runtime"].max()
+        info["runtime_inv"] = info["runtime"].apply(lambda x: x - runtime_max)
+
+        for i in info.index:
+            DataFrame.loc[i, "runtime_inv"] = info.loc[i, "runtime_inv"]
+
+
+    return DataFrame
+
+
 def organize_report(src=None, dst="", verbose=False):
     """
     Move plots figures saved as .png saved in path* and move
