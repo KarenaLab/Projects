@@ -13,7 +13,9 @@ import matplotlib.pyplot as plt
 
 
 # Project libraries
-from src.paper_co_tools import (load_dataset, organize_report)
+from src.paper_co_tools import (load_dataset, remove_cols_unique,
+                                organize_report)
+
 from src.plot_histbox import plot_histbox
 from src.plot_barv import plot_barv
 from src.plot_scatterhist import plot_scatterhist
@@ -52,36 +54,6 @@ def check_failure_data(DataFrame):
                 errors.append(asset_t0)
 
     return errors
-
-
-def remove_cols_unique(DataFrame, verbose=False):
-    """
-    Remove columns with a single value, does not change during the
-    data collection.
-
-    Arguments:
-    * DataFrame: Pandas DataFrame
-
-    Return:
-    * DataFrame: Processed Pandas DataFrame
-    * verbose: True or False* (default=False)
-
-    """
-    cols_remove = list()
-    for col in DataFrame.columns:
-        if(DataFrame[col].nunique() == 1):
-            cols_remove.append(col)
-
-    if(len(cols_remove) > 0):
-        DataFrame = DataFrame.drop(columns=cols_remove)
-
-     # Verbose   
-    if(verbose == True):
-        for col in cols_remove:
-            print(f" > Column '{col}' removed due unique item")
-
-
-    return DataFrame
 
 
 def feat_eng_runtime_inv(DataFrame):
@@ -162,7 +134,7 @@ df = remove_cols_unique(df, verbose=False)
 # >>> Feature Engineering with runtime as countdown to failure
 df = feat_eng_runtime_inv(df)
 
-
+"""
 # EDA Plots
 # Due dataprocessing visualization ONLY, using a slice of 25% of data
 df_sample = df.sample(frac=.25, random_state=314)
@@ -179,7 +151,7 @@ for (var_x, var_y) in cols_comb:
 
 plot_heatmap(df_sample, title="Paper CO - Heatmap", savefig=SAVEFIG)
 
-
+"""
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report(src=path_main, dst="report")
 
