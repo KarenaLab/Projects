@@ -22,7 +22,11 @@ from src.plot_heatmap import plot_heatmap
 # Functions
 def check_failure_data(DataFrame):
     """
-    
+    Function to check IF the **asset_id** and **runtime** orchestration
+    is working corretly. When runtime stops to increase, it means the machine
+    had a failure and asset_id need to be increased.
+
+    If working correctly, asset_id increase every time runtime resets for 1 (one).
 
     """
     # "asset_id" and "runtime".
@@ -93,6 +97,8 @@ SAVEFIG = True
 
 
 # Program ---------------------------------------------------------------
+
+# Import dataset for EDA
 df = load_dataset(filename="pm_train.txt", path=path_database)
 
 # Asset_id and runtime data validation
