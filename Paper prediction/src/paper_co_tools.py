@@ -16,12 +16,22 @@ import matplotlib.pyplot as plt
 def load_txt(filename, path=None, sep=" "):
     """
     Import project dataset with .txt format.
+
+    Arguments:
+    * filename: string with filename and extension,
+    * path: (Optional) If file is not in root path,
+    * sep: Separator for columns (default=" ", space),
+
+    Return:
+    * data: Pandas Dataframe
     
     """
+    # Path preparation
     path_back = os.getcwd()
     if(path != None):
         filename = os.path.join(path, filename)
 
+    # Data import
     data = pd.read_csv(filename, header=None, sep=sep)
 
 
@@ -29,6 +39,17 @@ def load_txt(filename, path=None, sep=" "):
 
 
 def remove_nan_cols(DataFrame):
+    """
+    Corretion for DataFrame with aditional spaces in the end,
+    will delete/remove column if it is 100% of NaNs.
+
+    Arguments:
+    * DataFrame: Pandas DataFrame
+
+    Return:
+    * DataFrame: Processed Pandas DataFrame
+
+    """
     
     cols_remove = list()
     for col in DataFrame.columns:
@@ -37,36 +58,58 @@ def remove_nan_cols(DataFrame):
         if(not_nan == 0):
             cols_remove.append(col)
 
-    DataFrame = DataFrame.drop(columns=cols_remove)
+
+    if(len(cols_remove) > 0):
+        DataFrame = DataFrame.drop(columns=cols_remove)
 
 
     return DataFrame
         
 
 def prepare_columns(DataFrame):
+    """
+    Add columns names for DataFrame according to exercise
+    description.
+
+    Important: Using calling functions for columns, do not edit it
+    here.
+
+    """
     # Create columns names
     cols = list()
     cols = cols + cols_control()         # Control
     cols = cols + cols_settings()        # Settings
     cols = cols + cols_tags()            # Tag/Sensor
 
-    # Rename DataFrame
+    # Columns names correspondency
     cols_rename = dict()
     for old_name, new_name in zip(list(DataFrame.columns), cols):
         cols_rename[old_name] = new_name
 
+
     DataFrame = DataFrame.rename(columns=cols_rename)
     
-
     return DataFrame
 
 
 def check_duplicates(DataFrame):
+    """
+    Check if **DataFrame** has duplicated rows.
+    Function has a locked verbose mode.
+    
+    Arguments:
+    * DataFrame: Pandas DataFrame
+
+    Return:
+    * DataFrame: Processed Pandas DataFrame
+
+    """
+    # Initial DataFrame size
     size_before = DataFrame.shape[0]
-
     DataFrame = DataFrame.drop_duplicates()
-    size_after = DataFrame.shape[0]
 
+    # Verification and soft warning for user
+    size_after = DataFrame.shape[0]
     if(size_before > size_after):
         print(f" > Rows duplicated removed: {size_before - size_after}")
 
@@ -74,41 +117,89 @@ def check_duplicates(DataFrame):
     return DataFrame
 
 
-def load_dataset(filename, path=None):
-    data = load_txt(filename=filename, path=path)
+# Export functions ------------------------------------------------------
+def load_dataset(filename, path=None, sep=" "):
+    """
+    Import dataset with corrections.
+
+    Arguments:
+    * filename: string with filename and extension,
+    * path: (Optional) If file is not in root path,
+    * sep: Separator for columns (default=" ", space),
+
+    Return:
+    * data: Pandas dataset without data processing (for EDA)
+
+    """
+    data = load_txt(filename=filename, path=path, sep=sep)
     data = remove_nan_cols(data)
     data = prepare_columns(data)
     data = check_duplicates(data)
-
 
     return data
 
 
 def cols_control():
+    """
+    First **two** columns of DataFrame described in exercise document
+    (table 01, page 02).
+
+    Return:
+    * cols: List with columns names string.
+    
+    """
     cols = ["asset_id", "runtime"]
 
     return cols
 
 
 def cols_settings():
+    """
+    **Three** columns settings of DataFrame described in exercise document
+    (table 01, page 02).
+
+    Return:
+    * cols: List with columns names string.
+    
+    """
     cols = list()   
     for i in range(1, 3+1):
         tag = f"setting_{i}"
         cols.append(tag)
 
+
     return cols
 
 
 def cols_tags():
+    """
+    **Twenty one** columns tags/sensors of DataFrame described in exercise
+    document (table 01, page 02).
+
+    Return:
+    * cols: List with columns names string.
+    
+    """
     cols = list()
     for i in range(1, 21+1):
         tag = f"tag_{i}"
         cols.append(tag)
 
+
     return cols
 
 
 def organize_report(src=None, dst="", verbose=False):
+    """
+    Move plots figures saved as .png saved in path* and move
+    for a **destiny (dst)** path.
+
+    Arguments:
+    * src: (Optional) Path of the source to find the figures .png files,
+    * dst: (Mandatory) Path destiny for the move.
+    * verbose: True or False* (default=False)
+
+    """
     # Path
     path_back = os.getcwd()
     if(src != None):
