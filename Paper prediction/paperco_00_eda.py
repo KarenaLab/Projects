@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 
 
 # Project libraries
-from src.paper_co_tools import (load_dataset, remove_cols_unique,
+from src.paper_co_tools import (load_dataset, remove_cols_unique, feat_eng_runtime_inv,
                                 organize_report)
 
 from src.plot_histbox import plot_histbox
@@ -54,31 +54,6 @@ def check_failure_data(DataFrame):
                 errors.append(asset_t0)
 
     return errors
-
-
-def feat_eng_runtime_inv(DataFrame):
-    """
-    Inverts the runtime cycle, number will be a count down to the failure.
-    Important: Using **negative** numbers to avoid conflict with runtime values.
-
-    Arguments:
-    * DataFrame: Pandas DataFrame
-
-    Return:
-    * DataFrame: Processed Pandas DataFrame
-
-    """
-    
-    for asset in DataFrame["asset_id"].unique():
-        info = DataFrame.groupby(by="asset_id").get_group(asset)
-        runtime_max = info["runtime"].max()
-        info["runtime_inv"] = info["runtime"].apply(lambda x: x - runtime_max)
-
-        for i in info.index:
-            DataFrame.loc[i, "runtime_inv"] = info.loc[i, "runtime_inv"]
-
-
-    return DataFrame
 
 
 def plot_columns_nunique(DataFrame, title=None, savefig=False):
