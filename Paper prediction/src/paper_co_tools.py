@@ -282,7 +282,39 @@ def add_failure_tag(DataFrame, threshold):
 
 
     return DataFrame
-    
+
+
+def remove_df_columns(DataFrame, columns, verbose=False):
+    """
+    Remove columns that will not be helpful for the models.
+
+    Arguments:
+    * DataFrame: Pandas dataframe of project,
+    * columns: Columns names to be removed from,
+    * verbose: True or False* (default=False),
+
+    Return:
+    * DataFrame: Processed Pandas DataFrame
+
+    """
+    # Columns names preparation
+    cols_remove = list()
+    cols_dataframe = list(DataFrame.columns)
+
+    for col in columns:
+        if(cols_dataframe.count(col) == 1):
+            cols_remove.append(col)
+
+        else:
+            if(verbose == True):
+                print(f" > column '{col}' does NOT exists")
+
+    if(len(cols_remove) > 0):
+        DataFrame = DataFrame.drop(columns=cols_remove)
+
+
+    return DataFrame
+
     
 def organize_report(src=None, dst="", verbose=False):
     """
