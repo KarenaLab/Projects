@@ -98,27 +98,20 @@ def holdout_split(DataFrame, target, test_size=0.2, random_state=42):
         # test array is an array to be removed from trainval array.
         items_to_keep = ~np.isin(trainval, test)
         trainval = trainval[items_to_keep]
-        
 
+        # Will only keep the "numerator" size for test
         if(i >= (splits_get - 1)):
             break
+
 
     # DataFrame split
     data_trainval = DataFrame.loc[trainval, :]
     data_test = DataFrame.loc[test, :]
 
-
     return data_trainval, data_test
         
 
 
-    
-
-    
-
-
-
-   
 # Setup/Config ----------------------------------------------------------
 path_main = os.getcwd()
 path_database = os.path.join(path_main, "database")
