@@ -189,6 +189,36 @@ def cols_tags():
     return cols
 
 
+def remove_cols_unique(DataFrame, verbose=False):
+    """
+    Remove columns with a single value, does not change during the
+    data collection.
+
+    Arguments:
+    * DataFrame: Pandas DataFrame
+
+    Return:
+    * DataFrame: Processed Pandas DataFrame
+    * verbose: True or False* (default=False)
+
+    """
+    cols_remove = list()
+    for col in DataFrame.columns:
+        if(DataFrame[col].nunique() == 1):
+            cols_remove.append(col)
+
+    if(len(cols_remove) > 0):
+        DataFrame = DataFrame.drop(columns=cols_remove)
+
+     # Verbose   
+    if(verbose == True):
+        for col in cols_remove:
+            print(f" > Column '{col}' removed due unique item")
+
+
+    return DataFrame
+
+
 def organize_report(src=None, dst="", verbose=False):
     """
     Move plots figures saved as .png saved in path* and move
