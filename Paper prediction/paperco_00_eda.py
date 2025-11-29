@@ -3,6 +3,7 @@
 # Libraries
 import os
 import itertools
+import warnings
 
 import numpy as np
 import pandas as pd
@@ -55,7 +56,15 @@ def check_failure_data(DataFrame):
 
 def remove_cols_unique(DataFrame, verbose=False):
     """
+    Remove columns with a single value, does not change during the
+    data collection.
 
+    Arguments:
+    * DataFrame: Pandas DataFrame
+
+    Return:
+    * DataFrame: Processed Pandas DataFrame
+    * verbose: True or False* (default=False)
 
     """
     cols_remove = list()
@@ -63,16 +72,30 @@ def remove_cols_unique(DataFrame, verbose=False):
         if(DataFrame[col].nunique() == 1):
             cols_remove.append(col)
 
-            if(verbose == True):
-                print(f" > Column '{col}' removed due unique item")
+    if(len(cols_remove) > 0):
+        DataFrame = DataFrame.drop(columns=cols_remove)
 
+     # Verbose   
+    if(verbose == True):
+        for col in cols_remove:
+            print(f" > Column '{col}' removed due unique item")
 
-    DataFrame = DataFrame.drop(columns=cols_remove)
 
     return DataFrame
 
 
 def feat_eng_runtime_inv(DataFrame):
+    """
+    Inverts the runtime cycle, number will be a count down to the failure.
+    Important: Using **negative** numbers to avoid conflict with runtime values.
+
+    Arguments:
+    * DataFrame: Pandas DataFrame
+
+    Return:
+    * DataFrame: Processed Pandas DataFrame
+
+    """
     
     for asset in DataFrame["asset_id"].unique():
         info = DataFrame.groupby(by="asset_id").get_group(asset)
@@ -84,16 +107,43 @@ def feat_eng_runtime_inv(DataFrame):
 
 
     return DataFrame
-    
 
-        
-  
-# Setup/Config
+
+def plot_columns_nunique(DataFrame, title=None, savefig=False):
+    """
+    Function to check columns with a single/unique value.
+    Data that could be important for process control but not relevant for
+    machine learning models.
+
+    Arguments:
+    * DataFrame: Pandas DataFrame
+    * title: Title for the plot and filename if savefig is enabled,
+    * savefig: True or False* Selection to show or save the plot (default=False),
+
+    Return:
+    *** Shows or save a figure with data processing information.
+
+    """
+    # Data processing: Number of unique values per column
+    cols_unique = pd.DataFrame(data=[])
+    for col in df.columns:
+        cols_unique.loc[col, "unique"] = df[col].nunique()
+
+    # Plot
+    plot_barv(x=cols_unique.index, height=cols_unique["unique"],
+              title=title, xrotation=True, upside_down=False, savefig=savefig)
+
+    return None
+
+    
+# Setup/Config ----------------------------------------------------------
 path_main = os.getcwd()
 path_database = os.path.join(path_main, "database")
 path_report = os.path.join(path_main, "report")
 
 SAVEFIG = True
+
+warnings.filterwarnings("ignore")
 
 
 # Program ---------------------------------------------------------------
@@ -104,34 +154,30 @@ df = load_dataset(filename="pm_train.txt", path=path_database)
 # Asset_id and runtime data validation
 errors = check_failure_data(df)
 
-
-# DataFrame preparation
-cols_unique = pd.DataFrame(data=[])
-for col in df.columns:
-    cols_unique.loc[col, "unique"] = df[col].nunique()
-
-#plot_barv(x=cols_unique.index, height=cols_unique["unique"], xrotation=True,
-#          title=f"Paper CO - Unique values per variable", savefig=SAVEFIG)
-
+# DataFrame preparation:
+# >>> Check/Remove columns with unique values
+plot_columns_nunique(df, title=f"Paper CO - Unique values per variable", savefig=SAVEFIG)
 df = remove_cols_unique(df, verbose=False)
+
+# >>> Feature Engineering with runtime as countdown to failure
 df = feat_eng_runtime_inv(df)
+
+
+# EDA Plots
+# Due dataprocessing visualization ONLY, using a slice of 25% of data
 df_sample = df.sample(frac=.25, random_state=314)
 
-
-"""
-# Univariate analysis
+# >>> Univariate analysis
 for col in df.columns:
     plot_histbox(data=df_sample[col], title=f"Paper CO - Histogram - {col}", savefig=SAVEFIG)
 
-
-# Bivariate analysis
+# >>> Bivariate analysis
 cols_comb = list(itertools.combinations(list(df.columns), 2))
 for (var_x, var_y) in cols_comb:
-    plot_scatterhist(x=df_sample[var_x], y=df_sample[var_y], xlabel=var_x, ylabel=var_y, mark_size=15,
+    plot_scatterhist(x=df_sample[var_x], y=df_sample[var_y], xlabel=var_x, ylabel=var_y, mark_size=10,
                      title=f"Paper CO - Scatter - {var_x} vs {var_y}", savefig=SAVEFIG)
 
 plot_heatmap(df_sample, title="Paper CO - Heatmap", savefig=SAVEFIG)
-"""
 
 
 # Scout theme: "Always leave the campsite cleaner than you found it"
