@@ -196,10 +196,11 @@ def remove_cols_unique(DataFrame, verbose=False):
 
     Arguments:
     * DataFrame: Pandas DataFrame
+    * verbose: True or False* (default=False)
 
     Return:
     * DataFrame: Processed Pandas DataFrame
-    * verbose: True or False* (default=False)
+
 
     """
     cols_remove = list()
