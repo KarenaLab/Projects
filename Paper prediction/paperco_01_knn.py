@@ -109,7 +109,45 @@ def holdout_split(DataFrame, target, test_size=0.2, random_state=42):
     data_test = DataFrame.loc[test, :]
 
     return data_trainval, data_test
-        
+
+
+def kfold_split(DataFrame, target, n_splits=5, random_state=42):
+    """
+    Splits DataFrame into **n_splits** splits for train and test.
+    Important: Keeps the proportion of target in each split.
+
+    Arguments:
+    * DataFrame:
+    * target: Target for Stratified KFold keep the proportions constant,
+    * n_splits: [int] Number of splits for train and test,
+    * random_state: Seed for tests reproducibility,
+
+    Returns:
+    * splits: [dict] Dictionary with split number, train indexes and test indexes,
+
+    More info about the Strat strategy:
+    https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html
+
+    """
+    # Stratified KFold
+    skf = StratifiedKFold()
+
+    # Hyperparams
+    skf.n_splits = n_splits
+    skf.shuffle = True
+    skf.random_state = random_state
+
+    # Target split
+    x = DataFrame.drop(columns=[target])
+    y = DataFrame[target]
+
+    # Folds
+    folds = dict()
+    for i, [train_index, test_index] in enumerate(skf.split(x, y)):
+        folds[i] = [train_index, test_index]
+
+
+    return folds
 
 
 # Setup/Config ----------------------------------------------------------
@@ -129,6 +167,8 @@ df = prepare_dataset(filename="pm_train.txt", path=path_database)
 target = "failure_flag"
 
 df_trainval, df_test = holdout_split(df, target, test_size=.2, random_state=314)
+
+folds = kfold_split(df_trainval, target, n_splits=5, random_state=314)
 
 
 
