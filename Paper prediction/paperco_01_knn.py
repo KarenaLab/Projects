@@ -97,7 +97,6 @@ def holdout_split(DataFrame, target, test_size=0.2, random_state=42):
     splits_get = test_size.numerator
     splits_total = test_size.denominator  
 
-
     # Stratified KFold
     skf = StratifiedKFold()
 
@@ -113,7 +112,7 @@ def holdout_split(DataFrame, target, test_size=0.2, random_state=42):
     trainval = np.array(DataFrame.index)
     test = np.array([])
     
-    for i, [_, test_index] in enumerate(skf.split(x, y)):
+    for i, (_, test_index) in enumerate(skf.split(x, y)):
         test = np.append(test, test_index)
 
         # test array is an array to be removed from trainval array.
@@ -121,7 +120,7 @@ def holdout_split(DataFrame, target, test_size=0.2, random_state=42):
         trainval = trainval[items_to_keep]
 
         # Will only keep the "numerator" size for test
-        if(i >= (splits_get - 1)):
+        if((i + 1) >= splits_get):
             break
 
 
@@ -163,7 +162,7 @@ def kfold_split(DataFrame, target, n_splits=5, random_state=42):
 
     # Folds
     folds = dict()
-    for i, [train_index, test_index] in enumerate(skf.split(x, y)):
+    for i, (train_index, test_index) in enumerate(skf.split(x, y)):
         folds[i] = [train_index, test_index]
 
 
