@@ -194,6 +194,47 @@ def data_scaler(x_train, x_test, scaler=StandardScaler()):
     return x_train, x_test
 
 
+def apply_pca(x_train, x_test=None, n_components=None, output="pandas"):
+    """
+
+
+    """
+    # Components preparation
+    if(n_components == None):
+        n_components = x_train.shape[1]
+
+    # PCA
+    pca = PCA()
+
+    # Hyperparams
+    pca.n_components = n_components
+
+    # Fit and transform
+    pca.fit(x_train)
+
+    x_train = pca.transform(x_train)
+    if(x_test != None):
+        x_test = pca.transform(x_test)
+
+    # Output (Pandas DataFrame or NumPy array)
+    if(output == "pandas"):
+        col_names = [f"PC_{i+1}" for i in range(0, x_train.shape[1])]
+        x_train = pd.DataFrame(data=x_train, columns=col_names)
+
+        if(x_test != None):
+            x_test = pd.DataFrame(data=x_test, columns=col_names)
+
+
+    # Results
+    results = dict()
+    results["components"] = pca.components_
+    results["explained_variance_ratio_"] = pca.explained_variance_ratio_
+    results["noise_variance_"] = pca.noise_variance_
+
+       
+    return x_train, x_test, results
+    
+
 def clf_kneighbors(x_train, x_test, y_train, n_neighbors=2, weights="uniform"):
     """
 
