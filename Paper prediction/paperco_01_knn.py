@@ -11,6 +11,8 @@ import numpy as np
 import pandas as pd
 import scipy.stats as stats
 
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from sklearn.decomposition import PCA
 from sklearn.model_selection import StratifiedKFold
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import roc_curve, roc_auc_score
@@ -169,6 +171,29 @@ def kfold_split(DataFrame, target, n_splits=5, random_state=42):
     return folds
 
 
+def data_scaler(x_train, x_test, scaler=StandardScaler()):
+    """
+
+
+    """
+    # Initialize scaler method
+    # Important: Only imported StandardScaler and MinMaxScaler
+    scaler = scaler
+
+    col_names = x_train.columns
+    # Fit and transform
+    scaler.fit(x_train)
+
+    x_train = scaler.transform(x_train)
+    x_train = pd.DataFrame(data=x_train, columns=col_names)
+
+    x_test = scaler.transform(x_test)
+    x_test = pd.DataFrame(data=x_test, columns=col_names)
+    
+
+    return x_train, x_test
+
+
 def clf_kneighbors(x_train, x_test, y_train, n_neighbors=2, weights="uniform"):
     """
 
@@ -257,6 +282,19 @@ for n in range(3, 9+1):
         y_train = y.loc[train_index]
         y_test = y.loc[test_index]
 
+        # Pipeline
+        # Normalization
+        x_train, x_test = data_scaler(x_train, x_test, scaler=StandardScaler())
+
+        # PCA
+        
+
+        
+        # PCA
+        # Balancing
+        # k_neighbors
+
+        """    
         y_pred, params = clf_kneighbors(x_train, x_test, y_train, n_neighbors=n)
         fold_results = clf_metrics(y_test, y_pred)
 
@@ -270,7 +308,7 @@ for n in range(3, 9+1):
     df_results.loc[n, "mean"] = np.mean(values)
     df_results.loc[n, "stddev"] = np.std(values)
     
-    
+"""    
   
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report(src=path_main, dst="report")
