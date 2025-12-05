@@ -224,7 +224,7 @@ def apply_pca(x_train, x_test=None, n_components=None, output="pandas"):
     pca.fit(x_train)
 
     x_train = pca.transform(x_train)
-    if(x_test != None):
+    if(type(x_test) != "NoneType"):
         x_test = pca.transform(x_test)
 
     # Output (Pandas DataFrame or NumPy array)
@@ -232,7 +232,7 @@ def apply_pca(x_train, x_test=None, n_components=None, output="pandas"):
         col_names = [f"PC_{i+1}" for i in range(0, x_train.shape[1])]
         x_train = pd.DataFrame(data=x_train, columns=col_names)
 
-        if(x_test != None):
+        if(type(x_test) != "NoneType"):
             x_test = pd.DataFrame(data=x_test, columns=col_names)
 
 
@@ -260,13 +260,15 @@ def clf_kneighbors(x_train, x_test, y_train, n_neighbors=2, weights="uniform"):
 
     # Fit and predict
     clf.fit(x_train, y_train)
-    y_pred = clf.predict(x_test)
+    y_pred_test = clf.predict(x_test)
+    y_pred_train = clf.predict(x_train)
+    
 
     # Parameters
     params = dict()
     
 
-    return y_pred, params
+    return y_pred_test, y_pred_train, params
 
 
 def clf_metrics(y_true, y_pred):
@@ -312,7 +314,7 @@ df_trainval, df_test = holdout_split(df, target, test_size=.2, random_state=314)
 folds = kfold_split(df_trainval, target, n_splits=n_splits, random_state=314)
 
 df_results = pd.DataFrame(data=[])
-for n in range(3, 9+1):
+for n in range(3, 15+1):
     print(f" > n_neigbors: {n}")
 
     # Cross-Validation    
@@ -328,30 +330,38 @@ for n in range(3, 9+1):
         x_train, x_test = apply_scaler(x_train, x_test, scaler=StandardScaler())
 
         # 2- PCA
-        #x_train, x_test = apply_pca(
+        x_train, x_test, pca_results = apply_pca(x_train, x_test, n_components=2)
 
+        # 3- Balancing
         
-        # PCA
-        # Balancing
-        # k_neighbors
+        # 4- Model: K Neighbors  
+        y_pred_test, y_pred_train, y_params = clf_kneighbors(x_train, x_test, y_train, n_neighbors=n)
+        test_results = clf_metrics(y_test, y_pred_test)
+        train_results = clf_metrics(y_train, y_pred_train)
 
-        """    
-        y_pred, params = clf_kneighbors(x_train, x_test, y_train, n_neighbors=n)
-        fold_results = clf_metrics(y_test, y_pred)
+        df_results.loc[n, f"fold_{i}_test"] = test_results.auc_score
+        df_results.loc[n, f"fold_{i}_train"] = train_results.auc_score
 
-        df_results.loc[n, f"fold_{i}"] = fold_results.auc_score
+        print(test_results.fpr, train_results.fpr)
 
-    # Calculate Mean and Standard Deviation of Fold
-    values = np.array([])
-    for i in range(0, n_splits):
-        values = np.append(values, df_results.loc[n, f"fold_{i}"])
-
-    df_results.loc[n, "mean"] = np.mean(values)
-    df_results.loc[n, "stddev"] = np.std(values)
-
-    break
     
-"""    
+# Calculate Mean and Standard Deviation of Fold
+for i in df_results.index:
+    values = np.array([])
+    for j in range(0, n_splits):
+        values = np.append(values, df_results.loc[i, f"fold_{j}_test"])
+        
+    df_results.loc[i, "mean_test"] = np.mean(values)
+    df_results.loc[i, "stddev_test"] = np.std(values)
+
+    values = np.array([])
+    for j in range(0, n_splits):
+        values = np.append(values, df_results.loc[i, f"fold_{j}_train"])
+
+    df_results.loc[i, "mean_train"] = np.mean(values)
+    df_results.loc[i, "stddev_train"] = np.std(values)
+    
+  
   
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report(src=path_main, dst="report")
