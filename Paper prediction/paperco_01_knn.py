@@ -324,7 +324,7 @@ for n in range(3, 9+1):
         y_test = y.loc[test_index]
 
         # Pipeline
-        # Normalization
+        
         x_train, x_test = data_scaler(x_train, x_test, scaler=StandardScaler())
 
         # PCA
