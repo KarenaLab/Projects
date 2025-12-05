@@ -31,6 +31,16 @@ from src.plot_heatmap import plot_heatmap
 
 
 
+# Classes and Objects ---------------------------------------------------
+class Results:
+    def __init__(self, fpr, tpr, thresholds, auc_score):
+        self.fpr = fpr
+        self.tpr = tpr
+        self.thresholds = thresholds
+        self.auc_score = auc_score
+        
+
+
 # Functions -------------------------------------------------------------
 def prepare_dataset(filename, path):
     """
@@ -171,7 +181,7 @@ def kfold_split(DataFrame, target, n_splits=5, random_state=42):
     return folds
 
 
-def data_scaler(x_train, x_test, scaler=StandardScaler()):
+def apply_scaler(x_train, x_test, scaler=StandardScaler()):
     """
 
 
@@ -192,6 +202,7 @@ def data_scaler(x_train, x_test, scaler=StandardScaler()):
     
 
     return x_train, x_test
+
 
 
 def apply_pca(x_train, x_test=None, n_components=None, output="pandas"):
@@ -279,16 +290,6 @@ def clf_metrics(y_true, y_pred):
         
 
 
-# Classes and Objects ---------------------------------------------------
-class Results:
-    def __init__(self, fpr, tpr, thresholds, auc_score):
-        self.fpr = fpr
-        self.tpr = tpr
-        self.thresholds = thresholds
-        self.auc_score = auc_score
-
-
-
 # Setup/Config ----------------------------------------------------------
 path_main = os.getcwd()
 path_database = os.path.join(path_main, "database")
@@ -316,19 +317,18 @@ for n in range(3, 9+1):
 
     # Cross-Validation    
     for i, [train_index, test_index] in folds.items():
-        x, y = target_split(df, target=target)
 
-        x_train = x.loc[train_index, :]
-        x_test = x.loc[test_index, :]
-        y_train = y.loc[train_index]
-        y_test = y.loc[test_index]
+        # Variables and Target split
+        x, y = target_split(df, target=target)
+        x_train, x_test = x.loc[train_index, :], x.loc[test_index, :]
+        y_train, y_test = y.loc[train_index], y.loc[test_index]
 
         # Pipeline
-        
-        x_train, x_test = data_scaler(x_train, x_test, scaler=StandardScaler())
+        # 1- Scaler
+        x_train, x_test = apply_scaler(x_train, x_test, scaler=StandardScaler())
 
-        # PCA
-        
+        # 2- PCA
+        #x_train, x_test = apply_pca(
 
         
         # PCA
@@ -348,6 +348,8 @@ for n in range(3, 9+1):
 
     df_results.loc[n, "mean"] = np.mean(values)
     df_results.loc[n, "stddev"] = np.std(values)
+
+    break
     
 """    
   
