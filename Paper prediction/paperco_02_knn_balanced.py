@@ -202,8 +202,64 @@ def balance_random(array, size, seed=42):
 
 
     return selection
-                   
 
+
+def balance_near(DataFrame, threshold):
+    """
+
+
+    """
+    DataFrame = DataFrame[DataFrame["runtime_inv"] >= threshold]
+    DataFrame = DataFrame.reset_index(drop=True)
+
+    return DataFrame
+
+
+def balance_uniform(DataFrame, random_state=42):
+    """
+
+
+    """
+    data = pd.DataFrame(data=[])
+
+    for i in DataFrame["asset_id"].unique():
+        info = DataFrame.groupby("asset_id").get_group(i)
+
+        run_ok = info[info["failure_flag"] == 0]
+        run_ok = run_ok.sample(n=20, replace=False, random_state=random_state)
+        data = pd.concat([data, run_ok])
+
+        run_not_ok = info[info["failure_flag"] == 1]
+        data = pd.concat([data, run_not_ok])
+
+
+    data = data.reset_index(drop=True)
+
+    return data
+
+
+def balance_far(DataFrame):
+    """
+
+
+    """
+    data = pd.DataFrame(data=[])
+
+    for i in DataFrame["asset_id"].unique():
+        info = DataFrame.groupby("asset_id").get_group(i)
+
+        run_ok = info[info["runtime"] <= 20]
+        data = pd.concat([data, run_ok])
+
+        run_not_ok = info[info["failure_flag"] == 1]
+        data = pd.concat([data, run_not_ok])
+
+
+    data = data.reset_index(drop=True)
+
+    return data
+        
+    
 def apply_scaler(x_train, x_test, scaler=StandardScaler()):
     """
 
@@ -369,6 +425,9 @@ target = "failure_flag"
 
 n_splits = 5
 df, df_test = holdout_split(df, target, test_size=.3, random_state=314)
+df = balance_uniform(df)
+
+
 folds = kfold_split(df, target, n_splits=n_splits, random_state=314)
 
 df_results = pd.DataFrame(data=[])
