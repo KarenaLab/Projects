@@ -278,6 +278,8 @@ def clf_metrics(y_true, y_pred):
     results["fn"] = fn
     results["tp"] = tp
 
+    # Secondary metrics
+    #
     #                      Predicted
     #                 |  True  |  False
     #         --------|--------|---------
@@ -286,7 +288,6 @@ def clf_metrics(y_true, y_pred):
     #           False |   FP   |   TN
     #         ---------------------------
 
-    # Secondary metrics
     results["tpr"] = tp / (tp + fn)                         # True Positive Rate = Recall, Detection Rate, Sensitivity
     results["fpr"] = fp / (fp + tn)                         # False Positive Rate = Type I Error (Incorrectly predicts positive)
     results["fnr"] = fn / (fp + tp)                         # False Negative Rate = Type II Error (Incorrectly predicts negative)
@@ -343,40 +344,40 @@ for n in range(3, 15+1):
         # 3- PCA
         #x_train, x_test, pca_results = apply_pca(x_train, x_test, n_components=2)
        
-        # 4.1- Model: K Neighbors  
+        # 4.1- Model: K Neighbors
+        np.random.seed(314)
         y_pred_test, y_pred_train, y_params = clf_kneighbors(x_train, x_test, y_train, n_neighbors=n, weights="uniform")
         train_results = clf_metrics(y_train, y_pred_train)
         test_results = clf_metrics(y_test, y_pred_test)
 
         # 4.2- Store results (further analysis)
-        for metric in [train_results, test_results]:
+        for metric, tag in zip([train_results, test_results], ["train", "test"]):
             for key, value in metric.items():
-                df_results.loc[n, f"fold_{i}_{key}"] = value
+                df_results.loc[n, f"fold_{i}_{key}_{tag}"] = value
 
         
-            
-
-
-"""   
+         
 # Calculate Mean and Standard Deviation of Fold
-for i in df_results.index:
-    values = np.array([])
-    for j in range(0, n_splits):
-        values = np.append(values, df_results.loc[i, f"fold_{j}_test"])
-        
-    df_results.loc[i, "mean_test"] = np.mean(values)
-    df_results.loc[i, "stddev_test"] = np.std(values)
 
-    values = np.array([])
-    for j in range(0, n_splits):
-        values = np.append(values, df_results.loc[i, f"fold_{j}_train"])
+for metric in ["fnr", "tnr", "tpr", "fpr"]:
+    for i in df_results.index:
+        values = np.array([])
+        for j in range(0, n_splits):
+            values = np.append(values, df_results.loc[i, f"fold_{j}_{metric}_test"])
+            
+        df_results.loc[i, f"{metric}_mean_test"] = np.mean(values)
+        df_results.loc[i, f"{metric}_stddev_test"] = np.std(values)
 
-    df_results.loc[i, "mean_train"] = np.mean(values)
-    df_results.loc[i, "stddev_train"] = np.std(values)
+        values = np.array([])
+        for j in range(0, n_splits):
+            values = np.append(values, df_results.loc[i, f"fold_{j}_{metric}_train"])
+
+        df_results.loc[i, f"{metric}_mean_train"] = np.mean(values)
+        df_results.loc[i, f"{metric}_stddev_train"] = np.std(values)
 
 
-print(df_results[["mean_train", "mean_test"]])   
-"""
+print(df_results[["fnr_mean_train", "fnr_mean_test"]])   
+
   
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report(src=path_main, dst="report")
