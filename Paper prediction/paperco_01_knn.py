@@ -15,7 +15,7 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.decomposition import PCA
 from sklearn.model_selection import StratifiedKFold
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import roc_curve, roc_auc_score
+from sklearn.metrics import confusion_matrix, roc_curve, roc_auc_score
 
 import matplotlib.pyplot as plt
 
@@ -28,17 +28,7 @@ from src.plot_histbox import plot_histbox
 from src.plot_barv import plot_barv
 from src.plot_scatterhist import plot_scatterhist
 from src.plot_heatmap import plot_heatmap
-
-
-
-# Classes and Objects ---------------------------------------------------
-class Results:
-    def __init__(self, fpr, tpr, thresholds, auc_score):
-        self.fpr = fpr
-        self.tpr = tpr
-        self.thresholds = thresholds
-        self.auc_score = auc_score
-        
+   
 
 
 # Functions -------------------------------------------------------------
@@ -276,17 +266,35 @@ def clf_metrics(y_true, y_pred):
 
 
     """
-    # ROC (Receiver Operating Chracteristic Curve) and
-    # AUC (Area Under Curve)
-    fpr, tpr, thresholds = roc_curve(y_true, y_pred)
-    auc_score = roc_auc_score(y_true, y_pred)
+    # Confusion Matrix
+    tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
 
     # Results
-    results = Results
-    results.fpr = fpr
-    results.tpr = tpr
-    results.thresholds = thresholds
-    results.auc_score = auc_score
+    results = dict()
+
+    # Primary metrics
+    results["tn"] = tn
+    results["fp"] = fp
+    results["fn"] = fn
+    results["tp"] = tp
+
+    #                      Predicted
+    #                 |  True  |  False
+    #         --------|--------|---------
+    #            True |   TP   |   FN 
+    # Actual  --------|--------|---------
+    #           False |   FP   |   TN
+    #         ---------------------------
+
+    # Secondary metrics
+    results["tpr"] = tp / (tp + fn)                         # True Positive Rate = Recall, Detection Rate, Sensitivity
+    results["fpr"] = fp / (fp + tn)                         # False Positive Rate = Type I Error (Incorrectly predicts positive)
+    results["fnr"] = fn / (fp + tp)                         # False Negative Rate = Type II Error (Incorrectly predicts negative)
+    results["tnr"] = tn / (fp + tn)                         # True Negative Rate = Specificity
+    results["acc"] = (tp + tn) / (tp + tn + fp + fn)        # Accuracy
+    results["prec"] = tp / (tp + fp)                        # Precision
+    results["f1_score"] = (2 * tp) / ((2 * tp) + fp + fn)   # F1 Score = Harmonic median between Precision [prec] and Recall [tpr]
+
 
     return results         
         
@@ -319,32 +327,37 @@ for n in range(3, 15+1):
 
     # Cross-Validation    
     for i, [train_index, test_index] in folds.items():
+        # 1- Balancing
+        #train_index = np.random.choice(train_index, size=3301, replace=False)
 
-        # Variables and Target split
+        # Variables and Target split        
         x, y = target_split(df, target=target)
+        
         x_train, x_test = x.loc[train_index, :], x.loc[test_index, :]
         y_train, y_test = y.loc[train_index], y.loc[test_index]
 
         # Pipeline
-        # 1- Scaler
+        # 2- Scaler
         x_train, x_test = apply_scaler(x_train, x_test, scaler=StandardScaler())
 
-        # 2- PCA
-        x_train, x_test, pca_results = apply_pca(x_train, x_test, n_components=2)
-
-        # 3- Balancing
-        
-        # 4- Model: K Neighbors  
-        y_pred_test, y_pred_train, y_params = clf_kneighbors(x_train, x_test, y_train, n_neighbors=n)
-        test_results = clf_metrics(y_test, y_pred_test)
+        # 3- PCA
+        #x_train, x_test, pca_results = apply_pca(x_train, x_test, n_components=2)
+       
+        # 4.1- Model: K Neighbors  
+        y_pred_test, y_pred_train, y_params = clf_kneighbors(x_train, x_test, y_train, n_neighbors=n, weights="uniform")
         train_results = clf_metrics(y_train, y_pred_train)
+        test_results = clf_metrics(y_test, y_pred_test)
 
-        df_results.loc[n, f"fold_{i}_test"] = test_results.auc_score
-        df_results.loc[n, f"fold_{i}_train"] = train_results.auc_score
+        # 4.2- Store results (further analysis)
+        for metric in [train_results, test_results]:
+            for key, value in metric.items():
+                df_results.loc[n, f"fold_{i}_{key}"] = value
 
-        print(test_results.fpr, train_results.fpr)
+        
+            
 
-    
+
+"""   
 # Calculate Mean and Standard Deviation of Fold
 for i in df_results.index:
     values = np.array([])
@@ -360,8 +373,10 @@ for i in df_results.index:
 
     df_results.loc[i, "mean_train"] = np.mean(values)
     df_results.loc[i, "stddev_train"] = np.std(values)
-    
-  
+
+
+print(df_results[["mean_train", "mean_test"]])   
+"""
   
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report(src=path_main, dst="report")
