@@ -269,8 +269,8 @@ def add_failure_tag(DataFrame, threshold):
         """
         If value is lower or equal than threshold, returns 0 (zero)
         """
-        if(value >= threshold): answer = 0
-        else: answer = 1
+        if(value >= threshold): answer = 1
+        else: answer = 0
 
         return answer
 
