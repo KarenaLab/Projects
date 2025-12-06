@@ -296,7 +296,6 @@ def clf_metrics(y_true, y_pred):
     results["prec"] = tp / (tp + fp)                        # Precision
     results["f1_score"] = (2 * tp) / ((2 * tp) + fp + fn)   # F1 Score = Harmonic median between Precision [prec] and Recall [tpr]
 
-
     return results         
         
 
@@ -313,7 +312,6 @@ SAVEFIG = True
 
 
 # Program ---------------------------------------------------------------
-
 # Import dataset for Models
 df = prepare_dataset(filename="pm_train.txt", path=path_database)
 target = "failure_flag"
@@ -357,8 +355,7 @@ for n in range(3, 15+1):
 
         
          
-# Calculate Mean and Standard Deviation of Fold
-
+# Calculate Mean and Standard Deviation of Fold for main metric
 for metric in ["fnr", "tnr", "tpr", "fpr"]:
     for i in df_results.index:
         values = np.array([])
@@ -376,9 +373,10 @@ for metric in ["fnr", "tnr", "tpr", "fpr"]:
         df_results.loc[i, f"{metric}_stddev_train"] = np.std(values)
 
 
-print(df_results[["fnr_mean_train", "fnr_mean_test"]])   
+# 
 
   
+
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report(src=path_main, dst="report")
 
