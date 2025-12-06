@@ -272,14 +272,6 @@ def clf_metrics(y_true, y_pred):
     # Results
     results = dict()
 
-    # Primary metrics
-    results["tn"] = tn
-    results["fp"] = fp
-    results["fn"] = fn
-    results["tp"] = tp
-
-    # Secondary metrics
-    #
     #                      Predicted
     #                 |  True  |  False
     #         --------|--------|---------
@@ -288,12 +280,19 @@ def clf_metrics(y_true, y_pred):
     #           False |   FP   |   TN
     #         ---------------------------
 
-    results["tpr"] = tp / (tp + fn)                         # True Positive Rate = Recall, Detection Rate, Sensitivity
+    # Primary metrics    
+    results["tn"] = tn
+    results["fp"] = fp
+    results["fn"] = fn
+    results["tp"] = tp
+
+    # Secondary metrics
+    results["tpr"] = tp / (tp + fn)                         # True Positive Rate = Recall, Detection Rate, Sensitivity)                         
     results["fpr"] = fp / (fp + tn)                         # False Positive Rate = Type I Error (Incorrectly predicts positive)
     results["fnr"] = fn / (fp + tp)                         # False Negative Rate = Type II Error (Incorrectly predicts negative)
-    results["tnr"] = tn / (fp + tn)                         # True Negative Rate = Specificity
-    results["acc"] = (tp + tn) / (tp + tn + fp + fn)        # Accuracy
-    results["prec"] = tp / (tp + fp)                        # Precision
+    results["tnr"] = tn / (fp + tn)                         # True Negative Rate = Specificity    
+    results["acc"] = (tp + tn) / (tp + tn + fp + fn)        # Accuracy    
+    results["prec"] = tp / (tp + fp)                        # Precision    
     results["f1_score"] = (2 * tp) / ((2 * tp) + fp + fn)   # F1 Score = Harmonic median between Precision [prec] and Recall [tpr]
 
     return results         
