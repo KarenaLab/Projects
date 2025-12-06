@@ -49,11 +49,24 @@ def prepare_dataset(filename, path):
     data = feat_eng_runtime_inv(data)
     data = add_failure_tag(data, threshold=-20)
 
-    cols_remove = ["asset_id", "runtime", "tag_6", "runtime_inv","setting_1", "setting_2"]
-    data = remove_df_columns(data, columns=cols_remove)
 
     return data
 
+
+def remove_cols_for_train(DataFrame, columns):
+    # Columns preparation
+    cols_remove = list()
+    cols_dataframe = list(DataFrame.columns)
+
+    for col in columns:
+        if(cols_dataframe.count(col) == 1):
+            cols_remove.append(col)
+
+
+    DataFrame = DataFrame.drop(columns=cols_remove)
+
+    return DataFrame
+    
 
 def target_split(DataFrame, target):
     """
@@ -128,7 +141,11 @@ def holdout_split(DataFrame, target, test_size=0.2, random_state=42):
 
     # DataFrame split
     data_trainval = DataFrame.loc[trainval, :]
+    data_trainval = data_trainval.reset_index(drop=True)
+    
     data_test = DataFrame.loc[test, :]
+    data_test = data_test.reset_index(drop=True)
+    
 
     return data_trainval, data_test
 
@@ -170,6 +187,22 @@ def kfold_split(DataFrame, target, n_splits=5, random_state=42):
 
     return folds
 
+
+def balance_random(array, size, seed=42):
+    """
+
+
+    """
+    # Seed preparation
+    if(seed != None):
+        np.random.seed(seed)
+
+    # Random uniform selection
+    selection = np.random.choice(array, size=size, replace=False, p=None)
+
+
+    return selection
+                   
 
 def apply_scaler(x_train, x_test, scaler=StandardScaler()):
     """
@@ -296,7 +329,26 @@ def clf_metrics(y_true, y_pred):
     results["f1_score"] = (2 * tp) / ((2 * tp) + fp + fn)   # F1 Score = Harmonic median between Precision [prec] and Recall [tpr]
 
     return results         
-        
+
+
+def print_confusion_matrix(results):
+    """
+
+
+    """
+    # Data to string
+    tn = str(results["tn"])
+    fp = str(results["fp"])
+    fn = str(results["fn"])
+    tp = str(results["tp"])
+
+    # Matrix print
+    print(f"      |       True |      False |")
+    print(f" True | {tp:>5s} (TP) | {fn:>5s} (FN) |")
+    print(f"False | {fp:>5s} (FP) | {tn:>5s} (TN) | \n")
+
+    return None
+
 
 
 # Setup/Config ----------------------------------------------------------
@@ -316,25 +368,23 @@ df = prepare_dataset(filename="pm_train.txt", path=path_database)
 target = "failure_flag"
 
 n_splits = 5
-df_trainval, df_test = holdout_split(df, target, test_size=.2, random_state=314)
-folds = kfold_split(df_trainval, target, n_splits=n_splits, random_state=314)
+df, df_test = holdout_split(df, target, test_size=.3, random_state=314)
+folds = kfold_split(df, target, n_splits=n_splits, random_state=314)
 
 df_results = pd.DataFrame(data=[])
 for n in range(3, 15+1):
     print(f" > n_neigbors: {n}")
 
     # Cross-Validation    
-    for i, [train_index, test_index] in folds.items():
-        # 1- Balancing
-        #train_index = np.random.choice(train_index, size=3301, replace=False)
-
-        # Variables and Target split        
+    for i, [train_index, test_index] in folds.items():       
+        # 1- Variables and Target split        
         x, y = target_split(df, target=target)
+        cols_remove = ["asset_id", "runtime", "tag_6", "runtime_inv","setting_1", "setting_2"]
+        x = remove_cols_for_train(x, columns=cols_remove)
         
         x_train, x_test = x.loc[train_index, :], x.loc[test_index, :]
         y_train, y_test = y.loc[train_index], y.loc[test_index]
 
-        # Pipeline
         # 2- Scaler
         x_train, x_test = apply_scaler(x_train, x_test, scaler=StandardScaler())
 
@@ -342,18 +392,17 @@ for n in range(3, 15+1):
         #x_train, x_test, pca_results = apply_pca(x_train, x_test, n_components=2)
        
         # 4.1- Model: K Neighbors
-        np.random.seed(314)
         y_pred_test, y_pred_train, y_params = clf_kneighbors(x_train, x_test, y_train, n_neighbors=n, weights="uniform")
         train_results = clf_metrics(y_train, y_pred_train)
         test_results = clf_metrics(y_test, y_pred_test)
+        print_confusion_matrix(test_results)
 
         # 4.2- Store results (further analysis)
         for metric, tag in zip([train_results, test_results], ["train", "test"]):
             for key, value in metric.items():
                 df_results.loc[n, f"fold_{i}_{key}_{tag}"] = value
 
-        
-         
+                
 # Calculate Mean and Standard Deviation of Fold for main metric
 for metric in ["fnr", "tnr", "tpr", "fpr"]:
     for i in df_results.index:
@@ -372,9 +421,9 @@ for metric in ["fnr", "tnr", "tpr", "fpr"]:
         df_results.loc[i, f"{metric}_stddev_train"] = np.std(values)
 
 
-# 
+print("")
+print(df_results[["fnr_mean_train", "fnr_mean_test", "fnr_stddev_test"]])
 
-  
 
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report(src=path_main, dst="report")
