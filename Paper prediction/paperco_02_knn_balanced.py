@@ -30,7 +30,6 @@ from src.plot_scatterhist import plot_scatterhist
 from src.plot_heatmap import plot_heatmap
    
 
-
 # Functions -------------------------------------------------------------
 def prepare_dataset(filename, path):
     """
@@ -54,10 +53,24 @@ def prepare_dataset(filename, path):
 
 
 def remove_cols_for_train(DataFrame, columns):
+    """
+    Remove the given **columns** from **DataFrame**.
+    Important: That function is out of `prepare_dataset` due
+    data balacing strategies.
+
+    Arguments:
+    * DataFrame: Pandas DataFrame
+    * columns: List with columns names to be removed*
+
+    Output:
+    * DataFrame: Pandas dataframe processed.
+
+    """
     # Columns preparation
     cols_remove = list()
     cols_dataframe = list(DataFrame.columns)
 
+    # Check column names match
     for col in columns:
         if(cols_dataframe.count(col) == 1):
             cols_remove.append(col)
@@ -102,8 +115,8 @@ def holdout_split(DataFrame, target, test_size=0.2, random_state=42):
     * test: Pandas DataFrame to be used for Test.
 
     More info about the holdout strategy:
+    * https://vitalflux.com/hold-out-method-for-training-machine-learning-model
     
-
     """
     # test_size preparation
     test_size = np.round(test_size, decimals=2)
@@ -188,27 +201,26 @@ def kfold_split(DataFrame, target, n_splits=5, random_state=42):
     return folds
 
 
-def balance_random(array, size, seed=42):
+def balance_near(DataFrame, threshold=-40):
     """
+    *** Function that will work ONLY with Paper CO Project ***
 
+    Function will balance the *DataFrame*, keeping the values **closer/near**
+    the threshold of the machine failure of -20.
 
-    """
-    # Seed preparation
-    if(seed != None):
-        np.random.seed(seed)
+    The objective is to keep 50% (or close) of dataset above -20 runtime threshold
+    and other 50% (or close) under it. For this reason the limit is drawn to [-40, 0].
 
-    # Random uniform selection
-    selection = np.random.choice(array, size=size, replace=False, p=None)
+    Arguments:
+    * DataFrame: Paper CO project dataframe,
+    * threshold: Limit of time to be considered to balance the dataframe
+                 (default=-40),
 
-
-    return selection
-
-
-def balance_near(DataFrame, threshold):
-    """
-
+    Output:
+    * DataFrame: Pandas dataframe processed.
 
     """
+    # Rule for NEAR balanced DataFrame.
     DataFrame = DataFrame[DataFrame["runtime_inv"] >= threshold]
     DataFrame = DataFrame.reset_index(drop=True)
 
@@ -217,7 +229,19 @@ def balance_near(DataFrame, threshold):
 
 def balance_uniform(DataFrame, random_state=42):
     """
+    *** Function that will work ONLY with Paper CO Project ***
 
+    Function will balance the *DataFrame keeping uniformly balanced values through
+    all period of time of non_failure. The objective is to keep 50% of data uniformly
+    distributed in non-failure range of time and other 50% of data between -20 and 0,
+    the failure_flag range.
+
+    Arguments:
+    * DataFrame: Paper CO project dataframe,
+    * random_state: Seed for repeatibility (default=42),
+
+    Output:
+    * DataFrame: Pandas dataframe processed.
 
     """
     data = pd.DataFrame(data=[])
@@ -240,7 +264,21 @@ def balance_uniform(DataFrame, random_state=42):
 
 def balance_far(DataFrame):
     """
+    *** Function that will work ONLY with Paper CO Project ***
 
+    Function will balance the *DataFrame*, keeping the values **far/away**
+    the threshold of the machine failure of -20.
+
+    The objective is to keep 50% (or close) of dataset of first moments of return of
+    equipment, so, far from the problem  and other 50% (or close) under it. For this
+    reason the limit is drawn for two moments: Not failure the first 20 moments from
+    machine start and Failure the last 20 moments from the break-down.
+
+    Arguments:
+    * DataFrame: Paper CO project dataframe,
+
+    Output:
+    * DataFrame: Pandas dataframe processed.
 
     """
     data = pd.DataFrame(data=[])
@@ -262,8 +300,19 @@ def balance_far(DataFrame):
     
 def apply_scaler(x_train, x_test, scaler=StandardScaler()):
     """
+    Apply scikit-learn scaler method to the train dataset and,
+    replicate the same parameters of train dataset to test dataset.
 
+    Arguments:
+    * x_train: Pandas **train** dataframe,
+    * x_test: Pandas **test** dataframe,
+    * scaler: Scaling method (Imported only StandardScaler() and
+              MinMaxScaler(), (default=StandardScaler())
 
+    Output:
+    * x_train: Scaled **train** Pandas dataframe,
+    * x_test: Scaled **test** Pandas dataframe,
+    
     """
     # Initialize scaler method
     # Important: Only imported StandardScaler and MinMaxScaler
@@ -286,9 +335,26 @@ def apply_scaler(x_train, x_test, scaler=StandardScaler()):
 
 def apply_pca(x_train, x_test=None, n_components=None, output="pandas"):
     """
+    Apply scikit-learn PCA method to to the **train** dataset and, IF GIVEN,
+    replicate the same parameters of train dataset to test dataset.
 
+    Arguments:
+    * x_train: Pandas **train** dataframe,
+    * x_test: Pandas **test** dataframe,
+    * n_components: Number of components to use in PCA. If does not informed (None),
+                    will use the full size of original dataset (default=None),
+    * output: Pandas dataframe or NumPy array (default=Pandas)
 
+    Output:
+    * x_train: Transformed **train** Pandas dataframe,
+    * x_test: Transformed **test** Pandas dataframe or None,
+    * results: Dictionary with compnents, explained_variance_ratio and noise_variance.
+
+    More about noise_variance: [1] PRML (Bishop), p.574,
+    [2] http://www.miketipping.com/papers/met-mppca.pdf
+    
     """
+    
     # Components preparation
     if(n_components == None):
         n_components = x_train.shape[1]
@@ -327,7 +393,15 @@ def apply_pca(x_train, x_test=None, n_components=None, output="pandas"):
 
 def clf_kneighbors(x_train, x_test, y_train, n_neighbors=2, weights="uniform"):
     """
+    Apply K_Neigbors Classifier model to dataset (x_train, x_test and y_train),
+    considering 02 (two) main hyperparameters: n_neighbors and weights,
 
+    Arguments:
+    * x_train: Variables to be used for **train**,
+    * x_test: Variables to be used for **test**,
+    * y_train: Target to be used for **train**,
+    * n_neighbors: Number of neighbors for decision,
+    * weights: Weight to use for error. Could be uniform or distance. (default=uniform)
 
     """
     # KNeighbors Classifier
