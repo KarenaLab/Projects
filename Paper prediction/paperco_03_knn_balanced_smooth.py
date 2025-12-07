@@ -543,6 +543,7 @@ SAVEFIG = True
 df = prepare_dataset(filename="pm_train.txt", path=path_database)
 target = "failure_flag"
 
+"""
 n_splits = 5
 df, df_test = holdout_split(df, target, test_size=.3, random_state=314)
 df = apply_sma(df, columns=cols_tags(), window=6)
@@ -602,7 +603,7 @@ for metric in ["fnr", "tnr", "tpr", "fpr"]:
 print("")
 print(df_results[["fnr_mean_train", "fnr_mean_test", "fnr_stddev_test"]])
 
-
+"""
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report(src=path_main, dst="report")
 
