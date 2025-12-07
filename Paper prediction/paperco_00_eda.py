@@ -181,6 +181,9 @@ for col in cols_tag():
     #plt.show()
 
     plt.close()
+
+
+
    
 
 # Scout theme: "Always leave the campsite cleaner than you found it"
