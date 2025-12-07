@@ -24,11 +24,7 @@ import matplotlib.pyplot as plt
 from src.paper_co_tools import (load_dataset, remove_cols_unique, feat_eng_runtime_inv,
                                 add_failure_tag, remove_df_columns, organize_report)
 
-from src.plot_histbox import plot_histbox
-from src.plot_barv import plot_barv
-from src.plot_scatterhist import plot_scatterhist
-from src.plot_heatmap import plot_heatmap
-   
+  
 
 # Functions -------------------------------------------------------------
 def prepare_dataset(filename, path):
@@ -424,9 +420,24 @@ def clf_kneighbors(x_train, x_test, y_train, n_neighbors=2, weights="uniform"):
     return y_pred_test, y_pred_train, params
 
 
-def clf_metrics(y_true, y_pred):
+def clf_metrics(y_true, y_pred, show_matrix=False):
     """
+    Performs **Confusion Matrix** from given model based in comparing
+    **y_true** and **y_pred**. Optionally, could print in terminal the
+    Confusion Matrix.
 
+    Returns primary and some secondary metrics based in Confusion Matrix.
+
+
+    Arguments:
+    * y_true: NumPy array or python list with real values (truth/true),
+    * y_pred: NumPy array or python list with predicted values (from model),
+    * show_matrix: True or False*. Show in terminal the matrix.
+
+    Output:
+    * results: dictionary with primary and some secondary metrics based in
+               Confusion Matrix (TP, FN, FP and TN; TPR (or Recall), FPR, FNR,
+               TNR (or Specificity), Accuracy, Precision and F1 Score).
 
     """
     # Confusion Matrix
@@ -457,6 +468,10 @@ def clf_metrics(y_true, y_pred):
     results["acc"] = (tp + tn) / (tp + tn + fp + fn)        # Accuracy    
     results["prec"] = tp / (tp + fp)                        # Precision    
     results["f1_score"] = (2 * tp) / ((2 * tp) + fp + fn)   # F1 Score = Harmonic median between Precision [prec] and Recall [tpr]
+
+    if(show_matrix == True):
+        print_confusion_matrix(results)
+        
 
     return results         
 
@@ -526,9 +541,8 @@ for n in range(3, 15+1):
        
         # 4.1- Model: K Neighbors
         y_pred_test, y_pred_train, y_params = clf_kneighbors(x_train, x_test, y_train, n_neighbors=n, weights="uniform")
-        train_results = clf_metrics(y_train, y_pred_train)
-        test_results = clf_metrics(y_test, y_pred_test)
-        print_confusion_matrix(test_results)
+        train_results = clf_metrics(y_train, y_pred_train, show_matrix=False)
+        test_results = clf_metrics(y_test, y_pred_test, show_matrix=True)
 
         # 4.2- Store results (further analysis)
         for metric, tag in zip([train_results, test_results], ["train", "test"]):
