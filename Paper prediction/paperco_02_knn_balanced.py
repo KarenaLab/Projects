@@ -478,7 +478,14 @@ def clf_metrics(y_true, y_pred, show_matrix=False):
 
 def print_confusion_matrix(results):
     """
+    Based in results from a confusion matrix given as a **dictionary**.
+    Print the Matrix in Terminal.
 
+    Arguments:
+    * results: Dictionary with (at least) with four primary values of matrix,
+
+    Output:
+    None (Print in terminal)
 
     """
     # Data to string
@@ -488,9 +495,10 @@ def print_confusion_matrix(results):
     tp = str(results["tp"])
 
     # Matrix print
-    print(f"      |       True |      False |")
-    print(f" True | {tp:>5s} (TP) | {fn:>5s} (FN) |")
-    print(f"False | {fp:>5s} (FP) | {tn:>5s} (TN) | \n")
+    print(f">       |       True |      False |")
+    print(f"  ---------------------------------")
+    print(f"   True | {tp:>5s} [TP] | {fn:>5s} [FN] |")
+    print(f"  False | {fp:>5s} [FP] | {tn:>5s} [TN] |\n")
 
     return None
 
@@ -506,7 +514,6 @@ warnings.filterwarnings("ignore")
 SAVEFIG = True
 
 
-
 # Program ---------------------------------------------------------------
 # Import dataset for Models
 df = prepare_dataset(filename="pm_train.txt", path=path_database)
@@ -516,18 +523,17 @@ n_splits = 5
 df, df_test = holdout_split(df, target, test_size=.3, random_state=314)
 df = balance_uniform(df)
 
-
 folds = kfold_split(df, target, n_splits=n_splits, random_state=314)
 
 df_results = pd.DataFrame(data=[])
-for n in range(3, 15+1):
-    print(f" > n_neigbors: {n}")
+for n in range(3, 20+1):
+    print(f"> n_neigbors: {n}")
 
     # Cross-Validation    
     for i, [train_index, test_index] in folds.items():       
         # 1- Variables and Target split        
         x, y = target_split(df, target=target)
-        cols_remove = ["asset_id", "runtime", "tag_6", "runtime_inv","setting_1", "setting_2"]
+        cols_remove = ["asset_id", "runtime", "runtime_inv","setting_1", "setting_2"]
         x = remove_cols_for_train(x, columns=cols_remove)
         
         x_train, x_test = x.loc[train_index, :], x.loc[test_index, :]
