@@ -364,7 +364,10 @@ SAVEFIG = True
 
 # Program ---------------------------------------------------------------
 # Import dataset for Models
+
 df = prepare_dataset(filename="pm_train.txt", path=path_database)
+df_full = df.copy()
+
 target = "failure_flag"
 
 n_splits = 5
