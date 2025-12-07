@@ -118,7 +118,7 @@ df = remove_cols_unique(df, verbose=False)
 # >>> Feature Engineering with runtime as countdown to failure
 df = feat_eng_runtime_inv(df)
 
-
+"""
 # EDA Plots
 # Due dataprocessing visualization ONLY, using a slice of 25% of data
 df_sample = df.sample(frac=.25, random_state=314)
@@ -135,14 +135,20 @@ for (var_x, var_y) in cols_comb:
 
 plot_heatmap(df_sample, title="Paper CO - Heatmap", savefig=SAVEFIG)
 
-# >>> Asset ID
+"""
+# >>> Time: Tags through the time
 for i in df["asset_id"].unique():
     info = df.groupby(by="asset_id").get_group(i)
 
     for col in cols_tag():
-        plot_line(x=info.index, y=info[col], title=f"Paper CO - Tag line Asset {i} - {col}", savefig=True)
+        plot_line(x=info.index, y=info[col], title=f"Paper CO - Tag line Asset {i} - {col}", savefig=False)
+        break
 
-# >>> 
+    break
+    
+
+"""
+# >>> Time: Tags through the time 
 for col in cols_tag():
     title = f"Paper CO - Tag lines - {col}"
     fig = plt.figure(figsize=[6, 3.375])        # Widescreen [16:9]
@@ -155,8 +161,11 @@ for col in cols_tag():
     plt.grid(axis="both", color="lightgrey", linestyle="--", linewidth=0.5, zorder=10)
     
     plt.tight_layout()
-    plt.savefig(title, dpi=320)
+    #plt.savefig(title, dpi=320)
     plt.show()
+    break
+
+
 
 
 for col in cols_tag():
@@ -174,7 +183,7 @@ for col in cols_tag():
     plt.tight_layout()
     plt.savefig(title, dpi=320)
     plt.show() 
-   
+"""  
 
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report(src=path_main, dst="report")
