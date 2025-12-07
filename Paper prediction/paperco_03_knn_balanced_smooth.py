@@ -22,7 +22,8 @@ import matplotlib.pyplot as plt
 
 # Project libraries
 from src.paper_co_tools import (load_dataset, remove_cols_unique, feat_eng_runtime_inv,
-                                add_failure_tag, remove_df_columns, organize_report)
+                                add_failure_tag, remove_df_columns, organize_report,
+                                cols_tags)
 
   
 
@@ -385,8 +386,31 @@ def apply_pca(x_train, x_test=None, n_components=None, output="pandas"):
 
        
     return x_train, x_test, results
-    
 
+def apply_sma(DataFrame, columns, window):
+    """
+
+
+    """
+    # Columns preparation
+    cols_sma = list()
+    cols_dataframe = list(DataFrame.columns)
+
+    for i in columns:
+        if(cols_dataframe.count(i) == 1):
+            cols_sma.append(i)
+
+
+    # SMA - Simple Moving Average Smooth
+    for col in cols_sma:
+        DataFrame[col] = DataFrame[col].rolling(window=window).mean()
+
+    DataFrame = DataFrame.dropna()
+    DataFrame = DataFrame.reset_index(drop=True)
+
+    return DataFrame
+    
+            
 def clf_kneighbors(x_train, x_test, y_train, n_neighbors=2, weights="uniform"):
     """
     Apply K_Neigbors Classifier model to dataset (x_train, x_test and y_train),
@@ -521,6 +545,7 @@ target = "failure_flag"
 
 n_splits = 5
 df, df_test = holdout_split(df, target, test_size=.3, random_state=314)
+df = apply_sma(df, columns=cols_tags(), window=6)
 df = balance_uniform(df)
 
 folds = kfold_split(df, target, n_splits=n_splits, random_state=314)
