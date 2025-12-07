@@ -118,37 +118,34 @@ df = remove_cols_unique(df, verbose=False)
 # >>> Feature Engineering with runtime as countdown to failure
 df = feat_eng_runtime_inv(df)
 
-"""
+
 # EDA Plots
 # Due dataprocessing visualization ONLY, using a slice of 25% of data
 df_sample = df.sample(frac=.25, random_state=314)
 
 # >>> Univariate analysis
 for col in df.columns:
-    plot_histbox(data=df_sample[col], title=f"Paper CO - Histogram - {col}", savefig=SAVEFIG)
+    #plot_histbox(data=df_sample[col], title=f"Paper CO - Histogram - {col}", savefig=SAVEFIG)
+    pass
 
 # >>> Bivariate analysis
 cols_comb = list(itertools.combinations(list(df.columns), 2))
 for (var_x, var_y) in cols_comb:
-    plot_scatterhist(x=df_sample[var_x], y=df_sample[var_y], xlabel=var_x, ylabel=var_y, mark_size=10,
-                     title=f"Paper CO - Scatter - {var_x} vs {var_y}", savefig=SAVEFIG)
+    #plot_scatterhist(x=df_sample[var_x], y=df_sample[var_y], xlabel=var_x, ylabel=var_y, mark_size=10,
+    #                 title=f"Paper CO - Scatter - {var_x} vs {var_y}", savefig=SAVEFIG)
+    pass
+    
+#plot_heatmap(df_sample, title="Paper CO - Heatmap", savefig=SAVEFIG)
 
-plot_heatmap(df_sample, title="Paper CO - Heatmap", savefig=SAVEFIG)
-
-"""
-# >>> Time: Tags through the time
+# >>> Asset ID
 for i in df["asset_id"].unique():
     info = df.groupby(by="asset_id").get_group(i)
 
     for col in cols_tag():
-        plot_line(x=info.index, y=info[col], title=f"Paper CO - Tag line Asset {i} - {col}", savefig=False)
-        break
-
-    break
+        #plot_line(x=info.index, y=info[col], title=f"Paper CO - Tag line Asset {i} - {col}", savefig=True)
+        pass
     
-
-"""
-# >>> Time: Tags through the time 
+# >>> Time: Tags by the time (all together) - "Hairs" 
 for col in cols_tag():
     title = f"Paper CO - Tag lines - {col}"
     fig = plt.figure(figsize=[6, 3.375])        # Widescreen [16:9]
@@ -162,12 +159,11 @@ for col in cols_tag():
     
     plt.tight_layout()
     #plt.savefig(title, dpi=320)
-    plt.show()
-    break
+    #plt.show()
 
+    plt.close(fig)
 
-
-
+# >>> Time: Analysis of SMA Feature together
 for col in cols_tag():
     title = f"Paper CO - Tag lines with smooth SMA - {col}"
     fig = plt.figure(figsize=[6, 3.375])        # Widescreen [16:9]
@@ -181,9 +177,11 @@ for col in cols_tag():
     plt.grid(axis="both", color="lightgrey", linestyle="--", linewidth=0.5, zorder=10)
     
     plt.tight_layout()
-    plt.savefig(title, dpi=320)
-    plt.show() 
-"""  
+    #plt.savefig(title, dpi=320)
+    #plt.show()
+
+    plt.close()
+   
 
 # Scout theme: "Always leave the campsite cleaner than you found it"
 organize_report(src=path_main, dst="report")
