@@ -24,12 +24,6 @@ import matplotlib.pyplot as plt
 from src.paper_co_tools import (load_dataset, remove_cols_unique, feat_eng_runtime_inv,
                                 add_failure_tag, remove_df_columns, organize_report)
 
-from src.plot_histbox import plot_histbox
-from src.plot_barv import plot_barv
-from src.plot_scatterhist import plot_scatterhist
-from src.plot_heatmap import plot_heatmap
-   
-
 
 # Functions -------------------------------------------------------------
 def prepare_dataset(filename, path):
