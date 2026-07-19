@@ -74,6 +74,15 @@ def calc_semicircle_to_deg(value):
     deg = (value * 180) / 2**31
 
     return deg
+
+
+def calc_cadence(DataFrame):
+    """
+
+
+    """
+    
+    
  
 def count_nan(DataFrame):
     for col in DataFrame.columns:
