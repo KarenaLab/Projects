@@ -62,9 +62,19 @@ def calc_speed_to_pace(speed, decimals=None):
 
 
     return pace
-        
 
 
+def calc_semicircle_to_deg(value):
+    """
+    Trasform value in semicircle to degree.
+                            180
+    Eq: deg = semicircle x ------
+                            2^31
+    """
+    deg = (value * 180) / 2**31
+
+    return deg
+ 
 def count_nan(DataFrame):
     for col in DataFrame.columns:
         nans = pd.isnull(DataFrame[col]).sum()
